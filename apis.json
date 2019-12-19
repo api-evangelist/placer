@@ -1,0 +1,40 @@
+{
+    "name": "Placer",
+    "description": "Placer provides instant access to location insights derived from foot-traffic of millions of consumers, delivering visibility into offline behavior. Our highly efficient SDK runs 24\/7 in the background, identifying location visits while consuming less ...",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28802-www-placer-io.jpg",
+    "tags": [
+        "have api",
+        "new"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/placer\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Placer",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28802-www-placer-io.jpg",
+            "humanURL": "https:\/\/www.placer.io",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/placer-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/placer-labs-inc"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.placer.io"
+        }
+    ]
+}
