@@ -1,0 +1,74 @@
+openapi: 3.0.1
+info:
+  title: papi Account Info API
+  description: Placer Public API
+  version: 0.1-oas3
+servers:
+- url: https://papi.placer.ai
+  x-amazon-apigateway-endpoint-configuration:
+    disableExecuteApiEndpoint: true
+security: null
+tags:
+- name: Account Info
+paths:
+  /v1/accounts/keys/usage-status:
+    get:
+      summary: Account Usage
+      tags:
+      - Account Info
+      description: Retrieves the current API usage status for the requesting API key.<br> This endpoint helps you monitor consumption and remaining quota. <strong>Running it 2–3 times per week</strong> is recommended for optimal tracking usage patterns.<br> <strong>Note:</strong> <ul> <li>The weekly quote renewals occur every <strong>Sunday at 12:00 a.m. UTC</strong>.</li> <li>There can be a discrepancy between usedQuota and the sum of calls made to individual endpoints because only <a href="https://docs.placer.ai/reference/faqs-1#q-what-api-calls-count-towards-my-quota"><strong>successful calls</strong> are counted</a>.</li> </ul>
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageStatusResponse'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${account_management_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+components:
+  schemas:
+    UsageStatusResponse:
+      title: Usage Status Response
+      type: object
+      properties:
+        usedQuota:
+          type: integer
+          description: The number of API calls your account has actually <strong>used</strong> during the <strong>current weekly quota period.<strong> This reflects your current API call consumption.
+        queriedPOIs:
+          type: integer
+          description: The total number of <strong>unique Points of Interest (POIs)</strong> queried through any POI-related endpoints in the <strong>current weekly quota period</strong>. This helps track how many distinct POIs have been requested.
+        weeklyUsageByEndpoint:
+          description: The weekly usage per each utilized endpoint
+          type: array
+          items:
+            type: object
+            properties:
+              endpoint:
+                type: string
+                description: Endpoint's method and URI
+              numOfCalls:
+                type: integer
+                description: The number of calls to the endpoint on the current week.
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

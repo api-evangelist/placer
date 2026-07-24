@@ -1,0 +1,1020 @@
+openapi: 3.0.1
+info:
+  title: papi Account Info Manage POIs API
+  description: Placer Public API
+  version: 0.1-oas3
+servers:
+- url: https://papi.placer.ai
+  x-amazon-apigateway-endpoint-configuration:
+    disableExecuteApiEndpoint: true
+security: null
+tags:
+- name: Manage POIs
+paths:
+  /v1/poi/custom-poi/{id}:
+    delete:
+      summary: Delete Custom POI
+      tags:
+      - Manage POIs
+      description: This service allows developers to delete a custom POI by its apiId.
+      parameters:
+      - name: id
+        in: path
+        description: Placer API ID
+        required: true
+        schema:
+          type: string
+        example: complex:5f7a2d2dc2b5e82a0114cf62
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteCustomPoiResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+    get:
+      summary: Get Custom POI Info
+      tags:
+      - Manage POIs
+      description: 'The Get Custom POI Info service can be used to retrieve information regarding any of your <<glossary:Custom POI>>s, by providing its id.</br> If the requested Custom POI is newly created, this endpoint will respond with the following statuses:</br>
+
+        - **HTTP code = 200**: The full response for the Get Custom POI is provided.</br> - **HTTP code = 202**: The creation process is still in progress.</br> - **HTTP code = 404**: The POI does not exist, indicating a failure in the creation process. Please retry creating the custom POI.</br> - **HTTP code = 500**: Server error.'
+      parameters:
+      - name: id
+        in: path
+        description: Placer API ID
+        required: true
+        schema:
+          type: string
+        example: complex:5f7a2d2dc2b5e82a0114cf62
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPoiInfoGetResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+    put:
+      summary: Update Custom POI
+      tags:
+      - Manage POIs
+      description: 'The Update POI service can be used to update any of your <<glossary:Custom POI>>s, by providing any combination of the following custom POI’s properties(at least one):<br/> <ol> <li>Name - the POI’s name.</li> <li>Area - can be defined either by determining the centroid (lng, lat) and the radius to create the POI area, or by a list of all polygon GEO points (lng,lat).</li> <li>Sub-category (For available sub-categories, see <a href="https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd">listed categories</a>.</li> <li>Address - the consumer can change any of the following properties: street address, city and/or zipcode.</li> </ol>'
+      parameters:
+      - name: id
+        in: path
+        description: Placer API ID
+        required: true
+        schema:
+          type: string
+        example: complex:5f7a2d2dc2b5e82a0114cf62
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomPoiRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPoiResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/poi/tags/:
+    delete:
+      summary: Remove POI List From an Existing Tag
+      tags:
+      - Manage POIs
+      description: This service can be used to detach entities from an existing tag.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteTagMembersRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModifyTagEntitiesResponseSuccess'
+        '207':
+          $ref: '#/components/responses/207_delete_entities_to_tags'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+    post:
+      summary: Create a new tag
+      tags:
+      - Manage POIs
+      description: Using this service, you have the capability to generate a fresh tag for organizing entities according to your specific business needs.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNewTagRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateNewTagResponseSuccess'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+    put:
+      summary: Add POI List to an Existing Tag
+      tags:
+      - Manage POIs
+      description: This service can be used to attach entities to an existing tag.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddTagMembersRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModifyTagEntitiesResponseSuccess'
+        '207':
+          $ref: '#/components/responses/207_add_entities_to_tags'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/poi:
+    get:
+      summary: Search for Placer Entities
+      tags:
+      - Manage POIs
+      description: This service returns a list of Placer managed entities in a particular area. You can search based on any combination of the following filter parameters:<br/> entities within a specific location radius, entities associated with a specific group category/category/sub category, entity name or type.<br/> The response lists the matched entities, including address and location, zip code, group category, category ,sub-category and a link to Placer dashboard.<br/> The service supports pagination using the skip parameter. The first 1000 entities matching the criteria of the request are available.<br/> For available categories, see <a href="https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd">listed categories</a>.</br></br> <b>Note</b> that when using the radius parameter, the actual area being considered for searching POIs is the area within a square that is bounding the circle, which is defined by the requested radius.</br> <b>Please note:</b> In case you receive results where the isPermitted attribute is set to “false”, that means that you are not permitted to run reports for those. In case you wish to extend your permissions please contact <a href="mailto:support@placer.ai">customer support</a>.
+      parameters:
+      - name: lat
+        in: query
+        description: Latitude of query location, if specified then response will not include <<glossary:Chains>>
+        required: false
+        schema:
+          $ref: '#/components/schemas/Latitude'
+      - name: lng
+        in: query
+        description: Longitude of query location, if specified then response will not include chains
+        required: false
+        schema:
+          $ref: '#/components/schemas/Longitude'
+      - name: query
+        in: query
+        description: String included in the entity name
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 256
+        example: Walmart
+      - name: radius
+        in: query
+        schema:
+          type: number
+          minimum: 0.01
+          maximum: 2000
+          default: 1
+        description: Filter results by radius in miles. default value 0.01 miles
+      - name: category
+        in: query
+        description: Filter specific category
+        schema:
+          type: string
+        example: Superstores
+      - name: subCategory
+        in: query
+        description: Filter specific sub category
+        schema:
+          type: string
+        example: Big Box Store
+      - name: groupCategory
+        in: query
+        description: Filter specific group category i.e. Search POIs by business domains (e.g. Apparel,Dining, ....)
+        schema:
+          type: string
+        example: Superstores
+      - name: entityType
+        in: query
+        schema:
+          type: array
+          default:
+          - venue
+          - complex
+          - chain
+          items:
+            type: string
+            enum:
+            - venue
+            - complex
+            - chain
+        description: Filter out specific entity type in search result. If this is not provided, all entity types will be returned
+        required: false
+        explode: false
+        example:
+        - venue
+      - name: limit
+        in: query
+        description: Search result limit
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 10
+      - name: skip
+        in: query
+        schema:
+          type: number
+          minimum: 0
+          default: 0
+          maximum: 999
+      - name: includeFlaggedEntities
+        in: query
+        description: If the parameter is set to true, the response will also include flagged entities
+        schema:
+          type: boolean
+        example: false
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${search_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/poi/{id}/entities:
+    get:
+      summary: Get Sub-Entities for a complex, a chain or a tag
+      tags:
+      - Manage POIs
+      description: Returns a list of sub-entities for given api ID. Sub-entities can be associated with <<glossary:Complexes>>, <<glossary:Chains>> and <<glossary:Tags>> . <<glossary:Complexes>> and <<glossary:Chains>> contain venues as their sub-entities while <<glossary:Tags>>  may have venues, <<glossary:Complexes>> or <<glossary:Chains>><br/><br/> <strong> &#10045; This service supports chain level requests</strong>.
+      parameters:
+      - name: id
+        in: path
+        description: Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)
+        required: true
+        schema:
+          type: string
+        example: chain:58ef64a9173f5601f92d8f0e
+      - name: includeRegionalChains
+        in: query
+        description: Set this parameter to True for pulling regional chains(under the parent chain requested) as well as all other sub entities.
+        required: false
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubEntitiesResponse'
+        '400':
+          $ref: '#/components/responses/400_invalid_argument'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/poi/my-properties:
+    get:
+      summary: Get Listed Entities for Account.
+      tags:
+      - Manage POIs
+      description: Returns a list of entities for a given account.The response will include all entities which are under the Property tag (i.e. Portfolio).
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyPropertiesResponse'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/poi/custom-poi:
+    post:
+      summary: Create Custom POI
+      tags:
+      - Manage POIs
+      description: The create <<glossary:Custom POI>> endpoint can be used to generate custom POIs by specifying the unique polygons to               analyze.<br/> The <<glossary:Custom POI>> can be generated by either specifying the combination of centroid (lng, lat) and mile radius to draw the POI's area, or by using GEOJson which includes a list of all polygon GEO points (lng, lat).<br/> This endpoint runs duplication checks on each call in order to ensure that the same <<glossary:Custom POI>> is not created more than once. If a <<glossary:Custom POI>> is already created the return code will display a wrong request (http-code=400) specifying the previously created API ID.</br> Please be aware that creating custom POIs might take longer than 30 seconds, which falls within the timeout window. During such occurrences, the HTTP response code will be 202 (i.e., In progress), along with the apiId of the partially created POI. You can monitor the creation status by querying the <a href=Get Custom POI Info > Get Custom POI</a> endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomPoiRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPoiResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${poi_info_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+components:
+  schemas:
+    EntityInfo:
+      title: Placer Entity Info
+      properties:
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+        name:
+          type: string
+          example: Walmart
+          description: Entity name
+        entityId:
+          $ref: '#/components/schemas/EntityId'
+        entityType:
+          $ref: '#/components/schemas/EntityType'
+        flagged:
+          type: boolean
+          description: Flagging status for entity
+        storeId:
+          type: string
+          example: '1401'
+          description: The identification of a venue. Relevant only for chain’s venues
+    BasePoiInfo:
+      title: Base POI Info Object
+      type: object
+      properties:
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+        name:
+          type: string
+          example: Walmart
+          description: Entity Name
+        entityId:
+          $ref: '#/components/schemas/EntityId'
+        entityType:
+          $ref: '#/components/schemas/EntityType'
+        categoryInfo:
+          $ref: '#/components/schemas/categoryInfo'
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    SearchResponse:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      required:
+      - data
+      title: POI Search Results
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiInfo'
+    AddTagMembersRequest:
+      title: Add tag members request
+      type: object
+      required:
+      - apiIds
+      - tagId
+      properties:
+        apiIds:
+          type: array
+          description: The list of entities to attach to the specified tag
+          items:
+            $ref: '#/components/schemas/ApiId'
+        tagId:
+          type: string
+          example: 672be20c36e1d0ff18a13807
+          description: The Id of the tag to attach the entities to
+    CustomPoiInfo:
+      title: Custom POI Info Object
+      type: object
+      properties:
+        result:
+          type: string
+          example: SUCCESS
+        name:
+          type: string
+          example: Name to be used to identify the <<glossary:Custom POI>>
+        apiId:
+          type: string
+          example: complex:8d22ae197ee335c5074a67ff
+    CreateNewTagResponseSuccess:
+      title: Create New Tag Response Success
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          properties:
+            result:
+              type: string
+              example: SUCCESS
+            tagId:
+              type: string
+              example: 672be20c36e1d0ff18a13807
+    categoryInfo:
+      type: object
+      properties:
+        category:
+          type: string
+          example: Fast Food & QSR
+        group:
+          type: string
+          example: Dining
+        subCategory:
+          type: string
+          example: Pizze Place
+      description: Property’s categorization
+    EntityId:
+      type: string
+      example: 7d55054520e387813d764b03
+      description: Entity ID
+    MyPropertiesResponse:
+      title: MyProperties Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiInfo'
+    PoiInfo:
+      title: POI Info Object
+      allOf:
+      - $ref: '#/components/schemas/BasePoiInfo'
+      - $ref: '#/components/schemas/BaseEntityInfo'
+      type: object
+      properties:
+        placerUrl:
+          type: string
+          example: https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview
+        parentChains:
+          type: object
+          example:
+            apiId: chain:58ef64a9173f5601f92d8f0e
+            name: Target
+        parentTags:
+          type: object
+          example:
+            apiId: tag:614c118e500adeae9e9e70a6
+            name: Test Group Tag
+        isPermitted:
+          type: boolean
+          example: true
+          description: This flag indicates whether the account is permitted to generate/request reports on this entity or not.
+        regionType:
+          type: string
+          example: dma
+          description: 'The regions which the entity is associated with. Supported regions are: ''nationwide'', ''state'', ''dma'' & ''cbsa''. Relevant only for chain.'
+        regionCode:
+          type: string
+          example: '11010'
+          description: The code defining the region (e.g. The state of Arizona -> 'AZ', nationwide -> 'US'). Relevant only for chain.
+    ModifyTagEntitiesResponseSuccess:
+      title: Modify Tag Entities Response Success
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          properties:
+            result:
+              type: string
+              example: SUCCESS
+            tagId:
+              type: string
+              example: 672be20c36e1d0ff18a13807
+    CreateCustomPoiRequest:
+      title: Create custom POI request
+      description: Creating <<glossary:Custom POI>> by given name, sub category and polygon/centroid + radius
+      allOf:
+      - type: object
+        required:
+        - name
+        - subCategory
+        properties:
+          name:
+            type: string
+            example: Some Custom POI Name
+          subCategory:
+            type: string
+            example: Pizza Place
+          tagId:
+            type: string
+            example: 672be20c36e1d0ff18a13807
+            description: The Id of the tag that the <<glossary:Custom POI>> is requested to be associated with. If no value is provided, the new POI will not be associated with any tag.
+      - $ref: '#/components/schemas/BaseCustomPoiRequest'
+    RegionInfo:
+      title: Placer Region Info
+      properties:
+        regionType:
+          type: string
+          example: state
+          description: Optional string for region type
+        regionCode:
+          type: string
+          example: WV
+          description: Optional string for region code
+    Latitude:
+      type: number
+      format: float
+      minimum: -90
+      maximum: 90
+      description: Latitude of query location
+      example: 37.52
+    Address:
+      type: object
+      properties:
+        city:
+          type: string
+          example: Milpitas
+          description: Entity City
+        state:
+          type: string
+          example: California
+          description: Entity State
+        countryCode:
+          type: string
+          example: US
+          description: Entity Country Code
+        streetName:
+          type: string
+          example: Ranch Dr
+          description: Entity Street Name
+        formattedAddress:
+          type: string
+          example: 301 Ranch Dr, Milpitas, CA, United States
+          description: Entity Address
+        shortFormattedAddress:
+          type: string
+          example: Ranch Dr, Milpitas, CA
+          description: Entity Address
+        zipCode:
+          type: string
+          example: '95035'
+          description: Entity Zip Code
+    CustomPoiInfoGetResponse:
+      title: POI By ID Info Object
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BasePoiInfo'
+      - $ref: '#/components/schemas/BaseEntityInfo'
+      - $ref: '#/components/schemas/PoiInfo'
+      - type: object
+        properties:
+          storeId:
+            type: string
+            example: 1401
+            description: The identification of a venue. Relevant only for chain's venues.
+    BaseEntityInfo:
+      title: POI Entity (complex, venue and billboard only!) Object
+      allOf:
+      - $ref: '#/components/schemas/BasePoiInfo'
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        isFlagged:
+          type: boolean
+          example: false
+          description: The Entity Data Is Incomplete
+        regions:
+          type: object
+          properties:
+            dma:
+              type: object
+              description: The Entity Designated Market Area
+              properties:
+                code:
+                  type: string
+                  example: 807
+                name:
+                  type: string
+                  example: San Francisco-Oakland-San Jose, CA
+            state:
+              type: object
+              description: Entity State
+              properties:
+                code:
+                  type: string
+                  example: CA
+                name:
+                  type: string
+                  example: California
+            cbsa:
+              type: object
+              description: The Entity Core-Based Statistical Areas
+              properties:
+                code:
+                  type: string
+                  example: '41940'
+                name:
+                  type: string
+                  example: San Jose-Sunnyvale-Santa Clara, CA Metro Area
+          description: The regions in which the property is included
+    BaseCustomPoiRequest:
+      allOf:
+      - type: object
+        properties:
+          centroid:
+            type: array
+            items:
+              type: number
+              format: float
+              minimum: -200
+              maximum: 80
+            description: List of 2 values that represents the GEO location of the POI center
+            example:
+            - -78.519444
+            - 36.61636
+          radius:
+            type: number
+            format: float
+            minimum: 0.007
+            maximum: 0.21
+            default: 0.1
+            description: Radius (in miles) with which the polygon is constructed when the center of the polygon is the centroid
+          polygon:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+                format: float
+            description: List of pairs ([lng, lat]) that represents the POI polygon
+            example:
+            - - -78.51961433887482
+              - 36.61628975092374
+            - - -78.51927638053894
+              - 36.61628975092374
+            - - -78.51927638053894
+              - 36.616430763747964
+            - - -78.51961433887482
+              - 36.616430763747964
+            - - -78.51961433887482
+              - 36.61628975092374
+          address:
+            type: object
+            properties:
+              address:
+                type: string
+                example: 301 Ranch Dr
+                description: Entity Address
+              city:
+                type: string
+                example: Milpitas
+                description: Entity City
+              zipCode:
+                type: string
+                example: '95035'
+                description: Entity Zip Code
+    CustomPoiResponse:
+      title: Custom POI Response
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/CustomPoiInfo'
+    DeleteTagMembersRequest:
+      title: Delete tag members request
+      type: object
+      required:
+      - apiIds
+      - tagId
+      properties:
+        apiIds:
+          type: array
+          description: The list of entities to remove from the specified tag
+          items:
+            $ref: '#/components/schemas/ApiId'
+        tagId:
+          type: string
+          example: 672be20c36e1d0ff18a13807
+          description: The Id of the tag to remove the list of entities from
+    CreateNewTagRequest:
+      title: Add a new tag request
+      type: object
+      required:
+      - tagName
+      properties:
+        tagName:
+          type: string
+          description: The new tag name
+          example: My Shop
+          maxLength: 150
+    RequestId:
+      type: string
+      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
+      description: Request ID that can be used for tracing
+    SubEntitiesResponse:
+      title: Sub Entities Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityInfoRegional'
+    BaseResponse:
+      title: Base Response
+      type: object
+      required:
+      - requestId
+      properties:
+        requestId:
+          $ref: '#/components/schemas/RequestId'
+    UpdateCustomPoiRequest:
+      title: Update custom POI request
+      description: Updating <<glossary:Custom POI>> by given name or sub category or polygon/centroid + radius or address.
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+            example: complex:5f7a2d2dc2b5e82a0114cf62
+      - $ref: '#/components/schemas/BaseCustomPoiRequest'
+    EntityType:
+      type: string
+      enum:
+      - venue
+      - complex
+      - chain
+      example: venue
+      description: Entity Type (i.e. venue, complex etc.)
+    EntityInfoRegional:
+      title: Placer Entity Info
+      allOf:
+      - $ref: '#/components/schemas/EntityInfo'
+      - $ref: '#/components/schemas/RegionInfo'
+    DeleteCustomPoiResponse:
+      title: Delete Custom POI Response
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          properties:
+            result:
+              type: string
+              example: SUCCESS
+    Longitude:
+      type: number
+      format: float
+      minimum: -180
+      maximum: 180
+      description: Longitude of query location
+      example: -121.98
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

@@ -1,0 +1,671 @@
+openapi: 3.0.1
+info:
+  title: papi Account Info Retail Sales Reports API
+  description: Placer Public API
+  version: 0.1-oas3
+servers:
+- url: https://papi.placer.ai
+  x-amazon-apigateway-endpoint-configuration:
+    disableExecuteApiEndpoint: true
+security: null
+tags:
+- name: Retail Sales Reports
+paths:
+  /v1/reports/retail-sales/avg-ticket-size-trends:
+    post:
+      summary: Retail Sales Average Ticket Size Trend Report
+      tags:
+      - Retail Sales Reports
+      description: 'Average Ticket Size report allows you to examine the average dollar amount of sales per transaction generated at the venue in your report, during the selected date range. You can compare the venue''s average ticket size trend against its category average.<br/><br/>
+
+        <b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvgTicketSizeRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvgTicketSizeResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${reports_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/reports/retail-sales/days:
+    post:
+      summary: Retail Sales Daily Trends
+      tags:
+      - Retail Sales Reports
+      description: 'This service provides the retail sales metrics overview for the entire requested period aggregated either by the day of the week or by weekdays/weekend. The insights are available for various of metrics</b>: <ul> <li> <b>sales</b>: The dollar value (USD) of all sales during your selected aggregation.</li> <li> <b>avg_sales</b>: The dollar value (USD) of average sales per day during your selected aggregation.</li> <li> <b>sales_pct</b>: The percentage of total sales which occurred during your selected aggregation.</li> <li> <b>sales_sq_ft</b>: The total value of sales per square foot at the venue examined, during your selected aggregation.</li> <li> <b>transactions</b>: The total number of individual transactions which took place at the property examined during your selected aggregation.</li> <li> <b>transactions_pct</b>:The percentage of total transactions which occurred during your selected .aggregation.</li> <li> <b>avg_ticket_size</b>: The average dollar amount of sales per transaction generated at the venues in your report, per your selected aggregation.</li> </ul>
+
+        <b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesDaysTrendsRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesDaysTrendsResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${reports_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/reports/retail-sales/overview:
+    post:
+      summary: Retail Sales Overview
+      tags:
+      - Retail Sales Reports
+      description: 'This service provides the retail sales metrics overview for the entire requested period.<br/><br/>
+
+        <b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatesIdParams'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOverviewResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${reports_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/reports/retail-sales/sales-trends:
+    post:
+      summary: Retail Sales Trend Report
+      tags:
+      - Retail Sales Reports
+      description: 'This service provides the insights about sales performance at each venue examined in the report. Within the response of this service you will be receiving both the requested insights based on the date range, granularity and type of metric, and the annual sales for the past year-to-date and 3 last calendar years.<br/><br/>
+
+        <b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesTrendRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesTrendResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${reports_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+  /v1/reports/retail-sales/transaction-trends:
+    post:
+      summary: Retail Sales Transactions Trends Report
+      tags:
+      - Retail Sales Reports
+      description: 'The Transaction Trend presents the total number of transactions generated at the venues in your report over time. You can compare the venue''s transaction trend against its category or chain average.<br/><br/>
+
+        <b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionTrendRequest'
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+            x-api-key:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionTrendResponse'
+        '400':
+          $ref: '#/components/responses/400_bad_request'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${reports_lambda}
+        passthroughBehavior: when_no_match
+        timeoutInMillis: 29000
+components:
+  schemas:
+    StartDate:
+      type: string
+      format: date
+      description: Queried data start date. Format YYYY-MM-DD
+      example: '2020-12-01'
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    SalesTrendRequest:
+      title: Sales Trend Request
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          metric:
+            $ref: '#/components/schemas/SalesTrendMetric'
+          granularity:
+            $ref: '#/components/schemas/SalesTrendGranularity'
+    AvgTicketSizeResponse:
+      title: Avg Ticket Size Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - type: object
+        properties:
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - type: object
+              properties:
+                compareType:
+                  allOf:
+                  - $ref: '#/components/schemas/AvgTicketSizeTrendsCompareType'
+                  - description: Will be presented if requested.
+                granularity:
+                  $ref: '#/components/schemas/SalesTrendGranularity'
+                trend:
+                  type: object
+                  description: Presents the average ticket size trends for the requested POI during the requested period based on the selected granularity.
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the sales average ticket size trends in bins based on the requested granularity (e.g. in <strong>month</strong> granularity each bin will present the first date of the month, for <strong>day</strong> granularity each bin will present each day of the report date range)
+                    values:
+                      type: array
+                      description: Correlated average ticket size info values to the bins array
+                      items:
+                        type: number
+                        example:
+                        - 60222003.71
+                        - 58126656.69
+                        - 67245632.21
+                compare:
+                  nullable: true
+                  type: object
+                  description: Presents the sales average ticket size comparison trends.
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the sales in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 60222523.71
+                      - 56326656.69
+                      - 47654112.81
+                      description: Correlated sales info values to the bins array
+    EndDate:
+      type: string
+      format: date
+      description: Queried data end date. Format YYYY-MM-DD
+      example: '2021-05-31'
+    TransactionTrendResponse:
+      title: Transaction Trend Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - type: object
+        properties:
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - type: object
+              properties:
+                compareType:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionTrendCompareType'
+                  - description: Will be presented if requested.
+                granularity:
+                  $ref: '#/components/schemas/SalesTrendGranularity'
+                trend:
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the transactions trends for the requested POI during the requested period based on the selected granularity.
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 138915.39
+                      - 139320.64
+                      - 136581.83
+                      description: Presents the sales transactions in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
+                compare:
+                  nullable: true
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the sales transactions in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 138915.39
+                      - 139320.64
+                      - 136581.83
+                      description: Correlated sales info values to the bins array
+    DayOfWeekMetricType:
+      type: string
+      enum:
+      - sales
+      - avg_sales
+      - sales_pct
+      - sales_sq_ft
+      - transactions
+      - transactions_pct
+      - avg_ticket_size
+      example: sales
+      default: sales
+      description: 'The metric for which you wish to get the day of week aggregation for:<br/> <ul> <li> sales: The dollar value (USD) of all sales during your selected aggregation.</li> <li> avg_sales: The dollar value (USD) of average sales per day during your selected aggregation.</li> <li> sales_pct: The percentage of total sales which occurred during your selected aggregation.</li> <li> sales_sq_ft: The total value of sales per square foot at the venue examined, during your selected aggregation.</li> <li> transactions: The total number of individual transactions which took place at the property examined during your selected aggregation.</li> <li> transactions_pct:The percentage of total transactions which occurred during your selected .aggregation.</li> <li> avg_ticket_size: The average dollar amount of sales per transaction generated at the venues in your report, per your selected aggregation.</li> </ul>'
+    SalesTrendResponse:
+      title: Sales Trend Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - type: object
+        properties:
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - type: object
+              properties:
+                metric:
+                  $ref: '#/components/schemas/SalesTrendMetric'
+                granularity:
+                  $ref: '#/components/schemas/SalesTrendGranularity'
+                annualSales:
+                  description: Presents the annual sales in bins  per year including last 3 years and last 12 months.
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2021'
+                      - '2022'
+                      - '2023'
+                      - 1y
+                      description: Array of bins specifying the years which the sales info in the values array refer to
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 60222003.71
+                      - 58126656.69
+                      - 54654112.81
+                      - 67245632.21
+                      description: Correlated sales info values to the bins array
+                trend:
+                  description: Presents the sales divided into bins based on the requested granularity.
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the sales in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 60222003.71
+                      - 58126656.69
+                      - 54654112.81
+                      description: Correlated sales info values to the bins array
+    SalesDaysTrendsRequest:
+      title: Sales Days Trends Request
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          aggregation:
+            $ref: '#/components/schemas/SalesDayOfWeekAgg'
+          metricType:
+            $ref: '#/components/schemas/DayOfWeekMetricType'
+    SalesOverviewResponse:
+      title: Sales Overview Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - type: object
+        properties:
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - type: object
+              properties:
+                salesOverview:
+                  type: array
+                  description: In this array the following overview of various sales metrics calculated for the whole period.
+                  items:
+                    type: object
+                    properties:
+                      valueType:
+                        type: string
+                        enum:
+                        - currency
+                        - number
+                        description: The type of the value provided either 'currency' or 'number'
+                      metricName:
+                        type: string
+                        description: 'This will include any of the following values for each array instance:<br/> ● sales: Total sales for the requested period<br/> ● sales_sq_ft: Total sales per SQ FT for the requested period<br/> ● transactions: Total number of transactions done during the requested period<br/> ● avg_daily_unique_customers: Average daily unique visitors amount for the requested period<br/> ● avg_monthly_unique_customers: Average monthly unique visitors amount for the requested period<br/> ● avg_weekly_unique_customers: Average weekly unique visitors amount for the requested period<br/> ● avg_ticket_size: Average ticket size for the requested period'
+                      value:
+                        description: The relevant metric value calculated for the whole period.
+                        type: number
+                        format: float
+                  example:
+                  - valueType: currency
+                    metricName: sales
+                    value: 177795631.94
+                  - valueType: currency
+                    metricName: sales_sq_ft
+                    value: 852.75
+                  - valueType: number
+                    metricName: transactions
+                    value: 3298775.63
+                  - valueType: number
+                    metricName: avg_daily_unique_customers
+                    value: 4611.03
+                  - valueType: number
+                    metricName: avg_monthly_unique_customers
+                    value: 71553.62
+                  - valueType: number
+                    metricName: avg_weekly_unique_customers
+                    value: 27317.12
+                  - valueType: currency
+                    metricName: avg_ticket_size
+                    value: 53.9
+    AvgTicketSizeRequest:
+      title: Average Ticket Size Trend Request
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          compareType:
+            $ref: '#/components/schemas/AvgTicketSizeTrendsCompareType'
+          granularity:
+            $ref: '#/components/schemas/SalesTrendGranularity'
+    SalesTrendMetric:
+      description: The metric requested for the report. Can be one of the following:</br> <strong>sales </strong>- The total  dollar value (USD) of all sales generated for the requested venue.</br> <strong>sales_sq_ft</strong> - The total dollar value (USD) of sales per SQ FT generated for the requested venue.
+      enum:
+      - sales
+      - sales_sq_ft
+      example: sales
+      default: sales
+    AvgTicketSizeTrendsCompareType:
+      description: The chain or category trend to compare with. Can be one of:<br/> <ul> <li>None</li> <li>avg_category_in_state</li> <li>avg_category_nationwide</li>
+      enum:
+      - avg_category_in_state
+      - avg_category_nationwide
+      nullable: true
+      example: avg_category_nationwide
+    SalesTrendGranularity:
+      description: The aggregation of data requested for the report. Can be one of month, week or day.
+      enum:
+      - day
+      - week
+      - month
+      example: month
+      default: month
+    RequestId:
+      type: string
+      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
+      description: Request ID that can be used for tracing
+    SalesDayOfWeekAgg:
+      type: string
+      enum:
+      - full_week
+      - weekday_weekend
+      example: full_week
+      default: full_week
+      description: For the day of week insights you can choose any of the following aggregation options:<br/> <ul> <li> full_week - The aggregation is done per each day of the week</li> <li>weekday_weekend - The aggregation is done for the weekdays altogether and the weekend altogether.</li> </ul>
+    TransactionTrendRequest:
+      title: Transaction Trend Request
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          compareType:
+            $ref: '#/components/schemas/TransactionTrendCompareType'
+          granularity:
+            $ref: '#/components/schemas/SalesTrendGranularity'
+    BaseResponse:
+      title: Base Response
+      type: object
+      required:
+      - requestId
+      properties:
+        requestId:
+          $ref: '#/components/schemas/RequestId'
+    TransactionTrendCompareType:
+      description: The chain or category trend to compare with<br/> <ul> <li>None</il> <li>avg_chain_in_state</li> <li>avg_chain_nationwide</li> <li>avg_category_in_state</li> <li>avg_category_nationwide</li> </ul>
+      enum:
+      - avg_chain_in_state
+      - avg_chain_nationwide
+      - avg_category_in_state
+      - avg_category_nationwide
+      nullable: true
+      example: avg_chain_in_state
+    SalesDaysTrendsResponse:
+      title: Sales Days Trends Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - type: object
+        properties:
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - type: object
+              properties:
+                aggregation:
+                  $ref: '#/components/schemas/SalesDayOfWeekAgg'
+                metricType:
+                  $ref: '#/components/schemas/DayOfWeekMetricType'
+                dayOfWeek:
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - Monday
+                      - Tuesday
+                      - Wednesday
+                      - Thursday
+                      - Friday
+                      - Saturday
+                      - Sunday
+                      description: This array defines the relevant bins based on the aggregation requested.<br/> Either Monday-Sunday or weekday/weekend.
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 23332019.04
+                      - 20430526.44
+                      - 20256899.97
+                      - 24597150.08
+                      - 30653813.68
+                      - 30801899.86
+                      - 27723322.83
+                      description: The corresponding values to the bins (array index based).
+    DatesIdParams:
+      title: Base Report Request
+      type: object
+      required:
+      - startDate
+      - endDate
+      - apiId
+      properties:
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
