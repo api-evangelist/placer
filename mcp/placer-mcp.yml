@@ -1,0 +1,110 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/placer-papi-openapi.json
+server:
+  name: placer
+  transport: http
+  url: null
+notes: Candidate MCP tool list derived one-per-operation from the Placer PAPI OpenAPI. Placer publishes
+  no official hosted MCP server as of this pass.
+tools:
+- name: delete_poi_custom_poi
+  description: Delete Custom POI
+  source_operation: openapi/placer-papi-openapi.json#DELETE /v1/poi/custom-poi/{id}
+- name: get_poi_custom_poi
+  description: Get Custom POI Info
+  source_operation: openapi/placer-papi-openapi.json#GET /v1/poi/custom-poi/{id}
+- name: update_poi_custom_poi
+  description: Update Custom POI
+  source_operation: openapi/placer-papi-openapi.json#PUT /v1/poi/custom-poi/{id}
+- name: delete_poi_tags
+  description: Remove POI List From an Existing Tag
+  source_operation: openapi/placer-papi-openapi.json#DELETE /v1/poi/tags/
+- name: create_poi_tags
+  description: Create a new tag
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/poi/tags/
+- name: update_poi_tags
+  description: Add POI List to an Existing Tag
+  source_operation: openapi/placer-papi-openapi.json#PUT /v1/poi/tags/
+- name: get_accounts_keys_usage_status
+  description: Account Usage
+  source_operation: openapi/placer-papi-openapi.json#GET /v1/accounts/keys/usage-status
+- name: get_poi
+  description: Search for Placer Entities
+  source_operation: openapi/placer-papi-openapi.json#GET /v1/poi
+- name: get_poi_entities
+  description: Get Sub-Entities for a complex, a chain or a tag
+  source_operation: openapi/placer-papi-openapi.json#GET /v1/poi/{id}/entities
+- name: get_poi_my_properties
+  description: Get Listed Entities for Account.
+  source_operation: openapi/placer-papi-openapi.json#GET /v1/poi/my-properties
+- name: create_poi_custom_poi
+  description: Create Custom POI
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/poi/custom-poi
+- name: get_reports_favorites_chains
+  description: Visitor Journey - Favorite Chains
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/favorites-chains
+- name: get_reports_favorites_places
+  description: Visitor Journey - Favorite Places
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/favorites-places
+- name: get_reports_loyalty_visits_frequency
+  description: Visits by Frequency Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/loyalty/visits-frequency
+- name: get_reports_ranking_index_closely_ranked
+  description: Ranking Index - Closely Ranked
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/ranking-index/closely-ranked
+- name: get_reports_ranking_index_top_ranking
+  description: Ranking Index - Top Ranked
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/ranking-index/top-ranking
+- name: get_reports_ranking_overview
+  description: Ranking Metrics for a Single Property
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/ranking-overview
+- name: get_reports_ranking_overview_multi
+  description: Ranking Metrics For Multiple Properties
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/ranking-overview/multi
+- name: get_reports_retail_sales_avg_ticket_size_trends
+  description: Retail Sales Average Ticket Size Trend Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/retail-sales/avg-ticket-size-trends
+- name: get_reports_retail_sales_days
+  description: Retail Sales Daily Trends
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/retail-sales/days
+- name: get_reports_retail_sales_overview
+  description: Retail Sales Overview
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/retail-sales/overview
+- name: get_reports_retail_sales_sales_trends
+  description: Retail Sales Trend Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/retail-sales/sales-trends
+- name: get_reports_retail_sales_transaction_trends
+  description: Retail Sales Transactions Trends Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/retail-sales/transaction-trends
+- name: get_reports_trade_area_demographics
+  description: Trade Area Demographics Profile Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/trade-area-demographics
+- name: get_reports_trade_area_drive_time
+  description: Trade Area by Drive Time Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/trade-area/drive-time
+- name: get_reports_true_trade_area
+  description: Trade Area Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/true-trade-area
+- name: get_reports_visit_metrics
+  description: Visit Metrics Summary Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-metrics
+- name: get_reports_visit_metrics_cbgs
+  description: Visit by CBGs Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-metrics/cbgs
+- name: get_reports_visit_metrics_days
+  description: Visits by Days Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-metrics/days
+- name: get_reports_visit_metrics_dwell_time
+  description: Visits by Dwell Time Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-metrics/dwell-time
+- name: get_reports_visit_metrics_hours
+  description: Visits by Hours Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-metrics/hours
+- name: get_reports_visit_trends
+  description: Visit Trends Report
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-trends
+- name: get_reports_visit_trends_single
+  description: Visit Trends Report for a Single Property
+  source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-trends/single

@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.placer.ai/reference/welcome-to-papi
+authentication:
+  style: api-key
+  header: x-api-key
+  ref: authentication/placer-authentication.yml
+pagination:
+  style: offset
+  param: skip
+  notes: >-
+    The entity search (GET /v1/poi) supports pagination via the `skip`
+    parameter; the first 1000 matching entities are available.
+async_processing:
+  pattern: cache-then-retry
+  in_progress_status: 202
+  in_progress_code: 3005
+  notes: >-
+    Report endpoints are cached. If a report is already cached it is returned
+    immediately; otherwise the API returns HTTP 202 (IN_PROGRESS / code 3005)
+    and the identical request must be re-sent until the report is ready.
+    Processing-time estimates per endpoint are published at
+    https://docs.placer.ai/reference/measurements.
+idempotency:
+  supported: false
+  notes: Placer does not document an idempotency-key mechanism.
+versioning:
+  style: uri-path
+  ref: lifecycle/placer-lifecycle.yml
+rate_limiting:
+  signal_status: 429
+  ref: rate-limits/placer-rate-limits.yml
+  notes: Calls ending in 202, 429, or 5XX do not count against the weekly quota.
+error_envelope:
+  style: numeric-code
+  ref: errors/placer-error-codes.yml

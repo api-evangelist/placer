@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/placer-papi-openapi.json
+skills:
+- file: placer-visit-metrics.md
+  name: Pull visit metrics for a place
+  api: openapi/placer-papi-openapi.json
+  operations: ["GET /v1/poi", "POST /v1/reports/visit-metrics", "POST /v1/reports/visit-trends"]
+- file: placer-trade-area.md
+  name: Analyze the trade area of a place
+  api: openapi/placer-papi-openapi.json
+  operations: ["GET /v1/poi", "POST /v1/reports/true-trade-area", "POST /v1/reports/trade-area/drive-time", "POST /v1/reports/trade-area-demographics"]
+- file: placer-manage-custom-pois.md
+  name: Create and manage custom POIs and tags
+  api: openapi/placer-papi-openapi.json
+  operations: ["POST /v1/poi/custom-poi", "GET /v1/poi/custom-poi/{id}", "PUT /v1/poi/custom-poi/{id}", "DELETE /v1/poi/custom-poi/{id}", "POST /v1/poi/tags/"]

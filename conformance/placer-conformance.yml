@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/placer-papi-openapi.json
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: PAPI is described by an OpenAPI 3.0.1 document.
+- id: api-key-auth
+  conforms: true
+  evidence: securityScheme type apiKey in header (x-api-key).
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 security scheme; authentication is a static API key.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are application/json with a numeric code, not application/problem+json.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: Deprecation is communicated by email/versioning policy, not Sunset headers.
+- id: uri-path-versioning
+  conforms: true
+  evidence: Version declared in the route path (/v1/...).
+- id: rest-json
+  conforms: true
+  evidence: All 33 operations exchange application/json over REST.

@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.placer.ai/reference/versioning
+versioning:
+  scheme: uri-path
+  current: v1
+  example: https://papi.placer.ai/v1/poi/{id}
+  docs: https://docs.placer.ai/reference/versioning
+deprecation:
+  policy_url: https://docs.placer.ai/reference/versioning
+  process: >-
+    Developers are notified of additions, changes, deprecations, and retirements
+    via email announcements. When a new version is released the previous version
+    is generally marked deprecated; deprecated versions remain available for a
+    period before being retired. Deprecated = no new functionality but bugs are
+    still fixed; Retired = no longer accessible.
+  states: [deprecated, retired]
+changelog: https://docs.placer.ai/changelog
+support: https://analytics.placer.ai/my-zone/my-requests/support-requests
+deprecated_operations: []

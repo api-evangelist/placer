@@ -1,7 +1,30 @@
 aid: placer
 name: Placer
-description: Placer is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Placer.ai is a location analytics and foot-traffic intelligence platform that
+  measures visits, trade areas, demographics, and consumer behavior for physical
+  points of interest across retail, CPG, commercial real estate, hospitality,
+  and the public sector. Its public developer surface, the Placer API (PAPI, base
+  https://papi.placer.ai), lets developers and data analysts extract Placer's
+  location analytics programmatically to enrich, filter, or combine it with other
+  data sources for custom dashboards, internal reporting, and competitive
+  analysis. The v1 REST API covers entity/POI search, custom POI and tag
+  management, and a suite of report endpoints spanning visit metrics and trends,
+  trade area (true trade area, drive-time, demographics), ranking, loyalty, and
+  retail sales. Authentication is a static API key sent in the x-api-key header.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/338fd63-small-Placer_logo_ai_308px2x.png
 url: https://raw.githubusercontent.com/api-evangelist/placer/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,15 +34,256 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Location Analytics
+- Foot Traffic
+- Geospatial
+- Retail Analytics
+- Real Estate
+- Consumer Insights
+- Data
+apis:
+- aid: placer:placer-account-info-api
+  name: Placer Account Info API
+  description: The Account Info API from Placer — 1 operation(s) for account info.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Account Info
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-account-info-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+- aid: placer:placer-loyalty-reports-api
+  name: Placer Loyalty Reports API
+  description: The Loyalty Reports API from Placer — 1 operation(s) for loyalty reports.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Loyalty Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-loyalty-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+- aid: placer:placer-manage-pois-api
+  name: Placer Manage POIs API
+  description: The Manage POIs API from Placer — 6 operation(s) for manage pois.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Manage POIs
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-manage-pois-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+- aid: placer:placer-ranking-reports-api
+  name: Placer Ranking Reports API
+  description: The Ranking Reports API from Placer — 4 operation(s) for ranking reports.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Ranking Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-ranking-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+- aid: placer:placer-retail-sales-reports-api
+  name: Placer Retail Sales Reports API
+  description: The Retail Sales Reports API from Placer — 5 operation(s) for retail sales reports.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Retail Sales Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-retail-sales-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+- aid: placer:placer-trade-area-reports-api
+  name: Placer Trade Area Reports API
+  description: The Trade Area Reports API from Placer — 3 operation(s) for trade area reports.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Trade Area Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-trade-area-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+- aid: placer:placer-visitor-journey-reports-api
+  name: Placer Visitor Journey Reports API
+  description: >-
+    The Visitor Journey Reports API from Placer — 2 operation(s) for visitor journey reports.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Visitor Journey Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-visitor-journey-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+- aid: placer:placer-visits-reports-api
+  name: Placer Visits Reports API
+  description: The Visits Reports API from Placer — 7 operation(s) for visits reports.
+  humanURL: https://docs.placer.ai/reference/welcome-to-papi
+  baseURL: https://papi.placer.ai
+  tags:
+  - Visits Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/placer-visits-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/placer-authentication.yml
+  - type: RateLimits
+    url: rate-limits/placer-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/placer-error-codes.yml
+  - type: Conventions
+    url: conventions/placer-conventions.yml
+  - type: DataModel
+    url: data-model/placer-data-model.yml
+  - type: Conformance
+    url: conformance/placer-conformance.yml
+common:
+- type: Website
+  url: https://placer.ai
+- type: DeveloperPortal
+  url: https://docs.placer.ai
+- type: Documentation
+  url: https://docs.placer.ai/docs/welcome-to-placers-feeds
+- type: APIReference
+  url: https://docs.placer.ai/reference/welcome-to-papi
+- type: GettingStarted
+  url: https://docs.placer.ai/reference/getting-started
+- type: Authentication
+  url: authentication/placer-authentication.yml
+- type: OpenAPI
+  url: openapi/placer-papi-openapi.json
+- type: Overlay
+  url: overlays/placer-papi-overlay.yaml
+- type: ErrorCatalog
+  url: errors/placer-error-codes.yml
+- type: RateLimits
+  url: rate-limits/placer-rate-limits.yml
+- type: Conventions
+  url: conventions/placer-conventions.yml
+- type: Lifecycle
+  url: lifecycle/placer-lifecycle.yml
+- type: Deprecation
+  url: https://docs.placer.ai/reference/versioning
+- type: ChangeLog
+  url: https://docs.placer.ai/changelog
+- type: Conformance
+  url: conformance/placer-conformance.yml
+- type: DataModel
+  url: data-model/placer-data-model.yml
+- type: MCPServer
+  url: mcp/placer-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/placer-agentic-access.yml
+- type: DomainSecurity
+  url: security/placer-domain-security.yml
+- type: LLMsTxt
+  url: llms/placer-llms.txt
+- type: Support
+  url: https://analytics.placer.ai/my-zone/my-requests/support-requests
+- type: Login
+  url: https://analytics.placer.ai
+- type: Blog
+  url: https://www.placer.ai/blog
+- type: Pricing
+  url: https://www.placer.ai/pricing
+- type: TermsOfService
+  url: https://www.placer.ai/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.placer.ai/privacy-policy
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-common:
-- type: Website
-  url: https://placer.ai
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

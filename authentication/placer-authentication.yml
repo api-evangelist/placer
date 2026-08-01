@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/placer-papi-openapi.json
+docs: https://docs.placer.ai/reference/getting-started
+notes: >-
+  The Placer API (PAPI) authenticates every request with a static API key
+  passed in the `x-api-key` HTTP header. Keys are issued/managed by Placer
+  (contact a CSM or the MyZone Support Portal). A missing or invalid key
+  returns HTTP 403 ("Forbidden, wrong or missing API Key").
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: api_key
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  sources:
+  - openapi/placer-papi-openapi.json

@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/placer-papi-openapi.json
+notes: Entity graph derived from OpenAPI component schemas. Primary domain object is the POI (Point of
+  Interest / Placer-managed entity); reports are computed over one or more POI ids.
+entity_count: 46
+core_entities:
+- POI
+- Custom POI
+- Tag
+- Report
+relationships:
+- from: DeleteTagMembersRequest
+  type: belongs_to
+  to: POI
+  via: tagId
+- from: BasePoiInfo
+  type: belongs_to
+  to: POI
+  via: entityId
+- from: EntityInfo
+  type: belongs_to
+  to: POI
+  via: entityId
+- from: RankingEntityInfo
+  type: belongs_to
+  to: POI
+  via: entityId
+- from: AddTagMembersRequest
+  type: belongs_to
+  to: POI
+  via: tagId

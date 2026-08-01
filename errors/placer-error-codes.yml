@@ -1,0 +1,77 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.placer.ai/reference/error-codes-2
+envelope:
+  description: >-
+    Placer PAPI returns a numeric application-level `code` alongside the HTTP
+    status. HTTP 202 (IN_PROGRESS) signals an async report is still being
+    generated and the same request should be re-sent (see the caching/retry
+    convention in conventions/placer-conventions.yml).
+  http_status_field: HTTP status
+  code_field: code
+support_portal: https://analytics.placer.ai/my-zone/my-requests/support-requests
+error_codes:
+- http_status: 200
+  code: 0
+  name: Success
+  troubleshooting: null
+- http_status: 202
+  code: 3005
+  name: IN_PROGRESS
+  troubleshooting: Report is being created. The request should be re-sent.
+- http_status: 204
+  code: 3006
+  name: NO_CONTENT
+  troubleshooting: No content was found for the requested apiId(s) with the given parameters.
+- http_status: 400
+  code: 2000
+  name: BAD_REQUEST
+  troubleshooting: The data entered by the user is invalid. Verify that the URL used is correct.
+- http_status: 400
+  code: 2002
+  name: INVALID_ARGUMENTS
+  troubleshooting: Missing or invalid parameter value. Re-check the request and refer to the specific error message in the response.
+- http_status: 401
+  code: 1000
+  name: UNAUTHORIZED
+  troubleshooting: The action performed is unauthorized. Contact Customer Support via the MyZone Support Portal or your CSM.
+- http_status: 401
+  code: 1001
+  name: UNAUTHORIZED_DATA_SOURCE
+  troubleshooting: Missing permission to pull demographics from the requested data set.
+- http_status: 403
+  code: 1008
+  name: PERMISSION_DENIED
+  troubleshooting: No permission to access the entity. Contact Customer Support via the MyZone Support Portal or your CSM.
+- http_status: 403
+  code: 1016
+  name: RESTRICTED_AREA
+  troubleshooting: The report is not available for this POI as it contains at least one restricted area. Contact Customer Support.
+- http_status: 403
+  code: null
+  name: FORBIDDEN
+  troubleshooting: Forbidden - wrong or missing API Key.
+- http_status: 404
+  code: 3000
+  name: ERROR_NOT_FOUND
+  troubleshooting: The requested resource (POI) was not found in the system.
+- http_status: 422
+  code: 1025
+  name: UNDELIVERABLE_ENTITY
+  troubleshooting: The report is not available for this POI due to Placer's privacy policy.
+- http_status: 429
+  code: 2004
+  name: RATE_LIMITED
+  troubleshooting: Usage quota limit exceeded. See rate-limits/placer-rate-limits.yml for throttle limits.
+- http_status: 429
+  code: 2005
+  name: LIMIT_EXCEEDED
+  troubleshooting: The request surpasses the permitted quota of queried API IDs. The quota renews the following Sunday. Contact your Placer CSM about expansion.
+- http_status: 500
+  code: 5000
+  name: GENERAL_ERROR
+  troubleshooting: Internal error. Contact Customer Support via the MyZone Support Portal or your CSM.
+- http_status: 504
+  code: null
+  name: GATEWAY_TIMEOUT
+  troubleshooting: Endpoint request timed out. See best practices at https://docs.placer.ai/reference/measurements.

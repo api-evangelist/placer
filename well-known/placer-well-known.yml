@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+hosts:
+- https://papi.placer.ai
+- https://placer.ai
+documents:
+- host: https://papi.placer.ai
+  path: /.well-known/security.txt
+  status: 400
+  file: null
+- host: https://papi.placer.ai
+  path: /.well-known/openid-configuration
+  status: 400
+  file: null
+- host: https://papi.placer.ai
+  path: /.well-known/oauth-authorization-server
+  status: 400
+  file: null
+- host: https://papi.placer.ai
+  path: /.well-known/api-catalog
+  status: 400
+  file: null
+- host: https://papi.placer.ai
+  path: /.well-known/ai-plugin.json
+  status: 400
+  file: null
+- host: https://placer.ai
+  path: /.well-known/security.txt
+  status: 404
+  file: null
+- host: https://placer.ai
+  path: /.well-known/openid-configuration
+  status: 404
+  file: null
+- host: https://placer.ai
+  path: /.well-known/api-catalog
+  status: 404
+  file: null
+notes: No /.well-known/ discovery documents were served (all non-200). Recorded for auditability; no WellKnown
+  pointer emitted.

@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Placer PAPI
+  version: 1.0.0
+extends: openapi/placer-papi-openapi.json
+x-generated: '2026-07-20'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: placer
+    x-apievangelist-auth: api-key (x-api-key header)
+    x-apievangelist-base-url: https://papi.placer.ai
+    x-apievangelist-rate-limits: rate-limits/placer-rate-limits.yml
+    x-apievangelist-errors: errors/placer-error-codes.yml
+    x-apievangelist-conventions: conventions/placer-conventions.yml
+- target: $.servers[0]
+  update:
+    description: Placer Public API (PAPI) production host

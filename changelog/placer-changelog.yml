@@ -1,0 +1,13 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.placer.ai/changelog
+scheme: additive-versioned
+current_version: v1
+notes: >-
+  Placer publishes a dated changelog on its ReadMe developer hub. All released
+  additions, changes, deprecations, and retirements are documented there, and
+  developers are also notified by email. The live changelog (rendered as a
+  ReadMe single-page app) is the source of truth; discrete dated entries were
+  not machine-extractable from the page export, so no entries[] are reproduced
+  here to avoid fabrication.
+entries: []

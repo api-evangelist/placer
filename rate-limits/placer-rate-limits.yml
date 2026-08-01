@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.placer.ai/reference/error-codes-2
+docs: https://docs.placer.ai/reference/measurements
+signal:
+  header: null
+  http_status: 429
+  error_code: 2004
+  error_name: RATE_LIMITED
+notes: >-
+  Calls that end in 202, 429, or 5XX do NOT count against the weekly quota; all
+  other calls do. A separate weekly API-ID quota (renews each Sunday) raises
+  HTTP 429 error code 2005 (LIMIT_EXCEEDED) when the number of distinct queried
+  entity IDs is exceeded.
+rate_limits:
+- name: Reports preparation
+  scope: Visits / Loyalty / Trade Area / Visitor Journey / Retail Sales report endpoints
+  limit_count: 5000
+  interval: hour
+- name: Manage POIs
+  scope: POI query / creation / deletion endpoints
+  limit_count: 360
+  interval: minute
+- name: Manage POIs
+  scope: POI query / creation / deletion endpoints
+  limit_count: 10000
+  interval: hour
+- name: Ranking reports
+  scope: Ranking report endpoints
+  limit_count: 8000
+  interval: minute
+- name: Ranking reports
+  scope: Ranking report endpoints
+  limit_count: 80000
+  interval: hour
+- name: General throughput
+  scope: All endpoints
+  limit_count: 10
+  interval: second
+- name: Concurrency
+  scope: All endpoints
+  limit_count: 5
+  interval: concurrent

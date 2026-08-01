@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/placer-papi-openapi.json
+format: custom-json
+notes: >-
+  Derived from the HTTP response codes declared across all 33 PAPI operations.
+  Placer does NOT use RFC 9457 application/problem+json; every response is
+  application/json carrying a numeric application-level `code`. See
+  errors/placer-error-codes.yml for the full code registry and remediation.
+problems:
+- status: 400
+  title: Bad request / invalid arguments
+  application_codes: [2000, 2002]
+  operations_declaring: 31
+- status: 401
+  title: Unauthorized
+  application_codes: [1000, 1001]
+  operations_declaring: 1
+- status: 403
+  title: Forbidden / permission denied
+  application_codes: [1008, 1016]
+  note: Also returned for a wrong or missing API key.
+  operations_declaring: 33
+- status: 404
+  title: Resource not found
+  application_codes: [3000]
+  operations_declaring: 1
+- status: 500
+  title: Internal server error
+  application_codes: [5000]
+  operations_declaring: 33
