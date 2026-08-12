@@ -236,7 +236,7 @@ common:
 - type: Authentication
   url: authentication/placer-authentication.yml
 - type: OpenAPI
-  url: openapi/placer-papi-openapi.json
+  url: openapi/_original/placer-papi-openapi.json
 - type: Overlay
   url: overlays/placer-papi-overlay.yaml
 - type: ErrorCatalog
