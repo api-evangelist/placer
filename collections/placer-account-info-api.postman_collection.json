@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "6fd65435-a026-4bcf-a8f9-328cb4ef2ef5",
+      "name": "Account Info",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c955a42-694f-4391-bfd3-102b081ddac7",
+          "name": "Account Usage",
+          "request": {
+            "name": "Account Usage",
+            "description": {
+              "content": "Retrieves the current API usage status for the requesting API key.<br> This endpoint helps you monitor consumption and remaining quota. <strong>Running it 2–3 times per week</strong> is recommended for optimal tracking usage patterns.<br> <strong>Note:</strong> <ul> <li>The weekly quote renewals occur every <strong>Sunday at 12:00 a.m. UTC</strong>.</li> <li>There can be a discrepancy between usedQuota and the sum of calls made to individual endpoints because only <a href=\"https://docs.placer.ai/reference/faqs-1#q-what-api-calls-count-towards-my-quota\"><strong>successful calls</strong> are counted</a>.</li> </ul>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "accounts",
+                "keys",
+                "usage-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ca0cbc20-cdce-443e-bc72-a8c4c99ee428",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    "keys",
+                    "usage-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"usedQuota\": 7560,\n  \"queriedPOIs\": 4543,\n  \"weeklyUsageByEndpoint\": [\n    {\n      \"endpoint\": \"string\",\n      \"numOfCalls\": 407\n    },\n    {\n      \"endpoint\": \"string\",\n      \"numOfCalls\": 3411\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73858fda-c3a6-4c16-bd52-1248c6aa2fb5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    "keys",
+                    "usage-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f9a85a8-dd80-48e1-9316-c9426a6bb228",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    "keys",
+                    "usage-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://papi.placer.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4272f4a6-5de5-4cb9-8d4f-1464a86db03b",
+    "name": "papi Account Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Placer Public API",
+      "type": "text/plain"
+    }
+  }
+}

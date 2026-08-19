@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info Ranking Reports API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ranking Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ranking Index - Closely Ranked",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/ranking-index/closely-ranked",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint generates a ranked list of properties relative to a benchmark based on the one of following segments:<br/> <ul> <li>Within Chain - Provides other closely ranked venues within the same chain.</li> <li>category - provides the <<glossary:Ranking>> within the venue’s category</li> <li>Within Category/Group Category - Provides other closely ranked venues within the same category/group category.</li> </ul> Provides view by different metrics and regions.<br/> Metrics:<br/> <ul> <li>Visits"
+        },
+        {
+          "info": {
+            "name": "Ranking Index - Top Ranked",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/ranking-index/top-ranking",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generate a ranked list of properties relative to a benchmark based on the one of following segments:<br/> <ul> <li>Within Chain - ability to reach all chain’s venues ranked from the top most to the last using pagination.</li> <li>Within Category/Group Category - ability to fetch up to 1000 top ranked properties within the same Category/group category of the requested property.</li> </ul> Provides view by different metrics and regions.<br/> Metrics<br/> <ul> <li>Visits: shows the <<glossary:Ranki"
+        },
+        {
+          "info": {
+            "name": "Ranking Metrics for a Single Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/ranking-overview",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service returns the specific entity <<glossary:Ranking>> within a selected scope :<br/> <ul> <li>Chain scope - compares the entity <<glossary:Ranking>> vs all other chain’s entities</li> <li>Group category scope - compares the entity <<glossary:Ranking>> vs all venues under the selected group category (Apparel, Leisure, …).</li> <li>Category scope - compares the entity <<glossary:Ranking>> vs all venues under the selected category (Regional Mall, Industrial, …).</li> </ul> </br> The endpoin"
+        },
+        {
+          "info": {
+            "name": "Ranking Metrics For Multiple Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/ranking-overview/multi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the <<glossary:Ranking>> for all the requested entities within a selected scope :<br/> <ul> <li> Chain scope - compares each entity <<glossary:Ranking>> vs all other chain’s entities.</li> <li>Group category scope - compares each entity <<glossary:Ranking>> vs all venues under the selected group category (Apparel, Leisure, …).</li> <li>Category scope - compares each entity <<glossary:Ranking>> vs all venues under the selected category (Regional Mall, Industrial, …).</li> </ul> The servic"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

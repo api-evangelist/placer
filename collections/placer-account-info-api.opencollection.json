@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Account Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://papi.placer.ai/v1/accounts/keys/usage-status",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves the current API usage status for the requesting API key.<br> This endpoint helps you monitor consumption and remaining quota. <strong>Running it 2–3 times per week</strong> is recommended for optimal tracking usage patterns.<br> <strong>Note:</strong> <ul> <li>The weekly quote renewals occur every <strong>Sunday at 12:00 a.m. UTC</strong>.</li> <li>There can be a discrepancy between usedQuota and the sum of calls made to individual endpoints because only <a href=\"https://docs.placer.ai"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

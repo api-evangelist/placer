@@ -1,0 +1,1243 @@
+{
+  "item": [
+    {
+      "id": "fb5b47dc-7e9b-4829-87e4-fe4075fa7834",
+      "name": "Ranking Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89098e63-6f7e-4788-9a95-16f44a8d344e",
+          "name": "Ranking Index - Closely Ranked",
+          "request": {
+            "name": "Ranking Index - Closely Ranked",
+            "description": {
+              "content": "This endpoint generates a ranked list of properties relative to a benchmark based on the one of following segments:<br/> <ul> <li>Within Chain - Provides other closely ranked venues within the same chain.</li> <li>category - provides the <<glossary:Ranking>> within the venue’s category</li> <li>Within Category/Group Category - Provides other closely ranked venues within the same category/group category.</li> </ul> Provides view by different metrics and regions.<br/> Metrics:<br/> <ul> <li>Visits: shows the <<glossary:Ranking>> according to the estimated number of visits to the POI.</li> <li>Visits / Sq ft: shows the <<glossary:Ranking>> according to the estimated number of visits relative to the total square footage of a property.</li> </ul> </br> Regions:</br> <ul> <li>nationwide: The nationwide <<glossary:Ranking>> of a POI benchmarked against POIs from the same category or chain.</li>\n<li>state/dma/cbsa: The Ranking benchmarked against POIs from the same category or chain in the POI's state/dma/cbsa.</li>\n<li>Specific distance: The POI’s Ranking benchmarked against POIs from within a 5 / 10 / 15 / 30 / 50 miles radius.</li> </ul> You may define the total number of results to display (up to 1000), whereby half of the results will reflect properties ranked higher than the requested property and half of the results will reflects the ones ranked lower. For example: if the requested POI is ranked 550 and <b>results amount</b> value is set to 200 - then the response includes all properties ranked between 450 and 649 within the indexed list.</br> The endpoint supports pre-defined time buckets and ranking regions.</br><br/>\n&#x23F1; <strong>Average measured processing time: 3.98 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\nNOTE: Flagged entities will not be taken into consideration in the resulting report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "ranking-index",
+                "closely-ranked"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiId\": \"<string>\",\n  \"metric\": \"visits\",\n  \"period\": \"<string>\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"resultsAmount\": 100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70489e51-24a1-4fb2-8ff9-59d4629af7d3",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "closely-ranked"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"resultsAmount\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalRanked\": 123,\n  \"rank\": 65,\n  \"region\": {},\n  \"scope\": \"category\",\n  \"metricType\": \"visits\",\n  \"visits\": 12000,\n  \"rankingIndexArray\": [\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"entity name\",\n      \"address\": {\n        \"city\": \"Milpitas\",\n        \"state\": \"California\",\n        \"countryCode\": \"US\",\n        \"streetName\": \"Ranch Dr\",\n        \"formattedAddress\": \"301 Ranch Dr, Milpitas, CA, United States\",\n        \"shortFormattedAddress\": \"Ranch Dr, Milpitas, CA\",\n        \"zipCode\": \"95035\",\n        \"country\": \"United States\",\n        \"address\": \"301 Ranch Dr\"\n      },\n      \"rank\": 90,\n      \"visits\": 105463\n    },\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"entity name\",\n      \"address\": {\n        \"city\": \"Milpitas\",\n        \"state\": \"California\",\n        \"countryCode\": \"US\",\n        \"streetName\": \"Ranch Dr\",\n        \"formattedAddress\": \"301 Ranch Dr, Milpitas, CA, United States\",\n        \"shortFormattedAddress\": \"Ranch Dr, Milpitas, CA\",\n        \"zipCode\": \"95035\",\n        \"country\": \"United States\",\n        \"address\": \"301 Ranch Dr\"\n      },\n      \"rank\": 90,\n      \"visits\": 105463\n    }\n  ],\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7342ec1c-51f6-4fff-8e9f-8099f7227558",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "closely-ranked"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"resultsAmount\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3796c87e-74e6-422c-8c3d-ff9ab989d6e6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "closely-ranked"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"resultsAmount\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7294dc9d-789a-4c45-a67f-efc762edcb53",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "closely-ranked"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"resultsAmount\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b7280d1-f856-4865-aafd-b19b2fb96fa3",
+          "name": "Ranking Index - Top Ranked",
+          "request": {
+            "name": "Ranking Index - Top Ranked",
+            "description": {
+              "content": "Generate a ranked list of properties relative to a benchmark based on the one of following segments:<br/> <ul> <li>Within Chain - ability to reach all chain’s venues ranked from the top most to the last using pagination.</li> <li>Within Category/Group Category - ability to fetch up to 1000 top ranked properties within the same Category/group category of the requested property.</li> </ul> Provides view by different metrics and regions.<br/> Metrics<br/> <ul> <li>Visits: shows the <<glossary:Ranking>> according to the estimated number of visits to the POI.</li> <li>Visits / Sq ft: shows the <<glossary:Ranking>> according to the estimated number of visits relative to the total square footage of a property.</li> </ul> Regions<br/> <ul> <li>nationwide: The nationwide <<glossary:Ranking>> of a POI benchmarked against POIs from the same category or chain.</li> <li>state/dma/cbsa: The ranking benchmarked against POIs from the same category or chain in the POI's state/dma/cbsa.</li> <li>Specific distance: The POI’s <<glossary:Ranking>> benchmarked against POIs from within a 5 / 10 / 15 / 30 / 50 miles radius.</li> </ul><br/><br/> &#x23F1; <strong>Average measured processing time: 2.71 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\nNOTE: <<glossary:Flagged entities>> will not be taken into consideration in the resulting report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "ranking-index",
+                "top-ranking"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiId\": \"<string>\",\n  \"metric\": \"visits\",\n  \"period\": \"<string>\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"limit\": 100,\n  \"skip\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3fd98ca4-9efc-471a-b9f8-e7f0a2105c61",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "top-ranking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"limit\": 100,\n  \"skip\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalRanked\": 123,\n  \"rank\": 65,\n  \"region\": {},\n  \"scope\": \"category\",\n  \"metricType\": \"visits\",\n  \"visits\": 12000,\n  \"rankingIndexArray\": [\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"entity name\",\n      \"address\": {\n        \"city\": \"Milpitas\",\n        \"state\": \"California\",\n        \"countryCode\": \"US\",\n        \"streetName\": \"Ranch Dr\",\n        \"formattedAddress\": \"301 Ranch Dr, Milpitas, CA, United States\",\n        \"shortFormattedAddress\": \"Ranch Dr, Milpitas, CA\",\n        \"zipCode\": \"95035\",\n        \"country\": \"United States\",\n        \"address\": \"301 Ranch Dr\"\n      },\n      \"rank\": 90,\n      \"visits\": 105463\n    },\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"entity name\",\n      \"address\": {\n        \"city\": \"Milpitas\",\n        \"state\": \"California\",\n        \"countryCode\": \"US\",\n        \"streetName\": \"Ranch Dr\",\n        \"formattedAddress\": \"301 Ranch Dr, Milpitas, CA, United States\",\n        \"shortFormattedAddress\": \"Ranch Dr, Milpitas, CA\",\n        \"zipCode\": \"95035\",\n        \"country\": \"United States\",\n        \"address\": \"301 Ranch Dr\"\n      },\n      \"rank\": 90,\n      \"visits\": 105463\n    }\n  ],\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65bb2b35-6aae-4ff2-9262-331f47787638",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "top-ranking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"limit\": 100,\n  \"skip\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b23e29a0-f6aa-4021-8afd-27df726c40eb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "top-ranking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"limit\": 100,\n  \"skip\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "907e83e7-ffd0-412d-b27e-14edaed3c49b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-index",
+                    "top-ranking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"region\": 15,\n  \"scope\": \"category\",\n  \"limit\": 100,\n  \"skip\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1d38035-53d0-4987-a130-d807dc58074b",
+          "name": "Ranking Metrics for a Single Property",
+          "request": {
+            "name": "Ranking Metrics for a Single Property",
+            "description": {
+              "content": "This service returns the specific entity <<glossary:Ranking>> within a selected scope :<br/> <ul> <li>Chain scope - compares the entity <<glossary:Ranking>> vs all other chain’s entities</li> <li>Group category scope - compares the entity <<glossary:Ranking>> vs all venues under the selected group category (Apparel, Leisure, …).</li> <li>Category scope - compares the entity <<glossary:Ranking>> vs all venues under the selected category (Regional Mall, Industrial, …).</li> </ul> </br> The endpoint supports the option to have a custom date range (as well as pre-defined time buckets) and <<glossary:Ranking>> within a local area ( 5,10,15 miles). <br/> &#x23F1; <strong>Average measured processing time: 8.57 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\nNOTE: <<glossary:Flagged entities>> will not be taken into consideration in the resulting report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "ranking-overview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiId\": \"<string>\",\n  \"metric\": \"visits\",\n  \"scope\": \"category\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"distanceMiles\": 15,\n  \"period\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23bfaaf0-8f15-4713-b464-2938513adf30",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"scope\": \"category\",\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2020-12-31\",\n  \"distanceMiles\": 15,\n  \"period\": \"lastWeek\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metricType\": \"visits\",\n  \"info\": {\n    \"name\": \"Walmart\",\n    \"entityId\": \"7d55054520e387813d764b03\",\n    \"entityType\": \"venue\",\n    \"flagged\": false,\n    \"rankedBy\": \"chain\",\n    \"categoryInfo\": {\n      \"category\": \"Fast Food & QSR\",\n      \"group\": \"Dining\",\n      \"subCategory\": \"Pizze Place\"\n    },\n    \"parentChain\": \"string\"\n  },\n  \"ranking\": {\n    \"nationwide\": {\n      \"rank\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"percentile\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rankedOutOf\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"regionCode\": \"US\"\n    },\n    \"state\": {\n      \"rank\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"percentile\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rankedOutOf\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"regionCode\": \"CA\"\n    },\n    \"dma\": {\n      \"rank\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"percentile\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rankedOutOf\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"regionCode\": \"510\"\n    },\n    \"cbsa\": {\n      \"rank\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"percentile\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rankedOutOf\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"regionCode\": \"34980\"\n    },\n    \"local\": {\n      \"rank\": 4,\n      \"percentile\": 85,\n      \"rankedOutOf\": 1850,\n      \"radiusMiles\": 15\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bdaee20b-4a7e-44b2-b5ab-2786bb1ceac0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"scope\": \"category\",\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2020-12-31\",\n  \"distanceMiles\": 15,\n  \"period\": \"lastWeek\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22cbf9c3-0fee-4fdd-a683-e35807687c70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"scope\": \"category\",\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2020-12-31\",\n  \"distanceMiles\": 15,\n  \"period\": \"lastWeek\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9371b000-8587-4f88-bf04-d2cb18daf4ca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"scope\": \"category\",\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2020-12-31\",\n  \"distanceMiles\": 15,\n  \"period\": \"lastWeek\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf2be77e-c4cd-4c71-9dbc-1f9db3371cbf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"visits\",\n  \"scope\": \"category\",\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2020-12-31\",\n  \"distanceMiles\": 15,\n  \"period\": \"lastWeek\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd93c6c0-fbab-44ca-bc5b-1b550bd3e6e5",
+          "name": "Ranking Metrics For Multiple Properties",
+          "request": {
+            "name": "Ranking Metrics For Multiple Properties",
+            "description": {
+              "content": "Returns the <<glossary:Ranking>> for all the requested entities within a selected scope :<br/> <ul> <li> Chain scope - compares each entity <<glossary:Ranking>> vs all other chain’s entities.</li> <li>Group category scope - compares each entity <<glossary:Ranking>> vs all venues under the selected group category (Apparel, Leisure, …).</li> <li>Category scope - compares each entity <<glossary:Ranking>> vs all venues under the selected category (Regional Mall, Industrial, …).</li> </ul> The service supports <<glossary:Ranking>> based on pre-defined periods. (In case a custom date range is required use /reports/ranking-overview endpoint).<br/><br/><strong>&#x21e1; This service supports bulk request</strong><br/>\n\n&#x23F1; <strong>Average measured processing time: 3.58 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/> NOTE: <<glossary:Flagged entities>> will not be taken into consideration in the resulting report",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "ranking-overview",
+                "multi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiIds\": [\n    \"<string>\"\n  ],\n  \"metric\": \"visits\",\n  \"period\": \"<string>\",\n  \"scope\": \"category\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "52d88a04-57fe-4420-9609-5fe150c24f0b",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview",
+                    "multi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"scope\": \"category\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"metricType\": \"visits\",\n    \"info\": {\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"flagged\": false,\n      \"rankedBy\": \"chain\",\n      \"categoryInfo\": {\n        \"category\": \"Fast Food & QSR\",\n        \"group\": \"Dining\",\n        \"subCategory\": \"Pizze Place\"\n      },\n      \"parentChain\": \"string\"\n    },\n    \"ranking\": {\n      \"nationwide\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"US\"\n      },\n      \"state\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"CA\"\n      },\n      \"dma\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"510\"\n      },\n      \"cbsa\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"34980\"\n      }\n    },\n    \"visitDurationSegmentation\": \"10MinOrLonger\"\n  },\n  {\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"metricType\": \"visits\",\n    \"info\": {\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"flagged\": false,\n      \"rankedBy\": \"chain\",\n      \"categoryInfo\": {\n        \"category\": \"Fast Food & QSR\",\n        \"group\": \"Dining\",\n        \"subCategory\": \"Pizze Place\"\n      },\n      \"parentChain\": \"string\"\n    },\n    \"ranking\": {\n      \"nationwide\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"US\"\n      },\n      \"state\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"CA\"\n      },\n      \"dma\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"510\"\n      },\n      \"cbsa\": {\n        \"rank\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percentile\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rankedOutOf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"regionCode\": \"34980\"\n      }\n    },\n    \"visitDurationSegmentation\": \"10MinOrLonger\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c00023a6-8438-4256-9bfa-7f0ebff839d5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview",
+                    "multi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"scope\": \"category\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66acb6fa-3bd1-4983-9f8f-67a1b77a7148",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview",
+                    "multi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"scope\": \"category\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72eb7ac8-ad65-438c-967b-6a4f5071f3e7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "ranking-overview",
+                    "multi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"metric\": \"visits\",\n  \"period\": \"lastWeek\",\n  \"scope\": \"category\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://papi.placer.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "113af16c-ebf7-4b10-a27b-569b39ab6ee8",
+    "name": "papi Account Info Ranking Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Placer Public API",
+      "type": "text/plain"
+    }
+  }
+}

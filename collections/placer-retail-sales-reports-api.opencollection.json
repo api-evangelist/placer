@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info Retail Sales Reports API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Retail Sales Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retail Sales Average Ticket Size Trend Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/retail-sales/avg-ticket-size-trends",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Average Ticket Size report allows you to examine the average dollar amount of sales per transaction generated at the venue in your report, during the selected date range. You can compare the venue's average ticket size trend against its category average.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, dependi"
+        },
+        {
+          "info": {
+            "name": "Retail Sales Daily Trends",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/retail-sales/days",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service provides the retail sales metrics overview for the entire requested period aggregated either by the day of the week or by weekdays/weekend. The insights are available for various of metrics</b>: <ul> <li> <b>sales</b>: The dollar value (USD) of all sales during your selected aggregation.</li> <li> <b>avg_sales</b>: The dollar value (USD) of average sales per day during your selected aggregation.</li> <li> <b>sales_pct</b>: The percentage of total sales which occurred during your sel"
+        },
+        {
+          "info": {
+            "name": "Retail Sales Overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/retail-sales/overview",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service provides the retail sales metrics overview for the entire requested period.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for wh"
+        },
+        {
+          "info": {
+            "name": "Retail Sales Trend Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/retail-sales/sales-trends",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service provides the insights about sales performance at each venue examined in the report. Within the response of this service you will be receiving both the requested insights based on the date range, granularity and type of metric, and the annual sales for the past year-to-date and 3 last calendar years.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pi"
+        },
+        {
+          "info": {
+            "name": "Retail Sales Transactions Trends Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/retail-sales/transaction-trends",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The Transaction Trend presents the total number of transactions generated at the venues in your report over time. You can compare the venue's transaction trend against its category or chain average.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail S"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

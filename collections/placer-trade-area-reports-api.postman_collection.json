@@ -1,0 +1,1139 @@
+{
+  "item": [
+    {
+      "id": "b0cb9c49-ca86-4c41-84e8-573d16728592",
+      "name": "Trade Area Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7bfec6e5-2273-4b02-be8c-30420e20793e",
+          "name": "Trade Area Demographics Profile Report",
+          "request": {
+            "name": "Trade Area Demographics Profile Report",
+            "description": {
+              "content": "Returns trade area demographics. By default returns <strong>potential</strong> demographics (population living in the trade area). Set <code>audienceType</code> to <code>captured</code> in the request body to get <strong>captured</strong> demographics (home-CBG demographics of actual visitors).<br/> Supported datasets to use are:<br/> <ul> <li>Census: ACS (2024)</li> <li>STI: Popstats</li> <li>STI: Landscape</li> <li>STI: Market Outlook</li> <li>STI: Spending Patterns</li> <li>STI: Workplace</li> <li>Spatial.ai:PersonaLive</li> <li>Spatial.ai:FollowGraph</li> <li>Experian:Mosaic</li> </ul> <br/>Datasets are available based on your account's settings<br/><br/> &#x23F1; <strong>Average measured processing time: 1.58 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\nNOTE: <<glossary:Flagged entities>> will not be taken into consideration in the resulting report<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "trade-area-demographics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "907b4d03-48bc-4ee0-a076-5a88c76598b5",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area-demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"nearbyRadius\": 100,\n    \"filters\": {\n      \"audienceType\": [\n        \"visitors\"\n      ],\n      \"dwellTime\": {\n        \"operator\": \"<\",\n        \"value\": 150\n      },\n      \"hoursRange\": {\n        \"fromHour\": \"03:00 am\",\n        \"toHour\": \"11:59 pm\"\n      },\n      \"daysOfWeek\": [\n        6,\n        7\n      ],\n      \"distance\": {\n        \"from\": \"home\",\n        \"values\": {\n          \"lt\": 250,\n          \"gt\": 10\n        }\n      }\n    },\n    \"visitDurationSegmentation\": \"10MinOrLonger\",\n    \"Households\": {\n      \"Households\": {\n        \"value\": 14714\n      },\n      \"Family Households\": {\n        \"value\": 10641,\n        \"percentage\": 72.31888,\n        \"variableIndex\": 112\n      },\n      \"Non-Family Households\": {\n        \"value\": 4073,\n        \"percentage\": 27.68112,\n        \"variableIndex\": 78\n      },\n      \"Persons per Household\": {\n        \"value\": 2.705722,\n        \"variableIndex\": 104\n      }\n    },\n    \"Gender\": {\n      \"Male\": {\n        \"value\": 18686,\n        \"percentage\": 46.935597,\n        \"variableIndex\": 95\n      },\n      \"Female\": {\n        \"value\": 21126,\n        \"percentage\": 53.064403,\n        \"variableIndex\": 105\n      }\n    }\n  },\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9962f199-2731-4912-b40e-281c9a69ccbd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area-demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "043a81af-2b7a-4399-805d-d2da89abbebe",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area-demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1eff47eb-7919-4275-8941-01ecae00549e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area-demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "513cbc49-ffb9-415e-a5c5-40e9fd3ac2af",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area-demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfd98434-bbe4-4183-8876-9e9173e556f2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area-demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c8f2c08-5300-4b68-bb41-5ea308e2a9a4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area-demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"method\": \"tta\",\n  \"benchmarkScope\": \"nationwide\",\n  \"audienceType\": \"potential\",\n  \"allocationType\": \"weightedCentroid\",\n  \"trafficVolPct\": 70,\n  \"driveTime\": \"<integer>\",\n  \"withinRadius\": 15,\n  \"ringRadius\": 3,\n  \"dataset\": \"census\",\n  \"template\": {},\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c59d205b-34d7-4717-b0af-e0c761111df3",
+          "name": "Trade Area by Drive Time Report",
+          "request": {
+            "name": "Trade Area by Drive Time Report",
+            "description": {
+              "content": "This service lets you retrieve the trade area polygon calculated for a specified drive time.<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "trade-area",
+                "drive-time"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"allocationType\": \"weightedCentroid\",\n  \"driveTime\": 10,\n  \"filter\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8bb040bb-711b-442d-8abf-c313310e9dd5",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area",
+                    "drive-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"allocationType\": \"weightedCentroid\",\n  \"driveTime\": 10,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"startDate\": \"2020-12-01\",\n    \"endDate\": \"2021-05-31\",\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"filters\": {\n      \"audienceType\": [\n        \"visitors\"\n      ],\n      \"dwellTime\": {\n        \"operator\": \"<\",\n        \"value\": 150\n      },\n      \"hoursRange\": {\n        \"fromHour\": \"03:00 am\",\n        \"toHour\": \"11:59 pm\"\n      },\n      \"daysOfWeek\": [\n        6,\n        7\n      ],\n      \"distance\": {\n        \"from\": \"home\",\n        \"values\": {\n          \"lt\": 250,\n          \"gt\": 10\n        }\n      }\n    },\n    \"visitDurationSegmentation\": \"10MinOrLonger\",\n    \"allocationType\": \"weightedCentroid\",\n    \"driveTime\": 10,\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [\n      [\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      ],\n      [\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      ]\n    ],\n    \"nearbyRadius\": \"<integer>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4f929a9-b20d-461d-a50d-3458b0a1697e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area",
+                    "drive-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"allocationType\": \"weightedCentroid\",\n  \"driveTime\": 10,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe4b557b-2595-4b52-875f-b6c9801af830",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area",
+                    "drive-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"allocationType\": \"weightedCentroid\",\n  \"driveTime\": 10,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc543881-af3c-4ff0-b2de-004fba3dcb6d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area",
+                    "drive-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"allocationType\": \"weightedCentroid\",\n  \"driveTime\": 10,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "83d903ce-a9cf-4c6d-848c-fa5f8cb971ec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "trade-area",
+                    "drive-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"allocationType\": \"weightedCentroid\",\n  \"driveTime\": 10,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86cd1233-1f6d-4dd8-9ff4-84b511546382",
+          "name": "Trade Area Report",
+          "request": {
+            "name": "Trade Area Report",
+            "description": {
+              "content": "True Trade Areas are calculated by the volume of traffic reaching the venue or complex . For example, setting 'traffic vol' to 70% draws a polygon that represents 70% of the visitors’ home location.<br/> <br/> &#x23F1; <strong>Average measured processing time: 2.24 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "true-trade-area"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiId\": \"<string>\",\n  \"endDate\": \"<date>\",\n  \"reportType\": \"trueTradeArea\",\n  \"startDate\": \"<date>\",\n  \"fileFormat\": \"polygonGeoJson\",\n  \"trafficVolPct\": 70,\n  \"allocationType\": \"weightedCentroid\",\n  \"withinDistance\": 50,\n  \"filter\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "81fbe508-59c1-4835-94f2-df6a482281f6",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "true-trade-area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"reportType\": \"trueTradeArea\",\n  \"startDate\": \"2020-12-01\",\n  \"fileFormat\": \"polygonGeoJson\",\n  \"trafficVolPct\": 70,\n  \"allocationType\": \"weightedCentroid\",\n  \"withinDistance\": 50,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"data\": {\n    \"filters\": {\n      \"audienceType\": [\n        \"visitors\"\n      ],\n      \"dwellTime\": {\n        \"operator\": \"<\",\n        \"value\": 150\n      },\n      \"hoursRange\": {\n        \"fromHour\": \"03:00 am\",\n        \"toHour\": \"11:59 pm\"\n      },\n      \"daysOfWeek\": [\n        6,\n        7\n      ],\n      \"distance\": {\n        \"from\": \"home\",\n        \"values\": {\n          \"lt\": 250,\n          \"gt\": 10\n        }\n      }\n    },\n    \"visitDurationSegmentation\": \"10MinOrLonger\",\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [\n      [\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      ],\n      [\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      ]\n    ],\n    \"nearbyRadius\": \"<integer>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66d2a750-bac3-489c-943c-2b760d8265f1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "true-trade-area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"reportType\": \"trueTradeArea\",\n  \"startDate\": \"2020-12-01\",\n  \"fileFormat\": \"polygonGeoJson\",\n  \"trafficVolPct\": 70,\n  \"allocationType\": \"weightedCentroid\",\n  \"withinDistance\": 50,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b580b1d-189f-4cf1-b052-9821e2a1b97d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "true-trade-area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"reportType\": \"trueTradeArea\",\n  \"startDate\": \"2020-12-01\",\n  \"fileFormat\": \"polygonGeoJson\",\n  \"trafficVolPct\": 70,\n  \"allocationType\": \"weightedCentroid\",\n  \"withinDistance\": 50,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26568eba-f309-4d1e-900f-c1babf2ec6da",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "true-trade-area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"reportType\": \"trueTradeArea\",\n  \"startDate\": \"2020-12-01\",\n  \"fileFormat\": \"polygonGeoJson\",\n  \"trafficVolPct\": 70,\n  \"allocationType\": \"weightedCentroid\",\n  \"withinDistance\": 50,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "908666ab-4354-49d0-9751-c8abfee3a4f1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "true-trade-area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"reportType\": \"trueTradeArea\",\n  \"startDate\": \"2020-12-01\",\n  \"fileFormat\": \"polygonGeoJson\",\n  \"trafficVolPct\": 70,\n  \"allocationType\": \"weightedCentroid\",\n  \"withinDistance\": 50,\n  \"filter\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://papi.placer.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cc91b665-d86b-411a-a74c-af7bcc82b8a1",
+    "name": "papi Account Info Trade Area Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Placer Public API",
+      "type": "text/plain"
+    }
+  }
+}

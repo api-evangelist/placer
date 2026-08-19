@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info Trade Area Reports API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trade Area Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trade Area Demographics Profile Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/trade-area-demographics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns trade area demographics. By default returns <strong>potential</strong> demographics (population living in the trade area). Set <code>audienceType</code> to <code>captured</code> in the request body to get <strong>captured</strong> demographics (home-CBG demographics of actual visitors).<br/> Supported datasets to use are:<br/> <ul> <li>Census: ACS (2024)</li> <li>STI: Popstats</li> <li>STI: Landscape</li> <li>STI: Market Outlook</li> <li>STI: Spending Patterns</li> <li>STI: Workplace</li"
+        },
+        {
+          "info": {
+            "name": "Trade Area by Drive Time Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/trade-area/drive-time",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service lets you retrieve the trade area polygon calculated for a specified drive time.<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic."
+        },
+        {
+          "info": {
+            "name": "Trade Area Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/true-trade-area",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "True Trade Areas are calculated by the volume of traffic reaching the venue or complex . For example, setting 'traffic vol' to 70% draws a polygon that represents 70% of the visitors’ home location.<br/> <br/> &#x23F1; <strong>Average measured processing time: 2.24 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\n&#128205; This service supports"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

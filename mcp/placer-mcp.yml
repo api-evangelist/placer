@@ -108,3 +108,9 @@ tools:
 - name: get_reports_visit_trends_single
   description: Visit Trends Report for a Single Property
   source_operation: openapi/placer-papi-openapi.json#POST /v1/reports/visit-trends/single
+deployment:
+  mode: none
+  verified: derived
+  tools: 33
+  checked: '2026-08-12'
+  source: catalog MCP census

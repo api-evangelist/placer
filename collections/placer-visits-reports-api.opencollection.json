@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info Visits Reports API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Visits Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Visit Metrics Summary Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/visit-metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves visitors and visits for a given list of entities. <br/>This endpoint supports bulk requests up to 100 entities<br/><br/><strong>&#x21e1; This service supports bulk request</strong><br/> When nearbyRadius is set, a report will be generated for the first entity in the array <strong>only</strong>.<br/> <br/> &#x23F1; <strong>Average measured processing time: 10 seconds </strong><br/> For more information on request retries best practices and processing measurements you may visit <a href=\""
+        },
+        {
+          "info": {
+            "name": "Visit by CBGs Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/visit-metrics/cbgs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service populates a report of the CBGs that generate visitation to the properties examined. You may assess visitations per each CBG. You may also determine the desired data granularity.<br/><br/> <strong>&#x21e1; This service supports bulk request</strong><br/><br/> <strong>&#128205; This service doesn't support custom POI. </strong><br/><br/> * <strong>Please note</strong> that sparsely populated CBGs may not be included in the feed to align with Placer's privacy policy.<br/><br/> For more"
+        },
+        {
+          "info": {
+            "name": "Visits by Days Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/visit-metrics/days",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves visits for a given entity(venue/complex/billboard) broken by the days of the week.<br/> <br/>The response includes 2 arrays:<br/> <ol> <li>Day of the week bins : [0,1,2,3,4,5,6], where each represents a day of the week. (i.e. Mon.-Sun.).</li> <li>Indicates the total visits for the POI during the selected date range for each of the day of the week bins (correlated to the location in the Day of the week array)</li> </ol> <br/> &#x23F1; <strong>Average measured processing time: 0.72 secon"
+        },
+        {
+          "info": {
+            "name": "Visits by Dwell Time Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/visit-metrics/dwell-time",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves visits for a given entity(venue/complex) broken by dwell time periods.<br/> <br/>The response includes:<br/> <ol> <li>Dwell time bins array: [0,5,15,30,45,60,75,90,105,120,135,150] (I.e. 5 represents 5-14 minutes, 150 represents all visits with dwell time higher than or equal to 150)</li> <li>Estimated foot traffic array: Indicates the total visits for the POI during the selected date range for each of the dwell time bins (correlated to the location in the dwell time bins array)</li> <"
+        },
+        {
+          "info": {
+            "name": "Visits by Hours Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/visit-metrics/hours",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves visits for a given entity(venue/complex) broken by the hours of the day and its business opening hours.<br/> <br/>The response includes:<br/> <ul> <li>2 arrays: <ol> <li>Hour of the day bins: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23], where each represents an hour in the day. (e.g. 11 = 11 am - 12 pm)</li> <li>Estimated foot traffic array: Indicates the total visits for the POI during the selected date range for each of the hour bins (correlated to the location in"
+        },
+        {
+          "info": {
+            "name": "Visit Trends Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/visit-trends",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves visitations for a given list of entities in daily, weekly or monthly granularity.<br/><br/> <strong>&#x21e1; This service supports bulk request</strong><br/><br/> <strong> &#10045; This service supports chain level requests</strong><br/><br/> &#x23F1; <strong>Average measured processing time: 3.58 seconds </strong><br><br> <strong>&#128205; This service doesn't support custom POI. To pull visits trend for custom POI please use <a href=\"https://docs.placer.ai/reference/post_v1-reports-v"
+        },
+        {
+          "info": {
+            "name": "Visit Trends Report for a Single Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/visit-trends/single",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves visits for a given entity in daily, weekly or monthly granularity.<br/><br/>\nFor more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

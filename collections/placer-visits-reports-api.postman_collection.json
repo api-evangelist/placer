@@ -1,0 +1,2797 @@
+{
+  "item": [
+    {
+      "id": "050a7fa6-32f8-4512-b63d-c0cd2d5a32a8",
+      "name": "Visits Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a3fd79e-857e-49dd-9d48-44f943932267",
+          "name": "Visit Metrics Summary Report",
+          "request": {
+            "name": "Visit Metrics Summary Report",
+            "description": {
+              "content": "Retrieves visitors and visits for a given list of entities. <br/>This endpoint supports bulk requests up to 100 entities<br/><br/><strong>&#x21e1; This service supports bulk request</strong><br/> When nearbyRadius is set, a report will be generated for the first entity in the array <strong>only</strong>.<br/> <br/> &#x23F1; <strong>Average measured processing time: 10 seconds </strong><br/> For more information on request retries best practices and processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/> <br/> &#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic<br/><br/>\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "visit-metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiIds\": [\n    \"<string>\"\n  ],\n  \"includeMetadata\": true,\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "630799c9-6723-4b39-8c80-17852e58bacf",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"includeMetadata\": true,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"items\": [\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"data\": {\n        \"panelVisitors\": 5655,\n        \"panelVisits\": 11546,\n        \"visits\": 433202,\n        \"visitors\": 184092,\n        \"nearbyRadius\": \"<integer>\",\n        \"visitDurationSegmentation\": \"10MinOrLonger\",\n        \"metadata\": {\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isFlagged\": false,\n          \"regions\": {\n            \"dma\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cbsa\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"apiId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"entityId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"entityType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"categoryInfo\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"data\": {\n        \"panelVisitors\": 5655,\n        \"panelVisits\": 11546,\n        \"visits\": 433202,\n        \"visitors\": 184092,\n        \"nearbyRadius\": \"<integer>\",\n        \"visitDurationSegmentation\": \"10MinOrLonger\",\n        \"metadata\": {\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isFlagged\": false,\n          \"regions\": {\n            \"dma\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cbsa\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"apiId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"entityId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"entityType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"categoryInfo\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff03d821-0193-42d0-a6e4-180378caeaf0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"includeMetadata\": true,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b3b781d-e78c-4457-b6ac-8e08cb8c25b7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"includeMetadata\": true,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e7dca9d-f30c-408e-b75b-a32762ecf528",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"includeMetadata\": true,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cea8c19c-d434-4d0b-aed5-4a87afa3aab6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"includeMetadata\": true,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46d1b18c-2ba2-405b-96ee-23ea94d8cf7d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"includeMetadata\": true,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99c4baba-2259-446c-9ee3-7a2859e9ddbd",
+          "name": "Visit by CBGs Report",
+          "request": {
+            "name": "Visit by CBGs Report",
+            "description": {
+              "content": "This service populates a report of the CBGs that generate visitation to the properties examined. You may assess visitations per each CBG. You may also determine the desired data granularity.<br/><br/> <strong>&#x21e1; This service supports bulk request</strong><br/><br/> <strong>&#128205; This service doesn't support custom POI. </strong><br/><br/> * <strong>Please note</strong> that sparsely populated CBGs may not be included in the feed to align with Placer's privacy policy.<br/><br/> For more information on request retries best practices and  processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "visit-metrics",
+                "cbgs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiIds\": [\n    \"<string>\"\n  ],\n  \"endDate\": \"<date>\",\n  \"granularity\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"location\": \"Home\",\n  \"trafficVolPct\": 70\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cec75a51-4e5a-49f3-a422-ed72b72d984c",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "cbgs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"location\": \"Home\",\n  \"trafficVolPct\": 70\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"location\": \"Home\",\n  \"trafficVolPct\": 70,\n  \"visitsByCBGs\": [\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"dates\": [\n        \"2020-12-01\",\n        \"2021-01-01\",\n        \"2021-02-01\",\n        \"2021-03-01\",\n        \"2021-04-01\",\n        \"2021-05-01\"\n      ],\n      \"visitsByCBGsTrend\": [\n        [\n          {\n            \"CBGCode\": 360470163003,\n            \"visits\": 2859.0998658824965\n          },\n          {\n            \"CBGCode\": 360471122002,\n            \"visits\": 1964.8362800193345\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360471214002,\n            \"visits\": 3428.9773043774903\n          },\n          {\n            \"CBGCode\": 360471130002,\n            \"visits\": 1552.924740122248\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 2557.0424557126844\n          },\n          {\n            \"CBGCode\": 360471122002,\n            \"visits\": 1390.5306827296477\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360470886002,\n            \"visits\": 2625.74170877762\n          },\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 2866.8235103927195\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360470163003,\n            \"visits\": 3483.2945180135303\n          },\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 3821.0165325827234\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 3815.7833289048413\n          },\n          {\n            \"CBGCode\": 360470163003,\n            \"visits\": 3087.490216778003\n          }\n        ]\n      ],\n      \"visitDurationSegmentation\": \"10MinOrLonger\"\n    },\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"dates\": [\n        \"2020-12-01\",\n        \"2021-01-01\",\n        \"2021-02-01\",\n        \"2021-03-01\",\n        \"2021-04-01\",\n        \"2021-05-01\"\n      ],\n      \"visitsByCBGsTrend\": [\n        [\n          {\n            \"CBGCode\": 360470163003,\n            \"visits\": 2859.0998658824965\n          },\n          {\n            \"CBGCode\": 360471122002,\n            \"visits\": 1964.8362800193345\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360471214002,\n            \"visits\": 3428.9773043774903\n          },\n          {\n            \"CBGCode\": 360471130002,\n            \"visits\": 1552.924740122248\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 2557.0424557126844\n          },\n          {\n            \"CBGCode\": 360471122002,\n            \"visits\": 1390.5306827296477\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360470886002,\n            \"visits\": 2625.74170877762\n          },\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 2866.8235103927195\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360470163003,\n            \"visits\": 3483.2945180135303\n          },\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 3821.0165325827234\n          }\n        ],\n        [\n          {\n            \"CBGCode\": 360471196003,\n            \"visits\": 3815.7833289048413\n          },\n          {\n            \"CBGCode\": 360470163003,\n            \"visits\": 3087.490216778003\n          }\n        ]\n      ],\n      \"visitDurationSegmentation\": \"10MinOrLonger\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "503146da-7548-4455-8b77-def0bf5992c1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "cbgs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"location\": \"Home\",\n  \"trafficVolPct\": 70\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0079ebf-0dda-44df-bda0-94c79022359d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "cbgs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"location\": \"Home\",\n  \"trafficVolPct\": 70\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee4edf91-06e8-4c82-90d2-14a620783c39",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "cbgs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"location\": \"Home\",\n  \"trafficVolPct\": 70\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c3381e0-af67-4b09-af96-0fe7d1eb8250",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "cbgs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"location\": \"Home\",\n  \"trafficVolPct\": 70\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e68935b6-38e4-4342-aaf2-cfe79e4a0607",
+          "name": "Visits by Days Report",
+          "request": {
+            "name": "Visits by Days Report",
+            "description": {
+              "content": "Retrieves visits for a given entity(venue/complex/billboard) broken by the days of the week.<br/> <br/>The response includes 2 arrays:<br/> <ol> <li>Day of the week bins : [0,1,2,3,4,5,6], where each represents a day of the week. (i.e. Mon.-Sun.).</li> <li>Indicates the total visits for the POI during the selected date range for each of the day of the week bins (correlated to the location in the Day of the week array)</li> </ol> <br/> &#x23F1; <strong>Average measured processing time: 0.72 seconds </strong><br/> For more information on request retries best practices and processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "visit-metrics",
+                "days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca30b397-ad32-4077-97ee-40ac8bbedfc4",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"bins\": [\n      0,\n      1,\n      2,\n      3,\n      4,\n      5,\n      6\n    ],\n    \"estimatedFoottraffic\": [\n      219347,\n      227870,\n      226154,\n      229736,\n      245526,\n      369653,\n      295663\n    ],\n    \"nearbyRadius\": \"<integer>\"\n  },\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd90de1e-ac97-42da-8715-8a02cb058d80",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0740b1e3-c9b3-46e6-a36a-2881cbbe86d3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a20f02d3-4bc6-4be4-8bba-6799559a554a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dcd690a8-f054-4cf2-87de-6035aa7c0242",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8668da2f-7d71-4308-8da0-70cf43cec365",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e386082-0998-4a0f-9504-73dc8b6ed121",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3e8eac0-c5b0-481f-a442-9bb99c271807",
+          "name": "Visits by Dwell Time Report",
+          "request": {
+            "name": "Visits by Dwell Time Report",
+            "description": {
+              "content": "Retrieves visits for a given entity(venue/complex) broken by dwell time periods.<br/> <br/>The response includes:<br/> <ol> <li>Dwell time bins array: [0,5,15,30,45,60,75,90,105,120,135,150] (I.e. 5 represents 5-14 minutes, 150 represents all visits with dwell time higher than or equal to 150)</li> <li>Estimated foot traffic array: Indicates the total visits for the POI during the selected date range for each of the dwell time bins (correlated to the location in the dwell time bins array)</li> <li>Average dwell time</li> <li>Median dwell time</li> </ol> <br/> &#x23F1; <strong>Average measured processing time: 0.77 seconds </strong><br/> For more information on request retries best practices and processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "visit-metrics",
+                "dwell-time"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3ea7d87-92da-4bcf-8208-23ba9f7c4041",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "dwell-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"bins\": [\n      0,\n      5,\n      15,\n      30,\n      45,\n      60,\n      75,\n      90,\n      105,\n      120,\n      135,\n      150\n    ],\n    \"estimatedFoottraffic\": [\n      0,\n      1099,\n      290496,\n      203518,\n      118502,\n      62588,\n      31487,\n      15440,\n      6029,\n      3405,\n      1877,\n      3602\n    ],\n    \"average\": 41,\n    \"median\": 34,\n    \"nearbyRadius\": \"<integer>\"\n  },\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59a1e541-6eba-48d9-a8e9-ee41709d12dc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "dwell-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a429e332-0d92-46ed-a743-630449bded42",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "dwell-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e2343ba-9236-495f-9165-e2b8cc32f193",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "dwell-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06328d00-2d9c-47bf-abe5-2d3049fec32f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "dwell-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "79f70237-548e-4ca5-8848-89c01ad31b04",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "dwell-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd540ce7-4fea-459d-ac45-6c43e06b08c7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "dwell-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b11ee539-05c1-47a0-bd59-e16d0c91dac0",
+          "name": "Visits by Hours Report",
+          "request": {
+            "name": "Visits by Hours Report",
+            "description": {
+              "content": "Retrieves visits for a given entity(venue/complex) broken by the hours of the day and its business opening hours.<br/> <br/>The response includes:<br/> <ul> <li>2 arrays: <ol> <li>Hour of the day bins: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23], where each represents an hour in the day. (e.g. 11 = 11 am - 12 pm)</li> <li>Estimated foot traffic array: Indicates the total visits for the POI during the selected date range for each of the hour bins (correlated to the location in the Hour of the day array)</li> </ol> </li> <li> Array of the business opening hours for each day of the week. </li> </ul> <br/> &#x23F1; <strong>Average measured processing time: 0.79 seconds </strong><br/> For more information on request retries best practices and processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "visit-metrics",
+                "hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be54fcd4-bd1a-427a-9118-65024a4953aa",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"bins\": [\n      0,\n      1,\n      2,\n      3,\n      4,\n      5,\n      6,\n      7,\n      8,\n      9,\n      10,\n      11,\n      12,\n      13,\n      14,\n      15,\n      16,\n      17,\n      18,\n      19,\n      20,\n      21,\n      22,\n      23\n    ],\n    \"estimatedFoottraffic\": [\n      691,\n      337,\n      337,\n      337,\n      337,\n      158,\n      308,\n      4081,\n      16268,\n      31543,\n      54469,\n      78110,\n      98220,\n      108307,\n      112484,\n      130168,\n      135215,\n      127224,\n      115792,\n      97031,\n      75903,\n      45117,\n      11245,\n      996\n    ],\n    \"openingHours\": [\n      {\n        \"day\": \"Sunday\",\n        \"fromHour\": \"8:00 AM\",\n        \"toHour\": \"5:00 PM\"\n      },\n      {\n        \"day\": \"Sunday\",\n        \"fromHour\": \"8:00 AM\",\n        \"toHour\": \"5:00 PM\"\n      }\n    ],\n    \"nearbyRadius\": \"<integer>\"\n  },\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a68b1c2a-7609-464c-b0ae-4109175176ce",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d4e5d0c-5b27-495e-ba9e-3419cda7e596",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48709a40-1c1c-47fb-8e21-6edfaa30aeab",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "247b0482-df1b-4287-876b-d8df409a754b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0958324-c78e-4934-93c0-6ae92fe8a397",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "082c418b-eb4c-430f-9597-23090d66cc8c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-metrics",
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cef180ea-b162-4377-b1bc-52377daa42a3",
+          "name": "Visit Trends Report",
+          "request": {
+            "name": "Visit Trends Report",
+            "description": {
+              "content": "Retrieves visitations for a given list of entities in daily, weekly or monthly granularity.<br/><br/> <strong>&#x21e1; This service supports bulk request</strong><br/><br/> <strong> &#10045; This service supports chain level requests</strong><br/><br/> &#x23F1; <strong>Average measured processing time: 3.58 seconds </strong><br><br> <strong>&#128205; This service doesn't support custom POI. To pull visits trend for custom POI please use <a href=\"https://docs.placer.ai/reference/post_v1-reports-visit-trends-single\">Visit Trends Report for a Single Property </a> endpoint. </strong><br/><br/>\nFor more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "visit-trends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiIds\": [\n    \"<string>\"\n  ],\n  \"endDate\": \"<date>\",\n  \"granularity\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"filters\": {\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": \"<number>\",\n        \"ge\": \"<number>\",\n        \"lt\": \"<number>\",\n        \"gt\": \"<number>\",\n        \"eq\": \"<number>\"\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"default\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "521775ed-41bf-4fc9-8511-ffa480b98efb",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"items\": [\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"data\": {\n        \"dates\": [\n          \"2020-12-01\",\n          \"2021-01-01\",\n          \"2021-02-01\",\n          \"2021-03-01\",\n          \"2021-04-01\",\n          \"2021-05-01\"\n        ],\n        \"granularity\": \"month\",\n        \"visits\": [\n          68293,\n          67661,\n          60130,\n          79550,\n          79292,\n          78276\n        ],\n        \"panelVisits\": [\n          1856,\n          1962,\n          1745,\n          2145,\n          1996,\n          1842\n        ],\n        \"visitDurationSegmentation\": \"10MinOrLonger\"\n      }\n    },\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"data\": {\n        \"dates\": [\n          \"2020-12-01\",\n          \"2021-01-01\",\n          \"2021-02-01\",\n          \"2021-03-01\",\n          \"2021-04-01\",\n          \"2021-05-01\"\n        ],\n        \"granularity\": \"month\",\n        \"visits\": [\n          68293,\n          67661,\n          60130,\n          79550,\n          79292,\n          78276\n        ],\n        \"panelVisits\": [\n          1856,\n          1962,\n          1745,\n          2145,\n          1996,\n          1842\n        ],\n        \"visitDurationSegmentation\": \"10MinOrLonger\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a7d42bc-aff6-4bc9-8384-d8d416550c8d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "769977e5-4181-49b3-a73b-6107aedfed4f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7634fe61-6d70-4b26-b129-3eb038acdfa6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e1721d66-2ba2-4857-b371-ff4649bd166b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "68a9389a-6e06-4c48-aa67-a74d66af0e92",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d89b1e1-73d5-4a75-99f9-b0dbc7fcd1e5",
+          "name": "Visit Trends Report for a Single Property",
+          "request": {
+            "name": "Visit Trends Report for a Single Property",
+            "description": {
+              "content": "Retrieves visits for a given entity in daily, weekly or monthly granularity.<br/><br/>\nFor more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "visit-trends",
+                "single"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiId\": \"<string>\",\n  \"endDate\": \"<date>\",\n  \"granularity\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5c1c75b-0234-4306-b839-e978994c2430",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends",
+                    "single"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"data\": {\n    \"dates\": [\n      \"2020-12-01\",\n      \"2021-01-01\",\n      \"2021-02-01\",\n      \"2021-03-01\",\n      \"2021-04-01\",\n      \"2021-05-01\"\n    ],\n    \"granularity\": \"month\",\n    \"visits\": [\n      68293,\n      67661,\n      60130,\n      79550,\n      79292,\n      78276\n    ],\n    \"visitDurationSegmentation\": \"10MinOrLonger\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96b3abc3-ddf3-4a6e-a60a-f1e2c98aa9d4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends",
+                    "single"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7eff6d0e-b320-49c5-8812-d4bcd89e21d7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends",
+                    "single"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6d18958-d9a0-4e13-ae6c-8ad8284e5e7c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends",
+                    "single"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22966e8d-f2f9-4edd-bd37-e622a000b51a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "visit-trends",
+                    "single"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"endDate\": \"2021-05-31\",\n  \"granularity\": \"month\",\n  \"startDate\": \"2020-12-01\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://papi.placer.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3301a265-e6a2-4bf2-95a2-f1518dd2968d",
+    "name": "papi Account Info Visits Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Placer Public API",
+      "type": "text/plain"
+    }
+  }
+}

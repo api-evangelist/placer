@@ -1,0 +1,313 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info Manage POIs API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Manage POIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Custom POI Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://papi.placer.ai/v1/poi/custom-poi/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "complex:5f7a2d2dc2b5e82a0114cf62",
+                "type": "path",
+                "description": "Placer API ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The Get Custom POI Info service can be used to retrieve information regarding any of your <<glossary:Custom POI>>s, by providing its id.</br> If the requested Custom POI is newly created, this endpoint will respond with the following statuses:</br>\n- **HTTP code = 200**: The full response for the Get Custom POI is provided.</br> - **HTTP code = 202**: The creation process is still in progress.</br> - **HTTP code = 404**: The POI does not exist, indicating a failure in the creation process. Pleas"
+        },
+        {
+          "info": {
+            "name": "Update Custom POI",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://papi.placer.ai/v1/poi/custom-poi/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "complex:5f7a2d2dc2b5e82a0114cf62",
+                "type": "path",
+                "description": "Placer API ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The Update POI service can be used to update any of your <<glossary:Custom POI>>s, by providing any combination of the following custom POI’s properties(at least one):<br/> <ol> <li>Name - the POI’s name.</li> <li>Area - can be defined either by determining the centroid (lng, lat) and the radius to create the POI area, or by a list of all polygon GEO points (lng,lat).</li> <li>Sub-category (For available sub-categories, see <a href=\"https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862f"
+        },
+        {
+          "info": {
+            "name": "Delete Custom POI",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://papi.placer.ai/v1/poi/custom-poi/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "complex:5f7a2d2dc2b5e82a0114cf62",
+                "type": "path",
+                "description": "Placer API ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service allows developers to delete a custom POI by its apiId."
+        },
+        {
+          "info": {
+            "name": "Create a new tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/poi/tags/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Using this service, you have the capability to generate a fresh tag for organizing entities according to your specific business needs."
+        },
+        {
+          "info": {
+            "name": "Add POI List to an Existing Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://papi.placer.ai/v1/poi/tags/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service can be used to attach entities to an existing tag."
+        },
+        {
+          "info": {
+            "name": "Remove POI List From an Existing Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://papi.placer.ai/v1/poi/tags/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service can be used to detach entities from an existing tag."
+        },
+        {
+          "info": {
+            "name": "Search for Placer Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://papi.placer.ai/v1/poi",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of query location, if specified then response will not include <<glossary:Chains>>"
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of query location, if specified then response will not include chains"
+              },
+              {
+                "name": "query",
+                "value": "Walmart",
+                "type": "query",
+                "description": "String included in the entity name"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by radius in miles. default value 0.01 miles"
+              },
+              {
+                "name": "category",
+                "value": "Superstores",
+                "type": "query",
+                "description": "Filter specific category"
+              },
+              {
+                "name": "subCategory",
+                "value": "Big Box Store",
+                "type": "query",
+                "description": "Filter specific sub category"
+              },
+              {
+                "name": "groupCategory",
+                "value": "Superstores",
+                "type": "query",
+                "description": "Filter specific group category i.e. Search POIs by business domains (e.g. Apparel,Dining, ....)"
+              },
+              {
+                "name": "entityType",
+                "value": "venue",
+                "type": "query",
+                "description": "Filter out specific entity type in search result. If this is not provided, all entity types will be returned"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search result limit"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeFlaggedEntities",
+                "value": "false",
+                "type": "query",
+                "description": "If the parameter is set to true, the response will also include flagged entities"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service returns a list of Placer managed entities in a particular area. You can search based on any combination of the following filter parameters:<br/> entities within a specific location radius, entities associated with a specific group category/category/sub category, entity name or type.<br/> The response lists the matched entities, including address and location, zip code, group category, category ,sub-category and a link to Placer dashboard.<br/> The service supports pagination using t"
+        },
+        {
+          "info": {
+            "name": "Get Sub-Entities for a complex, a chain or a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://papi.placer.ai/v1/poi/:id/entities",
+            "params": [
+              {
+                "name": "id",
+                "value": "chain:58ef64a9173f5601f92d8f0e",
+                "type": "path",
+                "description": "Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)"
+              },
+              {
+                "name": "includeRegionalChains",
+                "value": "true",
+                "type": "query",
+                "description": "Set this parameter to True for pulling regional chains(under the parent chain requested) as well as all other sub entities."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of sub-entities for given api ID. Sub-entities can be associated with <<glossary:Complexes>>, <<glossary:Chains>> and <<glossary:Tags>> . <<glossary:Complexes>> and <<glossary:Chains>> contain venues as their sub-entities while <<glossary:Tags>>  may have venues, <<glossary:Complexes>> or <<glossary:Chains>><br/><br/> <strong> &#10045; This service supports chain level requests</strong>."
+        },
+        {
+          "info": {
+            "name": "Get Listed Entities for Account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://papi.placer.ai/v1/poi/my-properties",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of entities for a given account.The response will include all entities which are under the Property tag (i.e. Portfolio)."
+        },
+        {
+          "info": {
+            "name": "Create Custom POI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/poi/custom-poi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The create <<glossary:Custom POI>> endpoint can be used to generate custom POIs by specifying the unique polygons to               analyze.<br/> The <<glossary:Custom POI>> can be generated by either specifying the combination of centroid (lng, lat) and mile radius to draw the POI's area, or by using GEOJson which includes a list of all polygon GEO points (lng, lat).<br/> This endpoint runs duplication checks on each call in order to ensure that the same <<glossary:Custom POI>> is not created mo"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,3222 @@
+{
+  "item": [
+    {
+      "id": "730adb79-e766-441d-b8c9-1cdf5114d8d8",
+      "name": "Manage POIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d265ca7-35b9-40cc-9b69-725a8dfcd8e4",
+          "name": "Delete Custom POI",
+          "request": {
+            "name": "Delete Custom POI",
+            "description": {
+              "content": "This service allows developers to delete a custom POI by its apiId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "custom-poi",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Placer API ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b5a0a147-3c24-471d-a353-76872fcef8fc",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"result\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b6a5874-cedc-4773-9861-8427a09367d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15bda13c-3f66-437a-8ca8-779927d668d2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38bc81ee-ccd2-4a7e-baa5-db4f6384134f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "635fec20-1276-4469-b67a-21a4dc22f3ae",
+          "name": "Get Custom POI Info",
+          "request": {
+            "name": "Get Custom POI Info",
+            "description": {
+              "content": "The Get Custom POI Info service can be used to retrieve information regarding any of your <<glossary:Custom POI>>s, by providing its id.</br> If the requested Custom POI is newly created, this endpoint will respond with the following statuses:</br>\n- **HTTP code = 200**: The full response for the Get Custom POI is provided.</br> - **HTTP code = 202**: The creation process is still in progress.</br> - **HTTP code = 404**: The POI does not exist, indicating a failure in the creation process. Please retry creating the custom POI.</br> - **HTTP code = 500**: Server error.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "custom-poi",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Placer API ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4465a688-101e-47d3-bd87-6f72c8f478a5",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"name\": \"Walmart\",\n  \"entityId\": \"7d55054520e387813d764b03\",\n  \"entityType\": \"venue\",\n  \"categoryInfo\": {\n    \"category\": \"Fast Food & QSR\",\n    \"group\": \"Dining\",\n    \"subCategory\": \"Pizze Place\"\n  },\n  \"address\": {\n    \"city\": \"Milpitas\",\n    \"state\": \"California\",\n    \"countryCode\": \"US\",\n    \"streetName\": \"Ranch Dr\",\n    \"formattedAddress\": \"301 Ranch Dr, Milpitas, CA, United States\",\n    \"shortFormattedAddress\": \"Ranch Dr, Milpitas, CA\",\n    \"zipCode\": \"95035\"\n  },\n  \"isFlagged\": false,\n  \"regions\": {\n    \"dma\": {\n      \"code\": \"string\",\n      \"name\": \"San Francisco-Oakland-San Jose, CA\"\n    },\n    \"state\": {\n      \"code\": \"CA\",\n      \"name\": \"California\"\n    },\n    \"cbsa\": {\n      \"code\": \"41940\",\n      \"name\": \"San Jose-Sunnyvale-Santa Clara, CA Metro Area\"\n    }\n  },\n  \"placerUrl\": \"https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview\",\n  \"parentChains\": {\n    \"apiId\": \"chain:58ef64a9173f5601f92d8f0e\",\n    \"name\": \"Target\"\n  },\n  \"parentTags\": {\n    \"apiId\": \"tag:614c118e500adeae9e9e70a6\",\n    \"name\": \"Test Group Tag\"\n  },\n  \"isPermitted\": true,\n  \"regionType\": \"dma\",\n  \"regionCode\": \"11010\",\n  \"storeId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c567bf93-f1fb-4fd8-91c8-799c52909192",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "77955d0b-40c1-414e-a504-aa0a91a42d5f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9db683d1-72ea-4581-a321-ab496704e2e8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fd1751a-5b71-4343-8dc3-ab96a70f47d1",
+          "name": "Update Custom POI",
+          "request": {
+            "name": "Update Custom POI",
+            "description": {
+              "content": "The Update POI service can be used to update any of your <<glossary:Custom POI>>s, by providing any combination of the following custom POI’s properties(at least one):<br/> <ol> <li>Name - the POI’s name.</li> <li>Area - can be defined either by determining the centroid (lng, lat) and the radius to create the POI area, or by a list of all polygon GEO points (lng,lat).</li> <li>Sub-category (For available sub-categories, see <a href=\"https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd\">listed categories</a>.</li> <li>Address - the consumer can change any of the following properties: street address, city and/or zipcode.</li> </ol>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "custom-poi",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Placer API ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"centroid\": [\n    \"<float>\",\n    \"<float>\"\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      \"<float>\",\n      \"<float>\"\n    ],\n    [\n      \"<float>\",\n      \"<float>\"\n    ]\n  ],\n  \"address\": {\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"zipCode\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "37e93217-f767-490e-9fe9-b0da676e273c",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"complex:5f7a2d2dc2b5e82a0114cf62\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"result\": \"SUCCESS\",\n    \"name\": \"Name to be used to identify the <<glossary:Custom POI>>\",\n    \"apiId\": \"complex:8d22ae197ee335c5074a67ff\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcbdb6e7-a61e-4f37-b22e-f75923628dc1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"complex:5f7a2d2dc2b5e82a0114cf62\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea0fdaa5-142c-4238-9871-c535f098fc15",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"complex:5f7a2d2dc2b5e82a0114cf62\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5165988-63fb-49e1-bf49-bb701b028470",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer API ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"complex:5f7a2d2dc2b5e82a0114cf62\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54d3a4c5-9cb6-4e54-967c-1c784cff9691",
+          "name": "Remove POI List From an Existing Tag",
+          "request": {
+            "name": "Remove POI List From an Existing Tag",
+            "description": {
+              "content": "This service can be used to detach entities from an existing tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "tags",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tagId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c14f6053-7188-4e30-99f3-4bb8319e27b8",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"result\": \"SUCCESS\",\n    \"tagId\": \"672be20c36e1d0ff18a13807\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfffdf43-5534-4426-8850-2662b8c20bfd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94aeaf20-261f-488f-a446-6411e9a4c4c2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e88fa6b0-63e2-4e4b-ac62-b7d4d89f6a1f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "63746329-a79c-4ba9-a7c9-fe02e1b7d554",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "450fb0b4-6874-4840-b3fa-b72b73bb8931",
+          "name": "Create a new tag",
+          "request": {
+            "name": "Create a new tag",
+            "description": {
+              "content": "Using this service, you have the capability to generate a fresh tag for organizing entities according to your specific business needs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "tags",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tagName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bdb43046-8b87-4925-b255-5b7ad43c2467",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tagName\": \"My Shop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"result\": \"SUCCESS\",\n    \"tagId\": \"672be20c36e1d0ff18a13807\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84b48db7-65ec-4235-bc5b-03a8e036d541",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tagName\": \"My Shop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9b125bf-991e-4f87-b054-6db5d234054d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tagName\": \"My Shop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66b83438-8f0c-49e9-83c4-86d3fc7c1130",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tagName\": \"My Shop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e908b125-98d1-4ce8-8eba-cb80e9ca144d",
+          "name": "Add POI List to an Existing Tag",
+          "request": {
+            "name": "Add POI List to an Existing Tag",
+            "description": {
+              "content": "This service can be used to attach entities to an existing tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "tags",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tagId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2fd45769-11d9-4e24-951e-b6b88545c657",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"result\": \"SUCCESS\",\n    \"tagId\": \"672be20c36e1d0ff18a13807\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "844cc6f0-0f13-483f-95f8-bdfc22816916",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4840f560-9613-415a-a086-e7421b422685",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aeefa3c3-6c76-4122-b0da-666be757da8c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31487458-8d26-4ef0-a440-5a0b0f20d857",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiIds\": [\n    \"venue:7d55054520e387813d764b03\",\n    \"venue:7d55054520e387813d764b03\"\n  ],\n  \"tagId\": \"672be20c36e1d0ff18a13807\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e40e891-59d5-4e8d-baf3-c6ef0fd9e3d0",
+          "name": "Search for Placer Entities",
+          "request": {
+            "name": "Search for Placer Entities",
+            "description": {
+              "content": "This service returns a list of Placer managed entities in a particular area. You can search based on any combination of the following filter parameters:<br/> entities within a specific location radius, entities associated with a specific group category/category/sub category, entity name or type.<br/> The response lists the matched entities, including address and location, zip code, group category, category ,sub-category and a link to Placer dashboard.<br/> The service supports pagination using the skip parameter. The first 1000 entities matching the criteria of the request are available.<br/> For available categories, see <a href=\"https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd\">listed categories</a>.</br></br> <b>Note</b> that when using the radius parameter, the actual area being considered for searching POIs is the area within a square that is bounding the circle, which is defined by the requested radius.</br> <b>Please note:</b> In case you receive results where the isPermitted attribute is set to “false”, that means that you are not permitted to run reports for those. In case you wish to extend your permissions please contact <a href=\"mailto:support@placer.ai\">customer support</a>.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "Latitude of query location, if specified then response will not include <<glossary:Chains>>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "Longitude of query location, if specified then response will not include chains"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "String included in the entity name"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "1",
+                  "description": "Filter results by radius in miles. default value 0.01 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Filter specific category"
+                },
+                {
+                  "disabled": false,
+                  "key": "subCategory",
+                  "value": "<string>",
+                  "description": "Filter specific sub category"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupCategory",
+                  "value": "<string>",
+                  "description": "Filter specific group category i.e. Search POIs by business domains (e.g. Apparel,Dining, ....)"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "venue,complex,chain",
+                  "description": "Filter out specific entity type in search result. If this is not provided, all entity types will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Search result limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFlaggedEntities",
+                  "value": "<boolean>",
+                  "description": "If the parameter is set to true, the response will also include flagged entities"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b68e5821-0c0e-45a4-95ff-a80f49dddb61",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "37.52"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "-121.98"
+                    },
+                    {
+                      "key": "query",
+                      "value": "Walmart"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "key": "category",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "subCategory",
+                      "value": "Big Box Store"
+                    },
+                    {
+                      "key": "groupCategory",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "entityType",
+                      "value": "venue"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "includeFlaggedEntities",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"placerUrl\": \"https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview\",\n      \"parentChains\": {\n        \"apiId\": \"chain:58ef64a9173f5601f92d8f0e\",\n        \"name\": \"Target\"\n      },\n      \"parentTags\": {\n        \"apiId\": \"tag:614c118e500adeae9e9e70a6\",\n        \"name\": \"Test Group Tag\"\n      },\n      \"isPermitted\": true,\n      \"regionType\": \"dma\",\n      \"regionCode\": \"11010\",\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"categoryInfo\": {\n        \"category\": \"Fast Food & QSR\",\n        \"group\": \"Dining\",\n        \"subCategory\": \"Pizze Place\"\n      },\n      \"address\": {\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"countryCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"streetName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"formattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shortFormattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zipCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"isFlagged\": false,\n      \"regions\": {\n        \"dma\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"state\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"cbsa\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"placerUrl\": \"https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview\",\n      \"parentChains\": {\n        \"apiId\": \"chain:58ef64a9173f5601f92d8f0e\",\n        \"name\": \"Target\"\n      },\n      \"parentTags\": {\n        \"apiId\": \"tag:614c118e500adeae9e9e70a6\",\n        \"name\": \"Test Group Tag\"\n      },\n      \"isPermitted\": true,\n      \"regionType\": \"dma\",\n      \"regionCode\": \"11010\",\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"categoryInfo\": {\n        \"category\": \"Fast Food & QSR\",\n        \"group\": \"Dining\",\n        \"subCategory\": \"Pizze Place\"\n      },\n      \"address\": {\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"countryCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"streetName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"formattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shortFormattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zipCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"isFlagged\": false,\n      \"regions\": {\n        \"dma\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"state\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"cbsa\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ],\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "169b70bc-e9d7-43a5-9dd6-54996ad9b5d0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "37.52"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "-121.98"
+                    },
+                    {
+                      "key": "query",
+                      "value": "Walmart"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "key": "category",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "subCategory",
+                      "value": "Big Box Store"
+                    },
+                    {
+                      "key": "groupCategory",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "entityType",
+                      "value": "venue"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "includeFlaggedEntities",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d6063df-21df-411c-8785-dea7952733c5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "37.52"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "-121.98"
+                    },
+                    {
+                      "key": "query",
+                      "value": "Walmart"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "key": "category",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "subCategory",
+                      "value": "Big Box Store"
+                    },
+                    {
+                      "key": "groupCategory",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "entityType",
+                      "value": "venue"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "includeFlaggedEntities",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "88c70114-360b-4c5a-993d-9acc03663430",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "37.52"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "-121.98"
+                    },
+                    {
+                      "key": "query",
+                      "value": "Walmart"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "key": "category",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "subCategory",
+                      "value": "Big Box Store"
+                    },
+                    {
+                      "key": "groupCategory",
+                      "value": "Superstores"
+                    },
+                    {
+                      "key": "entityType",
+                      "value": "venue"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "includeFlaggedEntities",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70a44842-df57-49cb-92e9-7814c42b33cb",
+          "name": "Get Sub-Entities for a complex, a chain or a tag",
+          "request": {
+            "name": "Get Sub-Entities for a complex, a chain or a tag",
+            "description": {
+              "content": "Returns a list of sub-entities for given api ID. Sub-entities can be associated with <<glossary:Complexes>>, <<glossary:Chains>> and <<glossary:Tags>> . <<glossary:Complexes>> and <<glossary:Chains>> contain venues as their sub-entities while <<glossary:Tags>>  may have venues, <<glossary:Complexes>> or <<glossary:Chains>><br/><br/> <strong> &#10045; This service supports chain level requests</strong>.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                ":id",
+                "entities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeRegionalChains",
+                  "value": "<boolean>",
+                  "description": "Set this parameter to True for pulling regional chains(under the parent chain requested) as well as all other sub entities."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04e95829-69b4-48f7-a47f-f4ec7a5057f7",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    ":id",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeRegionalChains",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"flagged\": false,\n      \"storeId\": \"1401\",\n      \"regionType\": \"state\",\n      \"regionCode\": \"WV\"\n    },\n    {\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"flagged\": true,\n      \"storeId\": \"1401\",\n      \"regionType\": \"state\",\n      \"regionCode\": \"WV\"\n    }\n  ],\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd72ee67-9733-4c2b-a52e-7485b295aa3e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    ":id",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeRegionalChains",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94d14f06-7aa7-455c-a9ff-bc7d34525e97",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    ":id",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeRegionalChains",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7bdd3d58-2bba-4b08-94c3-780a6bb204b6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    ":id",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeRegionalChains",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c99891b-b2cb-4c19-b328-f6410986956f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    ":id",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeRegionalChains",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Placer entity API ID (i.e. ID of a <strong>chain</strong>, a <strong>complex</strong> or a <strong>tag</strong>)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "201d326c-1bd1-4889-86ab-012f490da584",
+          "name": "Get Listed Entities for Account.",
+          "request": {
+            "name": "Get Listed Entities for Account.",
+            "description": {
+              "content": "Returns a list of entities for a given account.The response will include all entities which are under the Property tag (i.e. Portfolio).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "my-properties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "92cc8ad7-e5d2-48bd-9ef0-bf731c383bf8",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "my-properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"placerUrl\": \"https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview\",\n      \"parentChains\": {\n        \"apiId\": \"chain:58ef64a9173f5601f92d8f0e\",\n        \"name\": \"Target\"\n      },\n      \"parentTags\": {\n        \"apiId\": \"tag:614c118e500adeae9e9e70a6\",\n        \"name\": \"Test Group Tag\"\n      },\n      \"isPermitted\": true,\n      \"regionType\": \"dma\",\n      \"regionCode\": \"11010\",\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"categoryInfo\": {\n        \"category\": \"Fast Food & QSR\",\n        \"group\": \"Dining\",\n        \"subCategory\": \"Pizze Place\"\n      },\n      \"address\": {\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"countryCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"streetName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"formattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shortFormattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zipCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"isFlagged\": false,\n      \"regions\": {\n        \"dma\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"state\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"cbsa\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"placerUrl\": \"https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview\",\n      \"parentChains\": {\n        \"apiId\": \"chain:58ef64a9173f5601f92d8f0e\",\n        \"name\": \"Target\"\n      },\n      \"parentTags\": {\n        \"apiId\": \"tag:614c118e500adeae9e9e70a6\",\n        \"name\": \"Test Group Tag\"\n      },\n      \"isPermitted\": true,\n      \"regionType\": \"dma\",\n      \"regionCode\": \"11010\",\n      \"apiId\": \"venue:7d55054520e387813d764b03\",\n      \"name\": \"Walmart\",\n      \"entityId\": \"7d55054520e387813d764b03\",\n      \"entityType\": \"venue\",\n      \"categoryInfo\": {\n        \"category\": \"Fast Food & QSR\",\n        \"group\": \"Dining\",\n        \"subCategory\": \"Pizze Place\"\n      },\n      \"address\": {\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"countryCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"streetName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"formattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shortFormattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zipCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"isFlagged\": false,\n      \"regions\": {\n        \"dma\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"state\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"cbsa\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ],\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8107379-f69d-4c99-b194-2a7fb10897c9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "my-properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a422488-f1aa-4aa3-aa58-c3938979e08b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "my-properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6248637f-8553-4446-9936-5f4202750dcb",
+          "name": "Create Custom POI",
+          "request": {
+            "name": "Create Custom POI",
+            "description": {
+              "content": "The create <<glossary:Custom POI>> endpoint can be used to generate custom POIs by specifying the unique polygons to               analyze.<br/> The <<glossary:Custom POI>> can be generated by either specifying the combination of centroid (lng, lat) and mile radius to draw the POI's area, or by using GEOJson which includes a list of all polygon GEO points (lng, lat).<br/> This endpoint runs duplication checks on each call in order to ensure that the same <<glossary:Custom POI>> is not created more than once. If a <<glossary:Custom POI>> is already created the return code will display a wrong request (http-code=400) specifying the previously created API ID.</br> Please be aware that creating custom POIs might take longer than 30 seconds, which falls within the timeout window. During such occurrences, the HTTP response code will be 202 (i.e., In progress), along with the apiId of the partially created POI. You can monitor the creation status by querying the <a href=Get Custom POI Info > Get Custom POI</a> endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "poi",
+                "custom-poi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"tagId\": \"<string>\",\n  \"centroid\": [\n    \"<float>\",\n    \"<float>\"\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      \"<float>\",\n      \"<float>\"\n    ],\n    [\n      \"<float>\",\n      \"<float>\"\n    ]\n  ],\n  \"address\": {\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"zipCode\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5369f392-9e01-43ca-8cf2-73217212c24c",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Some Custom POI Name\",\n  \"subCategory\": \"Pizza Place\",\n  \"tagId\": \"672be20c36e1d0ff18a13807\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"result\": \"SUCCESS\",\n    \"name\": \"Name to be used to identify the <<glossary:Custom POI>>\",\n    \"apiId\": \"complex:8d22ae197ee335c5074a67ff\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e592d7f-1c4d-4e0c-b262-0078367821f0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Some Custom POI Name\",\n  \"subCategory\": \"Pizza Place\",\n  \"tagId\": \"672be20c36e1d0ff18a13807\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3690d9fc-0c55-45ae-8bf5-e5d16f7f8e01",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Some Custom POI Name\",\n  \"subCategory\": \"Pizza Place\",\n  \"tagId\": \"672be20c36e1d0ff18a13807\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2e3441e-f621-432c-865c-13904b3377bc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "poi",
+                    "custom-poi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Some Custom POI Name\",\n  \"subCategory\": \"Pizza Place\",\n  \"tagId\": \"672be20c36e1d0ff18a13807\",\n  \"centroid\": [\n    -78.519444,\n    36.61636\n  ],\n  \"radius\": 0.1,\n  \"polygon\": [\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.61628975092374\n    ],\n    [\n      -78.51927638053894,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.616430763747964\n    ],\n    [\n      -78.51961433887482,\n      36.61628975092374\n    ]\n  ],\n  \"address\": {\n    \"address\": \"301 Ranch Dr\",\n    \"city\": \"Milpitas\",\n    \"zipCode\": \"95035\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://papi.placer.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "82e826b6-91cc-45c3-9ed0-7300e871069f",
+    "name": "papi Account Info Manage POIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Placer Public API",
+      "type": "text/plain"
+    }
+  }
+}

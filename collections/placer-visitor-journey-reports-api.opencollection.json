@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info Visitor Journey Reports API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Visitor Journey Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Visitor Journey - Favorite Chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/favorites-chains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Favorite <<glossary:Chains>> provides a list of other <<glossary:Chains>> that visitors to your location have also visited during the selected time frame (e.g., X% of visitors to My Venue also visited Chain A during the last X months).<br/>\nYou may choose specific categories to examine among the <a href=\"https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd\">listed categories</a> and define the minimum visit frequency.<br/>\nThe response includes the top 50 properties matching the"
+        },
+        {
+          "info": {
+            "name": "Visitor Journey - Favorite Places",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/favorites-places",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Favorite Places provides a list of other places that visitors to your location have also visited during the selected time frame (e.g., X% of visitors to My Venue also visited Place A during the last X months).<br/>\nYou may choose specific categories to examine among the <a href=\"https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd\">listed categories</a> and define the minimum visit frequency.<br/>\nThe response includes the top 50 properties matching the requested parameters.<br/"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

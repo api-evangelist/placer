@@ -1,0 +1,1492 @@
+{
+  "item": [
+    {
+      "id": "74ea45f8-d851-462c-ba68-a6a2de0c0ea8",
+      "name": "Retail Sales Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98bb9646-aee9-4025-9a49-d7820adef7f7",
+          "name": "Retail Sales Average Ticket Size Trend Report",
+          "request": {
+            "name": "Retail Sales Average Ticket Size Trend Report",
+            "description": {
+              "content": "Average Ticket Size report allows you to examine the average dollar amount of sales per transaction generated at the venue in your report, during the selected date range. You can compare the venue's average ticket size trend against its category average.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "retail-sales",
+                "avg-ticket-size-trends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"compareType\": \"<string>\",\n  \"granularity\": \"month\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "491bb995-f90a-4678-98f0-3998eae99e52",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "avg-ticket-size-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_category_nationwide\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"startDate\": \"2020-12-01\",\n    \"endDate\": \"2021-05-31\",\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"compareType\": \"avg_category_nationwide\",\n    \"granularity\": \"month\",\n    \"trend\": {\n      \"bins\": [\n        \"2022-08-01\",\n        \"2022-09-01\",\n        \"2022-10-01\"\n      ],\n      \"values\": [\n        4051.431380016257,\n        2825.604933047544\n      ]\n    },\n    \"compare\": {\n      \"bins\": [\n        \"2022-08-01\",\n        \"2022-09-01\",\n        \"2022-10-01\"\n      ],\n      \"values\": [\n        60222523.71,\n        56326656.69,\n        47654112.81\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67ed7867-4a00-4b58-a3b1-8fda476c9640",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "avg-ticket-size-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_category_nationwide\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3306c98-46b6-4c98-9ab3-450c9623efed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "avg-ticket-size-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_category_nationwide\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3545f536-01d2-4726-a31e-0c54be8218ca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "avg-ticket-size-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_category_nationwide\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bdf8b93-15e1-41b5-a646-56e292ae51ad",
+          "name": "Retail Sales Daily Trends",
+          "request": {
+            "name": "Retail Sales Daily Trends",
+            "description": {
+              "content": "This service provides the retail sales metrics overview for the entire requested period aggregated either by the day of the week or by weekdays/weekend. The insights are available for various of metrics</b>: <ul> <li> <b>sales</b>: The dollar value (USD) of all sales during your selected aggregation.</li> <li> <b>avg_sales</b>: The dollar value (USD) of average sales per day during your selected aggregation.</li> <li> <b>sales_pct</b>: The percentage of total sales which occurred during your selected aggregation.</li> <li> <b>sales_sq_ft</b>: The total value of sales per square foot at the venue examined, during your selected aggregation.</li> <li> <b>transactions</b>: The total number of individual transactions which took place at the property examined during your selected aggregation.</li> <li> <b>transactions_pct</b>:The percentage of total transactions which occurred during your selected .aggregation.</li> <li> <b>avg_ticket_size</b>: The average dollar amount of sales per transaction generated at the venues in your report, per your selected aggregation.</li> </ul>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "retail-sales",
+                "days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"aggregation\": \"full_week\",\n  \"metricType\": \"sales\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42589a09-3002-48bf-b6c0-f7ee42c68434",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"aggregation\": \"full_week\",\n  \"metricType\": \"sales\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"startDate\": \"2020-12-01\",\n    \"endDate\": \"2021-05-31\",\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"aggregation\": \"full_week\",\n    \"metricType\": \"sales\",\n    \"dayOfWeek\": {\n      \"bins\": [\n        \"Monday\",\n        \"Tuesday\",\n        \"Wednesday\",\n        \"Thursday\",\n        \"Friday\",\n        \"Saturday\",\n        \"Sunday\"\n      ],\n      \"values\": [\n        23332019.04,\n        20430526.44,\n        20256899.97,\n        24597150.08,\n        30653813.68,\n        30801899.86,\n        27723322.83\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cff3e1df-1d95-4c30-803c-9d08f75dd5fb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"aggregation\": \"full_week\",\n  \"metricType\": \"sales\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09b027e3-eac6-4ab0-8d72-895a72046333",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"aggregation\": \"full_week\",\n  \"metricType\": \"sales\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2118fc49-e8e8-4524-b101-732cf438d007",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"aggregation\": \"full_week\",\n  \"metricType\": \"sales\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aeff2b32-b44b-47a4-af1d-63821e182866",
+          "name": "Retail Sales Overview",
+          "request": {
+            "name": "Retail Sales Overview",
+            "description": {
+              "content": "This service provides the retail sales metrics overview for the entire requested period.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "retail-sales",
+                "overview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afbcaf10-a013-4882-a3e8-805477255620",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"startDate\": \"2020-12-01\",\n    \"endDate\": \"2021-05-31\",\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"salesOverview\": [\n      {\n        \"valueType\": \"currency\",\n        \"metricName\": \"sales\",\n        \"value\": 177795631.94\n      },\n      {\n        \"valueType\": \"currency\",\n        \"metricName\": \"sales_sq_ft\",\n        \"value\": 852.75\n      },\n      {\n        \"valueType\": \"number\",\n        \"metricName\": \"transactions\",\n        \"value\": 3298775.63\n      },\n      {\n        \"valueType\": \"number\",\n        \"metricName\": \"avg_daily_unique_customers\",\n        \"value\": 4611.03\n      },\n      {\n        \"valueType\": \"number\",\n        \"metricName\": \"avg_monthly_unique_customers\",\n        \"value\": 71553.62\n      },\n      {\n        \"valueType\": \"number\",\n        \"metricName\": \"avg_weekly_unique_customers\",\n        \"value\": 27317.12\n      },\n      {\n        \"valueType\": \"currency\",\n        \"metricName\": \"avg_ticket_size\",\n        \"value\": 53.9\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c71a36ec-d227-4912-9393-299d9218bf20",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32e2bd57-6b05-49f1-8516-3ca03f80c40d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3585c9ae-2f3b-4d56-b83d-c7c26cf23df0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9a15bf2-90f8-4b89-9e06-f4119d138633",
+          "name": "Retail Sales Trend Report",
+          "request": {
+            "name": "Retail Sales Trend Report",
+            "description": {
+              "content": "This service provides the insights about sales performance at each venue examined in the report. Within the response of this service you will be receiving both the requested insights based on the date range, granularity and type of metric, and the annual sales for the past year-to-date and 3 last calendar years.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "retail-sales",
+                "sales-trends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"metric\": \"sales\",\n  \"granularity\": \"month\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b36ab8b3-76eb-4cc8-a7c7-f34a32613a50",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "sales-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"sales\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"startDate\": \"2020-12-01\",\n    \"endDate\": \"2021-05-31\",\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"metric\": \"sales\",\n    \"granularity\": \"month\",\n    \"annualSales\": {\n      \"bins\": [\n        \"2021\",\n        \"2022\",\n        \"2023\",\n        \"1y\"\n      ],\n      \"values\": [\n        60222003.71,\n        58126656.69,\n        54654112.81,\n        67245632.21\n      ]\n    },\n    \"trend\": {\n      \"bins\": [\n        \"2022-08-01\",\n        \"2022-09-01\",\n        \"2022-10-01\"\n      ],\n      \"values\": [\n        60222003.71,\n        58126656.69,\n        54654112.81\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9ebfa21-3def-497b-a957-a94e4f9811b5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "sales-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"sales\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "253d7219-b83d-4fdb-b48b-3a1806a1c3bb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "sales-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"sales\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b1856cc-00d0-4939-bced-34136ae8105e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "sales-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"metric\": \"sales\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1344e5b2-e99c-48dc-adb5-c2109c8ee021",
+          "name": "Retail Sales Transactions Trends Report",
+          "request": {
+            "name": "Retail Sales Transactions Trends Report",
+            "description": {
+              "content": "The Transaction Trend presents the total number of transactions generated at the venues in your report over time. You can compare the venue's transaction trend against its category or chain average.<br/><br/>\n<b>Note</b>: Retail sales data currently excludes online transactions and only pertains to sales in brick and mortar locations. Transactions which occurred using the Buy Now Pick Up In Store option may be reflected in the data, depending on the retailer concerned. In the event that Retail Sales data is not available for the report’s entire date range the response will provide the exact dates for which the data applies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "retail-sales",
+                "transaction-trends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"compareType\": \"<string>\",\n  \"granularity\": \"month\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea9161ef-6156-4e42-bd73-34a1e9251cac",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "transaction-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_chain_in_state\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122\",\n  \"data\": {\n    \"startDate\": \"2020-12-01\",\n    \"endDate\": \"2021-05-31\",\n    \"apiId\": \"venue:7d55054520e387813d764b03\",\n    \"compareType\": \"avg_chain_in_state\",\n    \"granularity\": \"month\",\n    \"trend\": {\n      \"bins\": [\n        \"2022-08-01\",\n        \"2022-09-01\",\n        \"2022-10-01\"\n      ],\n      \"values\": [\n        138915.39,\n        139320.64,\n        136581.83\n      ]\n    },\n    \"compare\": {\n      \"bins\": [\n        \"2022-08-01\",\n        \"2022-09-01\",\n        \"2022-10-01\"\n      ],\n      \"values\": [\n        138915.39,\n        139320.64,\n        136581.83\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24a0632c-bef6-4fcd-b400-1f3435d46148",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "transaction-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_chain_in_state\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1b40669-74f6-4243-8607-78de9a77610e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "transaction-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_chain_in_state\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12bb9cd9-71bb-4532-84c9-999e302bd2d5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "retail-sales",
+                    "transaction-trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"compareType\": \"avg_chain_in_state\",\n  \"granularity\": \"month\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://papi.placer.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d2204352-9969-4e67-a8a1-674c9ed03b2a",
+    "name": "papi Account Info Retail Sales Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Placer Public API",
+      "type": "text/plain"
+    }
+  }
+}

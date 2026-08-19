@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "papi Account Info Loyalty Reports API",
+    "version": "0.1-oas3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Loyalty Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Visits by Frequency Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://papi.placer.ai/v1/reports/loyalty/visits-frequency",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This service enables you to learn about the frequency of visitations to the requested POI.<br/> Insights are provided for all the below types of metrics, bucketed into visitations frequency bins (i.e. 1, 2, 3, …30+  visits per visitor):<br/> <ul> <li><strong>Visitors</strong> - The estimated number of unique visitors to the POI</li> <li><strong>% of Visitors</strong> - The % of unique visitors that visited the POI</li> <li><strong>Visits</strong> - The estimated number of visits to the POI</li> "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

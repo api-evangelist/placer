@@ -1,0 +1,606 @@
+{
+  "item": [
+    {
+      "id": "594ebbc1-2ec9-42c7-8884-779f6f040029",
+      "name": "Visitor Journey Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fbf9fcc0-14a9-4f06-a4b4-5e07492153e4",
+          "name": "Visitor Journey - Favorite Chains",
+          "request": {
+            "name": "Visitor Journey - Favorite Chains",
+            "description": {
+              "content": "Favorite <<glossary:Chains>> provides a list of other <<glossary:Chains>> that visitors to your location have also visited during the selected time frame (e.g., X% of visitors to My Venue also visited Chain A during the last X months).<br/>\nYou may choose specific categories to examine among the <a href=\"https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd\">listed categories</a> and define the minimum visit frequency.<br/>\nThe response includes the top 50 properties matching the requested parameters.<br/><br/> <br/><br/> &#x23F1; <strong>Average measured processing time: 4.46 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/> &#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "favorites-chains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "943d5947-04ac-4fb5-ac64-99d47a22f5aa",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-chains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestedCategories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"nearbyRadius\": \"<integer>\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\",\n  \"favoritesChainsArray\": [\n    {\n      \"regionType\": \"nationwide\",\n      \"apiId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Walmart\",\n      \"entityId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"entityType\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"categoryInfo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"estimatedNumberOfCustomers\": 1234,\n      \"percentage\": 48.92\n    },\n    {\n      \"regionType\": \"nationwide\",\n      \"apiId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Walmart\",\n      \"entityId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"entityType\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"categoryInfo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"estimatedNumberOfCustomers\": 1234,\n      \"percentage\": 48.92\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78c98b9c-1601-4d7d-ac0c-293f59dac41e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-chains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04e1ae2d-766d-4e38-b65e-2c5db2384178",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-chains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df52f3e7-f402-48a1-82a4-c096ee53c452",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-chains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "223c86f1-37e0-42fc-83d8-edd4da496b7f",
+          "name": "Visitor Journey - Favorite Places",
+          "request": {
+            "name": "Visitor Journey - Favorite Places",
+            "description": {
+              "content": "Favorite Places provides a list of other places that visitors to your location have also visited during the selected time frame (e.g., X% of visitors to My Venue also visited Place A during the last X months).<br/>\nYou may choose specific categories to examine among the <a href=\"https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd\">listed categories</a> and define the minimum visit frequency.<br/>\nThe response includes the top 50 properties matching the requested parameters.<br/><br/>\n&#x23F1; <strong>Average measured processing time: 4.46 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href=\"https://docs.placer.ai/reference/measurements\"> this</a> page<br/><br/>\n&#128205; This service supports the <<glossary:Nearby Activity report>>. Once setting a value to the nearbyRadius parameter, the report will be generated based on the nearby activity logic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "reports",
+                "favorites-places"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"apiId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"<string>\",\n      \"toHour\": \"<string>\"\n    },\n    \"daysOfWeek\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"distance\": {\n      \"from\": \"<string>\",\n      \"values\": {\n        \"le\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ge\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"gt\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eq\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a81b4d42-a2b7-4d44-ab4a-04d22f000c01",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-places"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "x-api-key",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestedCategories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"nearbyRadius\": \"<integer>\",\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"visitDurationSegmentation\": \"10MinOrLonger\",\n  \"favoritesPlacesArray\": [\n    {\n      \"address\": {\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"countryCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"streetName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"formattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shortFormattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zipCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"isFlagged\": false,\n      \"regions\": {\n        \"dma\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"state\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"cbsa\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"apiId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Walmart\",\n      \"entityId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"entityType\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"categoryInfo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"estimatedNumberOfCustomers\": 1234,\n      \"percentage\": 48.92,\n      \"distanceInMiles\": 12.43\n    },\n    {\n      \"address\": {\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"countryCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"streetName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"formattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shortFormattedAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zipCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"isFlagged\": false,\n      \"regions\": {\n        \"dma\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"state\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"cbsa\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"apiId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Walmart\",\n      \"entityId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"entityType\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"categoryInfo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"estimatedNumberOfCustomers\": 1234,\n      \"percentage\": 48.92,\n      \"distanceInMiles\": 12.43\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb3e108a-692a-47ac-ba14-c1a320cba8af",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-places"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0437f10-7e4b-4662-aec1-a7e959cb8682",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-places"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47d8a6d5-6b98-42bf-a050-6bb838da783d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "reports",
+                    "favorites-places"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2020-12-01\",\n  \"endDate\": \"2021-05-31\",\n  \"apiId\": \"venue:7d55054520e387813d764b03\",\n  \"categories\": [\n    \"gas stations & convenience stores\",\n    \"airport facilities\"\n  ],\n  \"minimalVisitFrequency\": 1,\n  \"limit\": 50,\n  \"filters\": {\n    \"audienceType\": [\n      \"visitors\"\n    ],\n    \"dwellTime\": {\n      \"operator\": \"<\",\n      \"value\": 150\n    },\n    \"hoursRange\": {\n      \"fromHour\": \"03:00 am\",\n      \"toHour\": \"11:59 pm\"\n    },\n    \"daysOfWeek\": [\n      6,\n      7\n    ],\n    \"distance\": {\n      \"from\": \"home\",\n      \"values\": {\n        \"lt\": 250,\n        \"gt\": 10\n      }\n    }\n  },\n  \"nearbyRadius\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://papi.placer.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "32f853d8-a27d-4d60-a5b4-ff6f0163a97a",
+    "name": "papi Account Info Visitor Journey Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Placer Public API",
+      "type": "text/plain"
+    }
+  }
+}
