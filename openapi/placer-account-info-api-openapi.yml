@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: papi Account Info API
   description: Placer Public API
@@ -16,7 +16,17 @@ paths:
       summary: Account Usage
       tags:
       - Account Info
-      description: Retrieves the current API usage status for the requesting API key.<br> This endpoint helps you monitor consumption and remaining quota. <strong>Running it 2–3 times per week</strong> is recommended for optimal tracking usage patterns.<br> <strong>Note:</strong> <ul> <li>The weekly quote renewals occur every <strong>Sunday at 12:00 a.m. UTC</strong>.</li> <li>There can be a discrepancy between usedQuota and the sum of calls made to individual endpoints because only <a href="https://docs.placer.ai/reference/faqs-1#q-what-api-calls-count-towards-my-quota"><strong>successful calls</strong> are counted</a>.</li> </ul>
+      description: 'Retrieves the current API usage status for the requesting API key.
+
+        This endpoint helps you monitor consumption and remaining quota. Running it 2–3 times per week is recommended for optimal tracking usage patterns.
+
+        Note:
+
+
+        The weekly quote renewals occur every Sunday at 12:00 a.m. UTC.
+
+
+        There can be a discrepancy between usedQuota and the sum of calls made to individual endpoints because only successful calls are counted.'
       responses:
         '200':
           description: 200 response
@@ -43,6 +53,8 @@ paths:
         uri: ${account_management_lambda}
         passthroughBehavior: when_no_match
         timeoutInMillis: 29000
+      operationId: getV1AccountsKeysUsageStatus
+      x-operation-id-source: derived
 components:
   schemas:
     UsageStatusResponse:

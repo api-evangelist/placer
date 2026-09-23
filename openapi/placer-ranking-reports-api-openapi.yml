@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: papi Account Info Ranking Reports API
+  title: papi Ranking Reports API
   description: Placer Public API
   version: 0.1-oas3
 servers:
@@ -16,13 +16,50 @@ paths:
       summary: Ranking Index - Closely Ranked
       tags:
       - Ranking Reports
-      description: 'This endpoint generates a ranked list of properties relative to a benchmark based on the one of following segments:<br/> <ul> <li>Within Chain - Provides other closely ranked venues within the same chain.</li> <li>category - provides the <<glossary:Ranking>> within the venue’s category</li> <li>Within Category/Group Category - Provides other closely ranked venues within the same category/group category.</li> </ul> Provides view by different metrics and regions.<br/> Metrics:<br/> <ul> <li>Visits: shows the <<glossary:Ranking>> according to the estimated number of visits to the POI.</li> <li>Visits / Sq ft: shows the <<glossary:Ranking>> according to the estimated number of visits relative to the total square footage of a property.</li> </ul> </br> Regions:</br> <ul> <li>nationwide: The nationwide <<glossary:Ranking>> of a POI benchmarked against POIs from the same category or chain.</li>
+      description: 'This endpoint generates a ranked list of properties relative to a benchmark based on the one of following segments:
 
-        <li>state/dma/cbsa: The Ranking benchmarked against POIs from the same category or chain in the POI''s state/dma/cbsa.</li>
 
-        <li>Specific distance: The POI’s Ranking benchmarked against POIs from within a 5 / 10 / 15 / 30 / 50 miles radius.</li> </ul> You may define the total number of results to display (up to 1000), whereby half of the results will reflect properties ranked higher than the requested property and half of the results will reflects the ones ranked lower. For example: if the requested POI is ranked 550 and <b>results amount</b> value is set to 200 - then the response includes all properties ranked between 450 and 649 within the indexed list.</br> The endpoint supports pre-defined time buckets and ranking regions.</br><br/>
+        Within Chain - Provides other closely ranked venues within the same chain.
 
-        &#x23F1; <strong>Average measured processing time: 3.98 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href="https://docs.placer.ai/reference/measurements"> this</a> page<br/><br/>
+
+        category - provides the > within the venue’s category
+
+
+        Within Category/Group Category - Provides other closely ranked venues within the same category/group category.
+
+
+        Provides view by different metrics and regions.
+
+        Metrics:
+
+
+        Visits: shows the > according to the estimated number of visits to the POI.
+
+
+        Visits / Sq ft: shows the > according to the estimated number of visits relative to the total square footage of a property.
+
+
+        Regions:
+
+
+        nationwide: The nationwide > of a POI benchmarked against POIs from the same category or chain.
+
+
+        state/dma/cbsa: The Ranking benchmarked against POIs from the same category or chain in the POI''s state/dma/cbsa.
+
+
+        Specific distance: The POI’s Ranking benchmarked against POIs from within a 5 / 10 / 15 / 30 / 50 miles radius.
+
+
+        You may define the total number of results to display (up to 1000), whereby half of the results will reflect properties ranked higher than the requested property and half of the results will reflects the ones ranked lower. For example: if the requested POI is ranked 550 and results amount value is set to 200 - then the response includes all properties ranked between 450 and 649 within the indexed list.
+
+        The endpoint supports pre-defined time buckets and ranking regions.
+
+
+        ⏱ Average measured processing time: 3.98 seconds
+
+        For more information on request retries best practices and processing measurements you may visit this page
+
 
         NOTE: Flagged entities will not be taken into consideration in the resulting report.'
       requestBody:
@@ -67,14 +104,51 @@ paths:
         uri: ${reports_lambda}
         passthroughBehavior: when_no_match
         timeoutInMillis: 29000
+      operationId: postV1ReportsRankingIndexCloselyRanked
+      x-operation-id-source: derived
   /v1/reports/ranking-index/top-ranking:
     post:
       summary: Ranking Index - Top Ranked
       tags:
       - Ranking Reports
-      description: 'Generate a ranked list of properties relative to a benchmark based on the one of following segments:<br/> <ul> <li>Within Chain - ability to reach all chain’s venues ranked from the top most to the last using pagination.</li> <li>Within Category/Group Category - ability to fetch up to 1000 top ranked properties within the same Category/group category of the requested property.</li> </ul> Provides view by different metrics and regions.<br/> Metrics<br/> <ul> <li>Visits: shows the <<glossary:Ranking>> according to the estimated number of visits to the POI.</li> <li>Visits / Sq ft: shows the <<glossary:Ranking>> according to the estimated number of visits relative to the total square footage of a property.</li> </ul> Regions<br/> <ul> <li>nationwide: The nationwide <<glossary:Ranking>> of a POI benchmarked against POIs from the same category or chain.</li> <li>state/dma/cbsa: The ranking benchmarked against POIs from the same category or chain in the POI''s state/dma/cbsa.</li> <li>Specific distance: The POI’s <<glossary:Ranking>> benchmarked against POIs from within a 5 / 10 / 15 / 30 / 50 miles radius.</li> </ul><br/><br/> &#x23F1; <strong>Average measured processing time: 2.71 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href="https://docs.placer.ai/reference/measurements"> this</a> page<br/><br/>
+      description: 'Generate a ranked list of properties relative to a benchmark based on the one of following segments:
 
-        NOTE: <<glossary:Flagged entities>> will not be taken into consideration in the resulting report.'
+
+        Within Chain - ability to reach all chain’s venues ranked from the top most to the last using pagination.
+
+
+        Within Category/Group Category - ability to fetch up to 1000 top ranked properties within the same Category/group category of the requested property.
+
+
+        Provides view by different metrics and regions.
+
+        Metrics
+
+
+        Visits: shows the > according to the estimated number of visits to the POI.
+
+
+        Visits / Sq ft: shows the > according to the estimated number of visits relative to the total square footage of a property.
+
+
+        Regions
+
+
+        nationwide: The nationwide > of a POI benchmarked against POIs from the same category or chain.
+
+
+        state/dma/cbsa: The ranking benchmarked against POIs from the same category or chain in the POI''s state/dma/cbsa.
+
+
+        Specific distance: The POI’s > benchmarked against POIs from within a 5 / 10 / 15 / 30 / 50 miles radius.
+
+
+        ⏱ Average measured processing time: 2.71 seconds
+
+        For more information on request retries best practices and processing measurements you may visit this page
+
+
+        NOTE: > will not be taken into consideration in the resulting report.'
       requestBody:
         required: true
         content:
@@ -117,14 +191,33 @@ paths:
         uri: ${reports_lambda}
         passthroughBehavior: when_no_match
         timeoutInMillis: 29000
+      operationId: postV1ReportsRankingIndexTopRanking
+      x-operation-id-source: derived
   /v1/reports/ranking-overview:
     post:
       summary: Ranking Metrics for a Single Property
       tags:
       - Ranking Reports
-      description: 'This service returns the specific entity <<glossary:Ranking>> within a selected scope :<br/> <ul> <li>Chain scope - compares the entity <<glossary:Ranking>> vs all other chain’s entities</li> <li>Group category scope - compares the entity <<glossary:Ranking>> vs all venues under the selected group category (Apparel, Leisure, …).</li> <li>Category scope - compares the entity <<glossary:Ranking>> vs all venues under the selected category (Regional Mall, Industrial, …).</li> </ul> </br> The endpoint supports the option to have a custom date range (as well as pre-defined time buckets) and <<glossary:Ranking>> within a local area ( 5,10,15 miles). <br/> &#x23F1; <strong>Average measured processing time: 8.57 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href="https://docs.placer.ai/reference/measurements"> this</a> page<br/><br/>
+      description: 'This service returns the specific entity > within a selected scope :
 
-        NOTE: <<glossary:Flagged entities>> will not be taken into consideration in the resulting report.'
+
+        Chain scope - compares the entity > vs all other chain’s entities
+
+
+        Group category scope - compares the entity > vs all venues under the selected group category (Apparel, Leisure, …).
+
+
+        Category scope - compares the entity > vs all venues under the selected category (Regional Mall, Industrial, …).
+
+
+        The endpoint supports the option to have a custom date range (as well as pre-defined time buckets) and > within a local area ( 5,10,15 miles).
+
+        ⏱ Average measured processing time: 8.57 seconds
+
+        For more information on request retries best practices and processing measurements you may visit this page
+
+
+        NOTE: > will not be taken into consideration in the resulting report.'
       requestBody:
         required: true
         content:
@@ -167,15 +260,37 @@ paths:
         uri: ${reports_lambda}
         passthroughBehavior: when_no_match
         timeoutInMillis: 29000
+      operationId: postV1ReportsRankingOverview
+      x-operation-id-source: derived
   /v1/reports/ranking-overview/multi:
     post:
       summary: Ranking Metrics For Multiple Properties
       tags:
       - Ranking Reports
-      description: 'Returns the <<glossary:Ranking>> for all the requested entities within a selected scope :<br/> <ul> <li> Chain scope - compares each entity <<glossary:Ranking>> vs all other chain’s entities.</li> <li>Group category scope - compares each entity <<glossary:Ranking>> vs all venues under the selected group category (Apparel, Leisure, …).</li> <li>Category scope - compares each entity <<glossary:Ranking>> vs all venues under the selected category (Regional Mall, Industrial, …).</li> </ul> The service supports <<glossary:Ranking>> based on pre-defined periods. (In case a custom date range is required use /reports/ranking-overview endpoint).<br/><br/><strong>&#x21e1; This service supports bulk request</strong><br/>
+      description: 'Returns the > for all the requested entities within a selected scope :
 
 
-        &#x23F1; <strong>Average measured processing time: 3.58 seconds </strong><br/> For more information on request retries best practices and   processing measurements you may visit <a href="https://docs.placer.ai/reference/measurements"> this</a> page<br/><br/> NOTE: <<glossary:Flagged entities>> will not be taken into consideration in the resulting report'
+        Chain scope - compares each entity > vs all other chain’s entities.
+
+
+        Group category scope - compares each entity > vs all venues under the selected group category (Apparel, Leisure, …).
+
+
+        Category scope - compares each entity > vs all venues under the selected category (Regional Mall, Industrial, …).
+
+
+        The service supports > based on pre-defined periods. (In case a custom date range is required use /reports/ranking-overview endpoint).
+
+
+        ⇡ This service supports bulk request
+
+
+        ⏱ Average measured processing time: 3.58 seconds
+
+        For more information on request retries best practices and processing measurements you may visit this page
+
+
+        NOTE: > will not be taken into consideration in the resulting report'
       requestBody:
         required: true
         content:
@@ -218,54 +333,10 @@ paths:
         uri: ${reports_lambda}
         passthroughBehavior: when_no_match
         timeoutInMillis: 29000
+      operationId: postV1ReportsRankingOverviewMulti
+      x-operation-id-source: derived
 components:
   schemas:
-    RankingRegionObjectNationwide:
-      allOf:
-      - $ref: '#/components/schemas/RankingRegionObject'
-      - type: object
-        properties:
-          regionCode:
-            type: string
-            example: US
-    Region:
-      enum:
-      - '5'
-      - '10'
-      - '15'
-      - '30'
-      - '50'
-      - nationwide
-      - state
-      - dma
-      - cbsa
-      default: 15
-      description: Region to be set for ranking index
-    RankingRegionObjectLocal:
-      allOf:
-      - $ref: '#/components/schemas/RankingRegionObject'
-      - type: object
-        properties:
-          radiusMiles:
-            type: integer
-            example: 15
-    ApiId:
-      type: string
-      example: venue:7d55054520e387813d764b03
-      description: Placer API Entity Id
-    RankingIndexAddress:
-      allOf:
-      - $ref: '#/components/schemas/Address'
-      - type: object
-        properties:
-          country:
-            type: string
-            example: United States
-            description: Entity Country
-          address:
-            type: string
-            example: 301 Ranch Dr
-            description: Entity Address
     RankingIndexError:
       properties:
         region:
@@ -283,26 +354,113 @@ components:
           type: string
           description: The error that was occuerd while trying to get <<glossary:Ranking>> for that entity
           example: The ranking is unavailable for this entity with the specified parameters.
-    categoryInfo:
-      type: object
-      properties:
-        category:
-          type: string
-          example: Fast Food & QSR
-        group:
-          type: string
-          example: Dining
-        subCategory:
-          type: string
-          example: Pizze Place
-      description: Property’s categorization
-    RankingMetricsWithLocal:
+    EntityType:
+      type: string
+      enum:
+      - venue
+      - complex
+      - chain
+      example: venue
+      description: Entity Type (i.e. venue, complex etc.)
+    RankingRegionObjectLocal:
       allOf:
-      - $ref: '#/components/schemas/RankingMetrics'
+      - $ref: '#/components/schemas/RankingRegionObject'
       - type: object
         properties:
-          local:
-            $ref: '#/components/schemas/RankingRegionObjectLocal'
+          radiusMiles:
+            type: integer
+            example: 15
+    RankingIndexTopRankingRequest:
+      title: Ranking Index Top Ranking Request
+      allOf:
+      - $ref: '#/components/schemas/RankingIndexBaseRequest'
+      - type: object
+        properties:
+          limit:
+            type: integer
+            minimum: 0
+            maximum: 1000
+            default: 100
+            description: Number of records to be fetched
+          skip:
+            type: integer
+            minimum: 0
+            default: 0
+            description: Relevant for the chain scope only. Contains 0 in the first call, and the offset for pagination in next calls, default set to 0.
+      - $ref: '#/components/schemas/RankingRequest'
+    RankingRegionObjectState:
+      allOf:
+      - $ref: '#/components/schemas/RankingRegionObject'
+      - type: object
+        properties:
+          regionCode:
+            type: string
+            example: CA
+    RankingRequestSingular:
+      title: Ranking Request
+      description: The endpoint return the nationwide, state, CBSA, DMA and the local distance <<glossary:Ranking>> as selected in the query params.
+      allOf:
+      - type: object
+        required:
+        - apiId
+        properties:
+          apiId:
+            $ref: '#/components/schemas/ApiId'
+          startDate:
+            description: The start date of the time period for which the <<glossary:Ranking>> will be calculated. Cannot be used along with period param
+            type: string
+            format: date
+            example: '2020-12-01'
+          endDate:
+            description: The end date of the time period for which the <<glossary:Ranking>> will be calculated. Cannot be used along with period param
+            type: string
+            format: date
+            example: '2020-12-31'
+          distanceMiles:
+            type: integer
+            enum:
+            - 5
+            - 10
+            - 15
+            - 30
+            - 50
+            example: 15
+            default: 15
+          period:
+            $ref: '#/components/schemas/PeriodPreset'
+      - $ref: '#/components/schemas/RankingRequest'
+    RankingIndexBaseRequest:
+      title: Ranking Index Request
+      allOf:
+      - type: object
+        required:
+        - apiId
+        - region
+        - period
+        properties:
+          apiId:
+            $ref: '#/components/schemas/ApiId'
+          region:
+            $ref: '#/components/schemas/Region'
+          period:
+            $ref: '#/components/schemas/PeriodPreset'
+      - $ref: '#/components/schemas/RankingRequest'
+    EntityId:
+      type: string
+      example: 7d55054520e387813d764b03
+      description: Entity ID
+    RankingMetrics:
+      type: object
+      description: <<glossary:Ranking>> info for a property
+      properties:
+        nationwide:
+          $ref: '#/components/schemas/RankingRegionObjectNationwide'
+        state:
+          $ref: '#/components/schemas/RankingRegionObjectState'
+        dma:
+          $ref: '#/components/schemas/RankingRegionObjectDma'
+        cbsa:
+          $ref: '#/components/schemas/RankingRegionObjectCbsa'
     RankingIndexResponse:
       type: object
       properties:
@@ -349,142 +507,22 @@ components:
                 example: 105463
         visitDurationSegmentation:
           $ref: '#/components/schemas/VisitDurationSegmentationRespRanking'
-    EntityId:
-      type: string
-      example: 7d55054520e387813d764b03
-      description: Entity ID
-    RankingResponseMulti:
-      type: object
-      properties:
-        apiId:
-          $ref: '#/components/schemas/ApiId'
-        metricType:
-          type: string
-          example: visits
-        info:
-          $ref: '#/components/schemas/RankingEntityInfo'
-        ranking:
-          oneOf:
-          - $ref: '#/components/schemas/RankingMetrics'
-          - type: object
-            properties:
-              rankError:
-                type: string
-                description: The error that was occuerd while trying to get <<glossary:Ranking>> for that entity
-                example: This entity if flagged/unverified
-        visitDurationSegmentation:
-          $ref: '#/components/schemas/VisitDurationSegmentationRespRanking'
-    RankingResponseSingular:
-      type: object
-      properties:
-        apiId:
-          $ref: '#/components/schemas/ApiId'
-        metricType:
-          type: string
-          example: visits
-        info:
-          $ref: '#/components/schemas/RankingEntityInfo'
-        ranking:
-          oneOf:
-          - $ref: '#/components/schemas/RankingMetricsWithLocal'
-          - type: object
-            properties:
-              rankError:
-                type: string
-                description: The error that was occuerd while trying to get <<glossary:Ranking>> for that entity
-                example: This entity if flagged/unverified
-        visitDurationSegmentation:
-          $ref: '#/components/schemas/VisitDurationSegmentationRespRanking'
-    RankingIndexCloselyRankedRequest:
-      title: Ranking Index Closely Ranked Request
-      allOf:
-      - $ref: '#/components/schemas/RankingIndexBaseRequest'
-      - type: object
-        properties:
-          resultsAmount:
-            type: integer
-            minimum: 1
-            maximum: 1000
-            default: 100
-            description: The amount of results returned in the response - half of the results are the properties which are ranked higher than the requested property, and half are ranked lower. By default 100 results will be retrieved.
-      - $ref: '#/components/schemas/RankingRequest'
-    PeriodPreset:
-      description: The time period for which the <<glossary:Ranking>> will be calculated. Cannot be used along with startDate and endDate
-      title: period
-      type: string
-      nullable: true
-      enum:
-      - last3Months
-      - last6Months
-      - last12Months
-      - lastWeek
-      - lastMonth
-      - lastQuarter
-      - yearToDate
-      - year2018
-      - year2019
-      - year2020
-      - year2021
-      - year2022
-      - year2023
-      - year2024
-      - year2025
-      example: lastWeek
-    RankingRegionObjectCbsa:
+    RankingRegionObjectDma:
       allOf:
       - $ref: '#/components/schemas/RankingRegionObject'
       - type: object
         properties:
           regionCode:
             type: string
-            example: '34980'
-    RankingIndexTopRankingRequest:
-      title: Ranking Index Top Ranking Request
+            example: '510'
+    RankingRegionObjectNationwide:
       allOf:
-      - $ref: '#/components/schemas/RankingIndexBaseRequest'
+      - $ref: '#/components/schemas/RankingRegionObject'
       - type: object
         properties:
-          limit:
-            type: integer
-            minimum: 0
-            maximum: 1000
-            default: 100
-            description: Number of records to be fetched
-          skip:
-            type: integer
-            minimum: 0
-            default: 0
-            description: Relevant for the chain scope only. Contains 0 in the first call, and the offset for pagination in next calls, default set to 0.
-      - $ref: '#/components/schemas/RankingRequest'
-    RankingIndexBaseRequest:
-      title: Ranking Index Request
-      allOf:
-      - type: object
-        required:
-        - apiId
-        - region
-        - period
-        properties:
-          apiId:
-            $ref: '#/components/schemas/ApiId'
-          region:
-            $ref: '#/components/schemas/Region'
-          period:
-            $ref: '#/components/schemas/PeriodPreset'
-      - $ref: '#/components/schemas/RankingRequest'
-    VisitDurationSegmentationRespRanking:
-      description: 'Represents the requested visit duration segmentation.<br> If the default visit duration segmentation is requested, the visitDurationSegmentation will display the actual segment.<br>
-
-        In cases where the default segment was requested for a chain, in which the list of entities used different default segments for the report calculation, the visitDurationSegmentation will be set to ''mixedSegments''.'
-      title: Visit Duration Segmentation
-      type: string
-      nullable: true
-      enum:
-      - under10Min
-      - 10MinOrLonger
-      - allVisits
-      - mixedSegments
-      example: 10MinOrLonger
+          regionCode:
+            type: string
+            example: US
     RankingRequest:
       allOf:
       - type: object
@@ -507,14 +545,148 @@ components:
             - visits
             example: visits
             default: visits
-    RankingRegionObjectState:
+    PeriodPreset:
+      description: The time period for which the <<glossary:Ranking>> will be calculated. Cannot be used along with startDate and endDate
+      title: period
+      type:
+      - string
+      - 'null'
+      enum:
+      - last3Months
+      - last6Months
+      - last12Months
+      - lastWeek
+      - lastMonth
+      - lastQuarter
+      - yearToDate
+      - year2018
+      - year2019
+      - year2020
+      - year2021
+      - year2022
+      - year2023
+      - year2024
+      - year2025
+      example: lastWeek
+    RankingEntityInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Walmart
+          description: Entity name
+        entityId:
+          $ref: '#/components/schemas/EntityId'
+        entityType:
+          $ref: '#/components/schemas/EntityType'
+        flagged:
+          type: boolean
+          description: Flagging status for entity
+        rankedBy:
+          type: string
+          description: the scope which the <<glossary:Ranking>> has been ranked by
+          example: chain
+        categoryInfo:
+          $ref: '#/components/schemas/categoryInfo'
+        parentChain:
+          type: string
+          description: The name of the chain that entity belongs to
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    RankingIndexAddress:
       allOf:
-      - $ref: '#/components/schemas/RankingRegionObject'
+      - $ref: '#/components/schemas/Address'
       - type: object
         properties:
-          regionCode:
+          country:
             type: string
-            example: CA
+            example: United States
+            description: Entity Country
+          address:
+            type: string
+            example: 301 Ranch Dr
+            description: Entity Address
+    RankingRequestMulti:
+      title: Ranking Request
+      description: Returns the <<glossary:Ranking>> metrics for given property in all regions.
+      allOf:
+      - type: object
+        required:
+        - apiIds
+        - period
+        properties:
+          apiIds:
+            type: array
+            minItems: 1
+            maxItems: 100
+            items:
+              $ref: '#/components/schemas/ApiId'
+          period:
+            $ref: '#/components/schemas/PeriodPreset'
+      - $ref: '#/components/schemas/RankingRequest'
+    VisitDurationSegmentationRespRanking:
+      description: 'Represents the requested visit duration segmentation.<br> If the default visit duration segmentation is requested, the visitDurationSegmentation will display the actual segment.<br>
+
+        In cases where the default segment was requested for a chain, in which the list of entities used different default segments for the report calculation, the visitDurationSegmentation will be set to ''mixedSegments''.'
+      title: Visit Duration Segmentation
+      type:
+      - string
+      - 'null'
+      enum:
+      - under10Min
+      - 10MinOrLonger
+      - allVisits
+      - mixedSegments
+      example: 10MinOrLonger
+    RankingIndexCloselyRankedRequest:
+      title: Ranking Index Closely Ranked Request
+      allOf:
+      - $ref: '#/components/schemas/RankingIndexBaseRequest'
+      - type: object
+        properties:
+          resultsAmount:
+            type: integer
+            minimum: 1
+            maximum: 1000
+            default: 100
+            description: The amount of results returned in the response - half of the results are the properties which are ranked higher than the requested property, and half are ranked lower. By default 100 results will be retrieved.
+      - $ref: '#/components/schemas/RankingRequest'
+    Region:
+      enum:
+      - '5'
+      - '10'
+      - '15'
+      - '30'
+      - '50'
+      - nationwide
+      - state
+      - dma
+      - cbsa
+      default: 15
+      description: Region to be set for ranking index
+    RankingResponseSingular:
+      type: object
+      properties:
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+        metricType:
+          type: string
+          example: visits
+        info:
+          $ref: '#/components/schemas/RankingEntityInfo'
+        ranking:
+          oneOf:
+          - $ref: '#/components/schemas/RankingMetricsWithLocal'
+          - type: object
+            properties:
+              rankError:
+                type: string
+                description: The error that was occuerd while trying to get <<glossary:Ranking>> for that entity
+                example: This entity if flagged/unverified
+        visitDurationSegmentation:
+          $ref: '#/components/schemas/VisitDurationSegmentationRespRanking'
     Address:
       type: object
       properties:
@@ -546,108 +718,40 @@ components:
           type: string
           example: '95035'
           description: Entity Zip Code
-    RankingMetrics:
-      type: object
-      description: <<glossary:Ranking>> info for a property
-      properties:
-        nationwide:
-          $ref: '#/components/schemas/RankingRegionObjectNationwide'
-        state:
-          $ref: '#/components/schemas/RankingRegionObjectState'
-        dma:
-          $ref: '#/components/schemas/RankingRegionObjectDma'
-        cbsa:
-          $ref: '#/components/schemas/RankingRegionObjectCbsa'
-    RankingEntityInfo:
+    RankingResponseMulti:
       type: object
       properties:
-        name:
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+        metricType:
           type: string
-          example: Walmart
-          description: Entity name
-        entityId:
-          $ref: '#/components/schemas/EntityId'
-        entityType:
-          $ref: '#/components/schemas/EntityType'
-        flagged:
-          type: boolean
-          description: Flagging status for entity
-        rankedBy:
+          example: visits
+        info:
+          $ref: '#/components/schemas/RankingEntityInfo'
+        ranking:
+          oneOf:
+          - $ref: '#/components/schemas/RankingMetrics'
+          - type: object
+            properties:
+              rankError:
+                type: string
+                description: The error that was occuerd while trying to get <<glossary:Ranking>> for that entity
+                example: This entity if flagged/unverified
+        visitDurationSegmentation:
+          $ref: '#/components/schemas/VisitDurationSegmentationRespRanking'
+    categoryInfo:
+      type: object
+      properties:
+        category:
           type: string
-          description: the scope which the <<glossary:Ranking>> has been ranked by
-          example: chain
-        categoryInfo:
-          $ref: '#/components/schemas/categoryInfo'
-        parentChain:
+          example: Fast Food & QSR
+        group:
           type: string
-          description: The name of the chain that entity belongs to
-    RankingRegionObjectDma:
-      allOf:
-      - $ref: '#/components/schemas/RankingRegionObject'
-      - type: object
-        properties:
-          regionCode:
-            type: string
-            example: '510'
-    RankingRequestMulti:
-      title: Ranking Request
-      description: Returns the <<glossary:Ranking>> metrics for given property in all regions.
-      allOf:
-      - type: object
-        required:
-        - apiIds
-        - period
-        properties:
-          apiIds:
-            type: array
-            minItems: 1
-            maxItems: 100
-            items:
-              $ref: '#/components/schemas/ApiId'
-          period:
-            $ref: '#/components/schemas/PeriodPreset'
-      - $ref: '#/components/schemas/RankingRequest'
-    RankingRequestSingular:
-      title: Ranking Request
-      description: The endpoint return the nationwide, state, CBSA, DMA and the local distance <<glossary:Ranking>> as selected in the query params.
-      allOf:
-      - type: object
-        required:
-        - apiId
-        properties:
-          apiId:
-            $ref: '#/components/schemas/ApiId'
-          startDate:
-            description: The start date of the time period for which the <<glossary:Ranking>> will be calculated. Cannot be used along with period param
-            type: string
-            format: date
-            example: '2020-12-01'
-          endDate:
-            description: The end date of the time period for which the <<glossary:Ranking>> will be calculated. Cannot be used along with period param
-            type: string
-            format: date
-            example: '2020-12-31'
-          distanceMiles:
-            type: integer
-            enum:
-            - 5
-            - 10
-            - 15
-            - 30
-            - 50
-            example: 15
-            default: 15
-          period:
-            $ref: '#/components/schemas/PeriodPreset'
-      - $ref: '#/components/schemas/RankingRequest'
-    EntityType:
-      type: string
-      enum:
-      - venue
-      - complex
-      - chain
-      example: venue
-      description: Entity Type (i.e. venue, complex etc.)
+          example: Dining
+        subCategory:
+          type: string
+          example: Pizze Place
+      description: Property’s categorization
     RankingRegionObject:
       type: object
       properties:
@@ -660,6 +764,21 @@ components:
         rankedOutOf:
           type: integer
           example: 1850
+    RankingMetricsWithLocal:
+      allOf:
+      - $ref: '#/components/schemas/RankingMetrics'
+      - type: object
+        properties:
+          local:
+            $ref: '#/components/schemas/RankingRegionObjectLocal'
+    RankingRegionObjectCbsa:
+      allOf:
+      - $ref: '#/components/schemas/RankingRegionObject'
+      - type: object
+        properties:
+          regionCode:
+            type: string
+            example: '34980'
   securitySchemes:
     api_key:
       type: apiKey
