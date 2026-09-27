@@ -55,7 +55,7 @@ tags:
 - Foot Traffic
 - Geospatial
 - Retail Analytics
-- Real-Estate
+- Real Estate
 - Consumer Insights
 - Data
 tags_raw:
@@ -67,6 +67,7 @@ tags_raw:
 - Real Estate
 - Consumer Insights
 - Data
+- Real-Estate
 apis:
 - aid: placer:placer-account-info-api
   name: Placer Account Info API
