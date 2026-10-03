@@ -137,23 +137,51 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    categoryInfo:
+    BaseChainInfo:
+      title: POI Chain Object
+      allOf:
+      - $ref: '#/components/schemas/BasePoiInfo'
       type: object
       properties:
-        category:
+        regionType:
           type: string
-          example: Fast Food & QSR
-        group:
-          type: string
-          example: Dining
-        subCategory:
-          type: string
-          example: Pizze Place
-      description: Property’s categorization
-    ApiId:
+          example: nationwide
+    BaseVmFilterWithHours:
+      allOf:
+      - type: object
+        properties:
+          hoursRange:
+            description: 'Filter the report’s results based on visits hours range. The filter is defined by 2 strings:<br/> 1. The starting hour to filter the reports results from (Format HH:MM XM, for example: 08:00 am).<br/> 2. The end hour to filter the reports results(Format HH:MM XM, for example: 11:59 pm) .'
+            type: object
+            required:
+            - fromHour
+            - toHour
+            properties:
+              fromHour:
+                type: string
+              toHour:
+                type: string
+            example:
+              fromHour: 03:00 am
+              toHour: 11:59 pm
+      - $ref: '#/components/schemas/BaseVmFilterObject'
+    StartDate:
       type: string
-      example: venue:7d55054520e387813d764b03
-      description: Placer API Entity Id
+      format: date
+      description: Queried data start date. Format YYYY-MM-DD
+      example: '2020-12-01'
+    EntityId:
+      type: string
+      example: 7d55054520e387813d764b03
+      description: Entity ID
+    EntityType:
+      type: string
+      enum:
+      - venue
+      - complex
+      - chain
+      example: venue
+      description: Entity Type (i.e. venue, complex etc.)
     ResponseFilters:
       type: object
       properties:
@@ -244,30 +272,61 @@ components:
                   type: number
                 eq:
                   type: number
-    FavoriteChainsInfo:
-      title: Favorite Chains Entity Info
+    Address:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseChainInfo'
-      - $ref: '#/components/schemas/FavoriteBaseInfo'
-    FavoritePlacesInfo:
-      title: Favorite Places Entity Info
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseEntityInfo'
-      - $ref: '#/components/schemas/FavoriteBaseInfo'
-      - type: object
-        properties:
-          distanceInMiles:
-            type: number
-            format: float
-            example: 12.43
-            description: The distance between this property to the queried POI in Miles.
-    StartDate:
+      properties:
+        city:
+          type: string
+          example: Milpitas
+          description: Entity City
+        state:
+          type: string
+          example: California
+          description: Entity State
+        countryCode:
+          type: string
+          example: US
+          description: Entity Country Code
+        streetName:
+          type: string
+          example: Ranch Dr
+          description: Entity Street Name
+        formattedAddress:
+          type: string
+          example: 301 Ranch Dr, Milpitas, CA, United States
+          description: Entity Address
+        shortFormattedAddress:
+          type: string
+          example: Ranch Dr, Milpitas, CA
+          description: Entity Address
+        zipCode:
+          type: string
+          example: '95035'
+          description: Entity Zip Code
+    NearbyRadius:
+      type: integer
+      enum:
+      - 100
+      - 250
+      - 500
+      - 750
+      - 1000
+      description: 'The radius requested for nearby activity report generation.</br> <strong>Note</strong>: When a value is populated for this attribute - the report will be calculated as per the <<glossary:Nearby Activity report>> logic.'
+    EndDate:
       type: string
       format: date
-      description: Queried data start date. Format YYYY-MM-DD
-      example: '2020-12-01'
+      description: Queried data end date. Format YYYY-MM-DD
+      example: '2021-05-31'
+    FavoritePlacesResponse:
+      allOf:
+      - $ref: '#/components/schemas/FavoriteResponse'
+      - type: object
+        properties:
+          favoritesPlacesArray:
+            description: The list of most visited places by the visitors to the requested POI
+            type: array
+            items:
+              $ref: '#/components/schemas/FavoritePlacesInfo'
     BaseEntityInfo:
       title: POI Entity (complex, venue and billboard only!) Object
       allOf:
@@ -314,49 +373,33 @@ components:
                   type: string
                   example: San Jose-Sunnyvale-Santa Clara, CA Metro Area
           description: The regions in which the property is included
-    FavoriteRequest:
-      title: Favorites Request
+    FavoritePlacesInfo:
+      title: Favorite Places Entity Info
+      type: object
       allOf:
-      - $ref: '#/components/schemas/DatesIdParams'
+      - $ref: '#/components/schemas/BaseEntityInfo'
+      - $ref: '#/components/schemas/FavoriteBaseInfo'
       - type: object
         properties:
-          categories:
-            type: array
-            items:
-              type: string
-            example:
-            - gas stations & convenience stores
-            - airport facilities
-            description: 'Array of categories to which the resulted favorite places are associated. “all” will be used as default.<br/> NOTE: please select the specific categories from the <a href="https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd">listed categories</a>.<br/> If a list of categories is provided yet only some categories are recognized, results will reflect only the recognized categories. In case no category is recognized the results will reflect all categories.'
-          minimalVisitFrequency:
-            type: integer
-            default: 1
-            minimum: 0
-            maximum: 99
-            description: The minimal visits frequency requested in the other places/<<glossary:chains>>. 1 will be used as default.
-          limit:
-            type: integer
-            default: 50
-            minimum: 0
-            maximum: 50
-            description: The number of expected results. Default is set to 50.
-          filters:
-            $ref: '#/components/schemas/VmFilterObject'
-          nearbyRadius:
-            $ref: '#/components/schemas/NearbyRadius'
-    FavoriteBaseInfo:
-      title: Favorite Base Entity Info
+          distanceInMiles:
+            type: number
+            format: float
+            example: 12.43
+            description: The distance between this property to the queried POI in Miles.
+    DatesIdParams:
+      title: Base Report Request
       type: object
+      required:
+      - startDate
+      - endDate
+      - apiId
       properties:
-        estimatedNumberOfCustomers:
-          type: integer
-          example: 1234
-          description: Estimated foot traffic during the requested period, when associated with visitation to the queried POI
-        percentage:
-          type: number
-          format: float
-          example: 48.92
-          description: The percentage of visitors to the requested venue also visited this property during the requested period
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        apiId:
+          $ref: '#/components/schemas/ApiId'
     FavoriteResponse:
       allOf:
       - type: object
@@ -372,107 +415,6 @@ components:
           nearbyRadius:
             $ref: '#/components/schemas/NearbyRadius'
       - $ref: '#/components/schemas/filtersAndVisitsDurationSegmentationResp'
-    EntityId:
-      type: string
-      example: 7d55054520e387813d764b03
-      description: Entity ID
-    Address:
-      type: object
-      properties:
-        city:
-          type: string
-          example: Milpitas
-          description: Entity City
-        state:
-          type: string
-          example: California
-          description: Entity State
-        countryCode:
-          type: string
-          example: US
-          description: Entity Country Code
-        streetName:
-          type: string
-          example: Ranch Dr
-          description: Entity Street Name
-        formattedAddress:
-          type: string
-          example: 301 Ranch Dr, Milpitas, CA, United States
-          description: Entity Address
-        shortFormattedAddress:
-          type: string
-          example: Ranch Dr, Milpitas, CA
-          description: Entity Address
-        zipCode:
-          type: string
-          example: '95035'
-          description: Entity Zip Code
-    VmFilterObject:
-      description: Filtering options for the report results.
-      allOf:
-      - type: object
-        properties:
-          audienceType:
-            description: If provided - metrics will be calculated based only on the specified types of audience.
-            example:
-            - visitors
-            type: array
-            items:
-              type: string
-              enum:
-              - visitors
-              - employees
-              - residents
-          dwellTime:
-            description: Metrics will be calculated considering the requested dwell time range.
-            type: object
-            properties:
-              operator:
-                description: Less than (<) to Greater Equal (>=)
-                type: string
-                enum:
-                - <
-                - '>='
-                example: <
-              value:
-                description: The wanted dwell time
-                type: integer
-                example: 150
-      - $ref: '#/components/schemas/BaseVmFilterWithHours'
-    VisitDurationSegmentationRespReports:
-      description: The default visit duration segmentation is returned when the report calculation uses the default segmentation duration.
-      title: Visit Duration Segmentation
-      type:
-      - string
-      - 'null'
-      enum:
-      - under10Min
-      - 10MinOrLonger
-      - allVisits
-      - mixedSegments
-      example: 10MinOrLonger
-    EntityType:
-      type: string
-      enum:
-      - venue
-      - complex
-      - chain
-      example: venue
-      description: Entity Type (i.e. venue, complex etc.)
-    BaseChainInfo:
-      title: POI Chain Object
-      allOf:
-      - $ref: '#/components/schemas/BasePoiInfo'
-      type: object
-      properties:
-        regionType:
-          type: string
-          example: nationwide
-    EndDate:
-      type: string
-      format: date
-      description: Queried data end date. Format YYYY-MM-DD
-      example: '2021-05-31'
     BasePoiInfo:
       title: Base POI Info Object
       type: object
@@ -489,35 +431,44 @@ components:
           $ref: '#/components/schemas/EntityType'
         categoryInfo:
           $ref: '#/components/schemas/categoryInfo'
-    FavoritePlacesResponse:
-      allOf:
-      - $ref: '#/components/schemas/FavoriteResponse'
-      - type: object
-        properties:
-          favoritesPlacesArray:
-            description: The list of most visited places by the visitors to the requested POI
-            type: array
-            items:
-              $ref: '#/components/schemas/FavoritePlacesInfo'
-    BaseVmFilterWithHours:
-      allOf:
-      - type: object
-        properties:
-          hoursRange:
-            description: 'Filter the report’s results based on visits hours range. The filter is defined by 2 strings:<br/> 1. The starting hour to filter the reports results from (Format HH:MM XM, for example: 08:00 am).<br/> 2. The end hour to filter the reports results(Format HH:MM XM, for example: 11:59 pm) .'
-            type: object
-            required:
-            - fromHour
-            - toHour
-            properties:
-              fromHour:
-                type: string
-              toHour:
-                type: string
-            example:
-              fromHour: 03:00 am
-              toHour: 11:59 pm
-      - $ref: '#/components/schemas/BaseVmFilterObject'
+    categoryInfo:
+      type: object
+      properties:
+        category:
+          type: string
+          example: Fast Food & QSR
+        group:
+          type: string
+          example: Dining
+        subCategory:
+          type: string
+          example: Pizze Place
+      description: Property’s categorization
+    FavoriteBaseInfo:
+      title: Favorite Base Entity Info
+      type: object
+      properties:
+        estimatedNumberOfCustomers:
+          type: integer
+          example: 1234
+          description: Estimated foot traffic during the requested period, when associated with visitation to the queried POI
+        percentage:
+          type: number
+          format: float
+          example: 48.92
+          description: The percentage of visitors to the requested venue also visited this property during the requested period
+    VisitDurationSegmentationRespReports:
+      description: The default visit duration segmentation is returned when the report calculation uses the default segmentation duration.
+      title: Visit Duration Segmentation
+      type:
+      - string
+      - 'null'
+      enum:
+      - under10Min
+      - 10MinOrLonger
+      - allVisits
+      - mixedSegments
+      example: 10MinOrLonger
     BaseVmFilterObject:
       description: Filtering options for the report results.
       type: object
@@ -570,15 +521,85 @@ components:
                   type: number
                 eq:
                   type: number
-    NearbyRadius:
-      type: integer
-      enum:
-      - 100
-      - 250
-      - 500
-      - 750
-      - 1000
-      description: 'The radius requested for nearby activity report generation.</br> <strong>Note</strong>: When a value is populated for this attribute - the report will be calculated as per the <<glossary:Nearby Activity report>> logic.'
+    FavoriteRequest:
+      title: Favorites Request
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          categories:
+            type: array
+            items:
+              type: string
+            example:
+            - gas stations & convenience stores
+            - airport facilities
+            description: 'Array of categories to which the resulted favorite places are associated. “all” will be used as default.<br/> NOTE: please select the specific categories from the <a href="https://view-su2.highspot.com/viewer/87b4c810b4bc52f78f8fd2862fdf31dd">listed categories</a>.<br/> If a list of categories is provided yet only some categories are recognized, results will reflect only the recognized categories. In case no category is recognized the results will reflect all categories.'
+          minimalVisitFrequency:
+            type: integer
+            default: 1
+            minimum: 0
+            maximum: 99
+            description: The minimal visits frequency requested in the other places/<<glossary:chains>>. 1 will be used as default.
+          limit:
+            type: integer
+            default: 50
+            minimum: 0
+            maximum: 50
+            description: The number of expected results. Default is set to 50.
+          filters:
+            $ref: '#/components/schemas/VmFilterObject'
+          nearbyRadius:
+            $ref: '#/components/schemas/NearbyRadius'
+    filtersAndVisitsDurationSegmentationResp:
+      type: object
+      properties:
+        filters:
+          $ref: '#/components/schemas/ResponseFilters'
+        visitDurationSegmentation:
+          $ref: '#/components/schemas/VisitDurationSegmentationRespReports'
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    FavoriteChainsInfo:
+      title: Favorite Chains Entity Info
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseChainInfo'
+      - $ref: '#/components/schemas/FavoriteBaseInfo'
+    VmFilterObject:
+      description: Filtering options for the report results.
+      allOf:
+      - type: object
+        properties:
+          audienceType:
+            description: If provided - metrics will be calculated based only on the specified types of audience.
+            example:
+            - visitors
+            type: array
+            items:
+              type: string
+              enum:
+              - visitors
+              - employees
+              - residents
+          dwellTime:
+            description: Metrics will be calculated considering the requested dwell time range.
+            type: object
+            properties:
+              operator:
+                description: Less than (<) to Greater Equal (>=)
+                type: string
+                enum:
+                - <
+                - '>='
+                example: <
+              value:
+                description: The wanted dwell time
+                type: integer
+                example: 150
+      - $ref: '#/components/schemas/BaseVmFilterWithHours'
     FavoriteChainsResponse:
       allOf:
       - $ref: '#/components/schemas/FavoriteResponse'
@@ -589,27 +610,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/FavoriteChainsInfo'
-    filtersAndVisitsDurationSegmentationResp:
-      type: object
-      properties:
-        filters:
-          $ref: '#/components/schemas/ResponseFilters'
-        visitDurationSegmentation:
-          $ref: '#/components/schemas/VisitDurationSegmentationRespReports'
-    DatesIdParams:
-      title: Base Report Request
-      type: object
-      required:
-      - startDate
-      - endDate
-      - apiId
-      properties:
-        startDate:
-          $ref: '#/components/schemas/StartDate'
-        endDate:
-          $ref: '#/components/schemas/EndDate'
-        apiId:
-          $ref: '#/components/schemas/ApiId'
   securitySchemes:
     api_key:
       type: apiKey

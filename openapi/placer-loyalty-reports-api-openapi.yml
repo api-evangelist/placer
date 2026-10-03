@@ -80,6 +80,27 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    VisitDurationSegmentationRespReports:
+      description: The default visit duration segmentation is returned when the report calculation uses the default segmentation duration.
+      title: Visit Duration Segmentation
+      type:
+      - string
+      - 'null'
+      enum:
+      - under10Min
+      - 10MinOrLonger
+      - allVisits
+      - mixedSegments
+      example: 10MinOrLonger
+    StartDate:
+      type: string
+      format: date
+      description: Queried data start date. Format YYYY-MM-DD
+      example: '2020-12-01'
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
     BaseVmFilterWithHours:
       allOf:
       - type: object
@@ -99,6 +120,24 @@ components:
               fromHour: 03:00 am
               toHour: 11:59 pm
       - $ref: '#/components/schemas/BaseVmFilterObject'
+    RequestId:
+      type: string
+      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
+      description: Request ID that can be used for tracing
+    DatesIdParams:
+      title: Base Report Request
+      type: object
+      required:
+      - startDate
+      - endDate
+      - apiId
+      properties:
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        apiId:
+          $ref: '#/components/schemas/ApiId'
     BaseVmFilterObject:
       description: Filtering options for the report results.
       type: object
@@ -151,10 +190,6 @@ components:
                   type: number
                 eq:
                   type: number
-    ApiId:
-      type: string
-      example: venue:7d55054520e387813d764b03
-      description: Placer API Entity Id
     VisitsFrequencyRequest:
       title: Visits Frequency Request
       allOf:
@@ -255,22 +290,14 @@ components:
                   type: number
                 eq:
                   type: number
-    VisitDurationSegmentationRespReports:
-      description: The default visit duration segmentation is returned when the report calculation uses the default segmentation duration.
-      title: Visit Duration Segmentation
-      type:
-      - string
-      - 'null'
-      enum:
-      - under10Min
-      - 10MinOrLonger
-      - allVisits
-      - mixedSegments
-      example: 10MinOrLonger
-    RequestId:
-      type: string
-      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
-      description: Request ID that can be used for tracing
+    BaseResponse:
+      title: Base Response
+      type: object
+      required:
+      - requestId
+      properties:
+        requestId:
+          $ref: '#/components/schemas/RequestId'
     NearbyRadius:
       type: integer
       enum:
@@ -280,11 +307,11 @@ components:
       - 750
       - 1000
       description: 'The radius requested for nearby activity report generation.</br> <strong>Note</strong>: When a value is populated for this attribute - the report will be calculated as per the <<glossary:Nearby Activity report>> logic.'
-    StartDate:
+    EndDate:
       type: string
       format: date
-      description: Queried data start date. Format YYYY-MM-DD
-      example: '2020-12-01'
+      description: Queried data end date. Format YYYY-MM-DD
+      example: '2021-05-31'
     VisitsFrequencyResponse:
       allOf:
       - $ref: '#/components/schemas/BaseResponse'
@@ -404,40 +431,6 @@ components:
                 nearbyRadius:
                   $ref: '#/components/schemas/NearbyRadius'
       - $ref: '#/components/schemas/filtersAndVisitsDurationSegmentationResp'
-    BaseResponse:
-      title: Base Response
-      type: object
-      required:
-      - requestId
-      properties:
-        requestId:
-          $ref: '#/components/schemas/RequestId'
-    filtersAndVisitsDurationSegmentationResp:
-      type: object
-      properties:
-        filters:
-          $ref: '#/components/schemas/ResponseFilters'
-        visitDurationSegmentation:
-          $ref: '#/components/schemas/VisitDurationSegmentationRespReports'
-    EndDate:
-      type: string
-      format: date
-      description: Queried data end date. Format YYYY-MM-DD
-      example: '2021-05-31'
-    DatesIdParams:
-      title: Base Report Request
-      type: object
-      required:
-      - startDate
-      - endDate
-      - apiId
-      properties:
-        startDate:
-          $ref: '#/components/schemas/StartDate'
-        endDate:
-          $ref: '#/components/schemas/EndDate'
-        apiId:
-          $ref: '#/components/schemas/ApiId'
     VmFilterObject:
       description: Filtering options for the report results.
       allOf:
@@ -470,6 +463,13 @@ components:
                 type: integer
                 example: 150
       - $ref: '#/components/schemas/BaseVmFilterWithHours'
+    filtersAndVisitsDurationSegmentationResp:
+      type: object
+      properties:
+        filters:
+          $ref: '#/components/schemas/ResponseFilters'
+        visitDurationSegmentation:
+          $ref: '#/components/schemas/VisitDurationSegmentationRespReports'
   securitySchemes:
     api_key:
       type: apiKey

@@ -221,50 +221,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DriveTime:
-      description: The max drive time duration threshold for trade area calculation in minutes; i.e. will exclude any visitor beyond this value.
-      type: integer
-      default: 10
-      minimum: 5
-      maximum: 200
-    TradeAreaByDriveTimeRequest:
-      title: Trade Area By Drive Time Request
-      description: This service enables to pull the trade area polygon calculated based on a specified drive time.
+    StartDate:
+      type: string
+      format: date
+      description: Queried data start date. Format YYYY-MM-DD
+      example: '2020-12-01'
+    BaseVmFilterWithHours:
       allOf:
-      - $ref: '#/components/schemas/DatesIdParams'
       - type: object
         properties:
-          allocationType:
-            $ref: '#/components/schemas/AllocationType'
-          driveTime:
-            $ref: '#/components/schemas/DriveTime'
-          filter:
-            $ref: '#/components/schemas/VmFilterObject'
-          nearbyRadius:
-            $ref: '#/components/schemas/NearbyRadius'
-    ApiId:
-      type: string
-      example: venue:7d55054520e387813d764b03
-      description: Placer API Entity Id
-    DemographicSubGroup:
-      type: object
-      required:
-      - value
-      properties:
-        value:
-          type: number
-          example: 534534
-        variableIndex:
-          description: The index indicates the performance of the parameter you are evaluating comparing to the selected benchmark. For example if you are looking at avg. Household Income and comparing it to the nationwide benchmark an index score of 100 will mean that the location you are analyzing is preforming the same as nationwide levels for this metric.
-          type: number
-          example: 17.3
-        percentage:
-          description: Reflects the percentile <<glossary:Ranking>> of a given geographies as compared to the entire country. For example, a score of 90.00 would reflect that this geography has scored higher than 90% of the country for the given segmant
-          type: number
-          example: 56.7
-        variablePercentage:
-          type: number
-          example: 20.3
+          hoursRange:
+            description: 'Filter the report’s results based on visits hours range. The filter is defined by 2 strings:<br/> 1. The starting hour to filter the reports results from (Format HH:MM XM, for example: 08:00 am).<br/> 2. The end hour to filter the reports results(Format HH:MM XM, for example: 11:59 pm) .'
+            type: object
+            required:
+            - fromHour
+            - toHour
+            properties:
+              fromHour:
+                type: string
+              toHour:
+                type: string
+            example:
+              fromHour: 03:00 am
+              toHour: 11:59 pm
+      - $ref: '#/components/schemas/BaseVmFilterObject'
     ResponseFilters:
       type: object
       properties:
@@ -355,27 +335,6 @@ components:
                   type: number
                 eq:
                   type: number
-    AllocationType:
-      type: string
-      enum:
-      - weightedCentroid
-      - centroid
-      example: weightedCentroid
-      default: weightedCentroid
-      description: The method for including the block group in the TA <br/> **Weighted centroid** - the centroid is adjusted per the block’s group population. if it falls within the polygon the BG is included <br/> **Centroid** - A block group’s data is included when the center of the block group falls within the trade area boundaries
-    StartDate:
-      type: string
-      format: date
-      description: Queried data start date. Format YYYY-MM-DD
-      example: '2020-12-01'
-    BaseResponse:
-      title: Base Response
-      type: object
-      required:
-      - requestId
-      properties:
-        requestId:
-          $ref: '#/components/schemas/RequestId'
     TrueTradeAreaRequest:
       title: True trade area request
       description: True trade areas are calculated by the volume of traffic coming to the property. For example - setting a 'traffic vol' of 70% will draw a polygon that includes at least 70% of the visitors’ home location.
@@ -418,55 +377,35 @@ components:
             $ref: '#/components/schemas/VmFilterObject'
           nearbyRadius:
             $ref: '#/components/schemas/NearbyRadius'
-    Coordinates:
-      type: array
-      description: Coordinate Object (Latitude, Longitude)
-      items:
-        type: array
-        items:
-          type: array
-          minItems: 2
-          maxItems: 2
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/Longitude'
-            - $ref: '#/components/schemas/Latitude'
-    VmFilterObject:
-      description: Filtering options for the report results.
-      allOf:
-      - type: object
-        properties:
-          audienceType:
-            description: If provided - metrics will be calculated based only on the specified types of audience.
-            example:
-            - visitors
-            type: array
-            items:
-              type: string
-              enum:
-              - visitors
-              - employees
-              - residents
-          dwellTime:
-            description: Metrics will be calculated considering the requested dwell time range.
-            type: object
-            properties:
-              operator:
-                description: Less than (<) to Greater Equal (>=)
-                type: string
-                enum:
-                - <
-                - '>='
-                example: <
-              value:
-                description: The wanted dwell time
-                type: integer
-                example: 150
-      - $ref: '#/components/schemas/BaseVmFilterWithHours'
-    DemographicGroupEntry:
+    BaseResponse:
+      title: Base Response
       type: object
-      additionalProperties:
-        $ref: '#/components/schemas/DemographicSubGroup'
+      required:
+      - requestId
+      properties:
+        requestId:
+          $ref: '#/components/schemas/RequestId'
+    NearbyRadius:
+      type: integer
+      enum:
+      - 100
+      - 250
+      - 500
+      - 750
+      - 1000
+      description: 'The radius requested for nearby activity report generation.</br> <strong>Note</strong>: When a value is populated for this attribute - the report will be calculated as per the <<glossary:Nearby Activity report>> logic.'
+    Latitude:
+      type: number
+      format: float
+      minimum: -90
+      maximum: 90
+      description: Latitude of query location
+      example: 37.52
+    EndDate:
+      type: string
+      format: date
+      description: Queried data end date. Format YYYY-MM-DD
+      example: '2021-05-31'
     TradeAreaDemographicsRequest:
       title: Trade Area Demographics Request
       description: Trade Area Demographics returns the demographic accounted for x percentage of the visits from a given dataset and template
@@ -552,6 +491,77 @@ components:
             $ref: '#/components/schemas/VmFilterObject'
           nearbyRadius:
             $ref: '#/components/schemas/NearbyRadius'
+    DatesIdParams:
+      title: Base Report Request
+      type: object
+      required:
+      - startDate
+      - endDate
+      - apiId
+      properties:
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+    TradeAreaByDriveTimeRequest:
+      title: Trade Area By Drive Time Request
+      description: This service enables to pull the trade area polygon calculated based on a specified drive time.
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          allocationType:
+            $ref: '#/components/schemas/AllocationType'
+          driveTime:
+            $ref: '#/components/schemas/DriveTime'
+          filter:
+            $ref: '#/components/schemas/VmFilterObject'
+          nearbyRadius:
+            $ref: '#/components/schemas/NearbyRadius'
+    DemographicSubGroup:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          type: number
+          example: 534534
+        variableIndex:
+          description: The index indicates the performance of the parameter you are evaluating comparing to the selected benchmark. For example if you are looking at avg. Household Income and comparing it to the nationwide benchmark an index score of 100 will mean that the location you are analyzing is preforming the same as nationwide levels for this metric.
+          type: number
+          example: 17.3
+        percentage:
+          description: Reflects the percentile <<glossary:Ranking>> of a given geographies as compared to the entire country. For example, a score of 90.00 would reflect that this geography has scored higher than 90% of the country for the given segmant
+          type: number
+          example: 56.7
+        variablePercentage:
+          type: number
+          example: 20.3
+    PolygonResponse:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      title: Polygon Response
+      type: object
+      properties:
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+        data:
+          allOf:
+          - $ref: '#/components/schemas/filtersAndVisitsDurationSegmentationResp'
+          - type: object
+            properties:
+              type:
+                type: string
+                enum:
+                - MultiPolygon
+                example: MultiPolygon
+                description: The Polygon Data Structure (https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.7)
+              coordinates:
+                $ref: '#/components/schemas/Coordinates'
+              nearbyRadius:
+                $ref: '#/components/schemas/NearbyRadius'
     VisitDurationSegmentationRespReports:
       description: The default visit duration segmentation is returned when the report calculation uses the default segmentation duration.
       title: Visit Duration Segmentation
@@ -564,126 +574,10 @@ components:
       - allVisits
       - mixedSegments
       example: 10MinOrLonger
-    RequestId:
-      type: string
-      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
-      description: Request ID that can be used for tracing
-    Longitude:
-      type: number
-      format: float
-      minimum: -180
-      maximum: 180
-      description: Longitude of query location
-      example: -121.98
-    TradeAreaByDriveTimeResponse:
-      title: Trade Area By Drive Time Response
-      allOf:
-      - $ref: '#/components/schemas/BaseResponse'
-      - type: object
-        properties:
-          data:
-            allOf:
-            - $ref: '#/components/schemas/DatesIdParams'
-            - $ref: '#/components/schemas/filtersAndVisitsDurationSegmentationResp'
-            - type: object
-              properties:
-                allocationType:
-                  $ref: '#/components/schemas/AllocationType'
-                driveTime:
-                  $ref: '#/components/schemas/DriveTime'
-                type:
-                  type: string
-                  enum:
-                  - MultiPolygon
-                  example: MultiPolygon
-                  description: The Polygon Data Structure (https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.7)
-                coordinates:
-                  $ref: '#/components/schemas/Coordinates'
-                nearbyRadius:
-                  $ref: '#/components/schemas/NearbyRadius'
-    EndDate:
-      type: string
-      format: date
-      description: Queried data end date. Format YYYY-MM-DD
-      example: '2021-05-31'
-    Latitude:
-      type: number
-      format: float
-      minimum: -90
-      maximum: 90
-      description: Latitude of query location
-      example: 37.52
-    BaseVmFilterWithHours:
-      allOf:
-      - type: object
-        properties:
-          hoursRange:
-            description: 'Filter the report’s results based on visits hours range. The filter is defined by 2 strings:<br/> 1. The starting hour to filter the reports results from (Format HH:MM XM, for example: 08:00 am).<br/> 2. The end hour to filter the reports results(Format HH:MM XM, for example: 11:59 pm) .'
-            type: object
-            required:
-            - fromHour
-            - toHour
-            properties:
-              fromHour:
-                type: string
-              toHour:
-                type: string
-            example:
-              fromHour: 03:00 am
-              toHour: 11:59 pm
-      - $ref: '#/components/schemas/BaseVmFilterObject'
-    BaseVmFilterObject:
-      description: Filtering options for the report results.
+    DemographicGroupEntry:
       type: object
-      properties:
-        daysOfWeek:
-          description: 'Filter visit calculation based on days of the week. Results will contain only requested days. Days are represented by using numbers where Monday=1 and Sunday=7. For example: in order to retrieve weekend days use the following [ 6, 7 ].'
-          example:
-          - 6
-          - 7
-          type: array
-          items:
-            enum:
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            - 7
-        distance:
-          description: Filter visits by distance in miles from home <strong>or</strong> work<br/> where only visits in a given radius will be used in metrics calculation.
-          example:
-            from: home
-            values:
-              lt: 250
-              gt: 10
-          type: object
-          properties:
-            from:
-              description: The origin from where the distance will be measured.
-              type: string
-              enum:
-              - home
-              - work
-              example: home
-            values:
-              description: Object representation of the distance range<br/>lt - less than<br/>le - less than or equal to<br/>eq - equal to<br/>ge - greater than or equal to<br/>gt - greater than.
-              example:
-                gt: 10
-                le: 100
-              type: object
-              properties:
-                le:
-                  type: number
-                ge:
-                  type: number
-                lt:
-                  type: number
-                gt:
-                  type: number
-                eq:
-                  type: number
+      additionalProperties:
+        $ref: '#/components/schemas/DemographicSubGroup'
     TradeAreaDemographicsResponse:
       allOf:
       - $ref: '#/components/schemas/BaseResponse'
@@ -747,38 +641,105 @@ components:
                   variableIndex: 105
           apiId:
             $ref: '#/components/schemas/ApiId'
-    NearbyRadius:
-      type: integer
-      enum:
-      - 100
-      - 250
-      - 500
-      - 750
-      - 1000
-      description: 'The radius requested for nearby activity report generation.</br> <strong>Note</strong>: When a value is populated for this attribute - the report will be calculated as per the <<glossary:Nearby Activity report>> logic.'
-    PolygonResponse:
-      allOf:
-      - $ref: '#/components/schemas/BaseResponse'
-      title: Polygon Response
+    BaseVmFilterObject:
+      description: Filtering options for the report results.
       type: object
       properties:
-        apiId:
-          $ref: '#/components/schemas/ApiId'
-        data:
-          allOf:
-          - $ref: '#/components/schemas/filtersAndVisitsDurationSegmentationResp'
-          - type: object
-            properties:
-              type:
-                type: string
-                enum:
-                - MultiPolygon
-                example: MultiPolygon
-                description: The Polygon Data Structure (https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.7)
-              coordinates:
-                $ref: '#/components/schemas/Coordinates'
-              nearbyRadius:
-                $ref: '#/components/schemas/NearbyRadius'
+        daysOfWeek:
+          description: 'Filter visit calculation based on days of the week. Results will contain only requested days. Days are represented by using numbers where Monday=1 and Sunday=7. For example: in order to retrieve weekend days use the following [ 6, 7 ].'
+          example:
+          - 6
+          - 7
+          type: array
+          items:
+            enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            - 7
+        distance:
+          description: Filter visits by distance in miles from home <strong>or</strong> work<br/> where only visits in a given radius will be used in metrics calculation.
+          example:
+            from: home
+            values:
+              lt: 250
+              gt: 10
+          type: object
+          properties:
+            from:
+              description: The origin from where the distance will be measured.
+              type: string
+              enum:
+              - home
+              - work
+              example: home
+            values:
+              description: Object representation of the distance range<br/>lt - less than<br/>le - less than or equal to<br/>eq - equal to<br/>ge - greater than or equal to<br/>gt - greater than.
+              example:
+                gt: 10
+                le: 100
+              type: object
+              properties:
+                le:
+                  type: number
+                ge:
+                  type: number
+                lt:
+                  type: number
+                gt:
+                  type: number
+                eq:
+                  type: number
+    TradeAreaByDriveTimeResponse:
+      title: Trade Area By Drive Time Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - type: object
+        properties:
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - $ref: '#/components/schemas/filtersAndVisitsDurationSegmentationResp'
+            - type: object
+              properties:
+                allocationType:
+                  $ref: '#/components/schemas/AllocationType'
+                driveTime:
+                  $ref: '#/components/schemas/DriveTime'
+                type:
+                  type: string
+                  enum:
+                  - MultiPolygon
+                  example: MultiPolygon
+                  description: The Polygon Data Structure (https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.7)
+                coordinates:
+                  $ref: '#/components/schemas/Coordinates'
+                nearbyRadius:
+                  $ref: '#/components/schemas/NearbyRadius'
+    AllocationType:
+      type: string
+      enum:
+      - weightedCentroid
+      - centroid
+      example: weightedCentroid
+      default: weightedCentroid
+      description: The method for including the block group in the TA <br/> **Weighted centroid** - the centroid is adjusted per the block’s group population. if it falls within the polygon the BG is included <br/> **Centroid** - A block group’s data is included when the center of the block group falls within the trade area boundaries
+    DriveTime:
+      description: The max drive time duration threshold for trade area calculation in minutes; i.e. will exclude any visitor beyond this value.
+      type: integer
+      default: 10
+      minimum: 5
+      maximum: 200
+    Longitude:
+      type: number
+      format: float
+      minimum: -180
+      maximum: 180
+      description: Longitude of query location
+      example: -121.98
     filtersAndVisitsDurationSegmentationResp:
       type: object
       properties:
@@ -786,20 +747,59 @@ components:
           $ref: '#/components/schemas/ResponseFilters'
         visitDurationSegmentation:
           $ref: '#/components/schemas/VisitDurationSegmentationRespReports'
-    DatesIdParams:
-      title: Base Report Request
-      type: object
-      required:
-      - startDate
-      - endDate
-      - apiId
-      properties:
-        startDate:
-          $ref: '#/components/schemas/StartDate'
-        endDate:
-          $ref: '#/components/schemas/EndDate'
-        apiId:
-          $ref: '#/components/schemas/ApiId'
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    RequestId:
+      type: string
+      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
+      description: Request ID that can be used for tracing
+    Coordinates:
+      type: array
+      description: Coordinate Object (Latitude, Longitude)
+      items:
+        type: array
+        items:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/Longitude'
+            - $ref: '#/components/schemas/Latitude'
+    VmFilterObject:
+      description: Filtering options for the report results.
+      allOf:
+      - type: object
+        properties:
+          audienceType:
+            description: If provided - metrics will be calculated based only on the specified types of audience.
+            example:
+            - visitors
+            type: array
+            items:
+              type: string
+              enum:
+              - visitors
+              - employees
+              - residents
+          dwellTime:
+            description: Metrics will be calculated considering the requested dwell time range.
+            type: object
+            properties:
+              operator:
+                description: Less than (<) to Greater Equal (>=)
+                type: string
+                enum:
+                - <
+                - '>='
+                example: <
+              value:
+                description: The wanted dwell time
+                type: integer
+                example: 150
+      - $ref: '#/components/schemas/BaseVmFilterWithHours'
   securitySchemes:
     api_key:
       type: apiKey

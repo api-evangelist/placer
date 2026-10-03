@@ -289,67 +289,29 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SalesTrendResponse:
-      title: Sales Trend Response
+    StartDate:
+      type: string
+      format: date
+      description: Queried data start date. Format YYYY-MM-DD
+      example: '2020-12-01'
+    SalesDaysTrendsRequest:
+      title: Sales Days Trends Request
       allOf:
-      - $ref: '#/components/schemas/BaseResponse'
+      - $ref: '#/components/schemas/DatesIdParams'
       - type: object
         properties:
-          data:
-            allOf:
-            - $ref: '#/components/schemas/DatesIdParams'
-            - type: object
-              properties:
-                metric:
-                  $ref: '#/components/schemas/SalesTrendMetric'
-                granularity:
-                  $ref: '#/components/schemas/SalesTrendGranularity'
-                annualSales:
-                  description: Presents the annual sales in bins  per year including last 3 years and last 12 months.
-                  type: object
-                  properties:
-                    bins:
-                      type: array
-                      items:
-                        type: string
-                      example:
-                      - '2021'
-                      - '2022'
-                      - '2023'
-                      - 1y
-                      description: Array of bins specifying the years which the sales info in the values array refer to
-                    values:
-                      type: array
-                      items:
-                        type: number
-                      example:
-                      - 60222003.71
-                      - 58126656.69
-                      - 54654112.81
-                      - 67245632.21
-                      description: Correlated sales info values to the bins array
-                trend:
-                  description: Presents the sales divided into bins based on the requested granularity.
-                  type: object
-                  properties:
-                    bins:
-                      type: array
-                      items:
-                        type: string
-                      example:
-                      - '2022-08-01'
-                      - '2022-09-01'
-                      - '2022-10-01'
-                      description: Presents the sales in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
-                    values:
-                      type: array
-                      items:
-                        type: number
-                      example:
-                      - 60222003.71
-                      - 58126656.69
-                      - 54654112.81
-                      description: Correlated sales info values to the bins array
+          aggregation:
+            $ref: '#/components/schemas/SalesDayOfWeekAgg'
+          metricType:
+            $ref: '#/components/schemas/DayOfWeekMetricType'
+    TransactionTrendCompareType:
+      description: The chain or category trend to compare with<br/> <ul> <li>None</il> <li>avg_chain_in_state</li> <li>avg_chain_nationwide</li> <li>avg_category_in_state</li> <li>avg_category_nationwide</li> </ul>
+      enum:
+      - avg_chain_in_state
+      - avg_chain_nationwide
+      - avg_category_in_state
+      - avg_category_nationwide
+      example: avg_chain_in_state
     SalesOverviewResponse:
       title: Sales Overview Response
       allOf:
@@ -402,25 +364,6 @@ components:
                   - valueType: currency
                     metricName: avg_ticket_size
                     value: 53.9
-    AvgTicketSizeRequest:
-      title: Average Ticket Size Trend Request
-      allOf:
-      - $ref: '#/components/schemas/DatesIdParams'
-      - type: object
-        properties:
-          compareType:
-            $ref: '#/components/schemas/AvgTicketSizeTrendsCompareType'
-          granularity:
-            $ref: '#/components/schemas/SalesTrendGranularity'
-    ApiId:
-      type: string
-      example: venue:7d55054520e387813d764b03
-      description: Placer API Entity Id
-    StartDate:
-      type: string
-      format: date
-      description: Queried data start date. Format YYYY-MM-DD
-      example: '2020-12-01'
     BaseResponse:
       title: Base Response
       type: object
@@ -429,89 +372,41 @@ components:
       properties:
         requestId:
           $ref: '#/components/schemas/RequestId'
-    SalesDayOfWeekAgg:
+    EndDate:
       type: string
-      enum:
-      - full_week
-      - weekday_weekend
-      example: full_week
-      default: full_week
-      description: For the day of week insights you can choose any of the following aggregation options:<br/> <ul> <li> full_week - The aggregation is done per each day of the week</li> <li>weekday_weekend - The aggregation is done for the weekdays altogether and the weekend altogether.</li> </ul>
+      format: date
+      description: Queried data end date. Format YYYY-MM-DD
+      example: '2021-05-31'
+    SalesTrendRequest:
+      title: Sales Trend Request
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          metric:
+            $ref: '#/components/schemas/SalesTrendMetric'
+          granularity:
+            $ref: '#/components/schemas/SalesTrendGranularity'
+    DatesIdParams:
+      title: Base Report Request
+      type: object
+      required:
+      - startDate
+      - endDate
+      - apiId
+      properties:
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        apiId:
+          $ref: '#/components/schemas/ApiId'
     AvgTicketSizeTrendsCompareType:
       description: The chain or category trend to compare with. Can be one of:<br/> <ul> <li>None</li> <li>avg_category_in_state</li> <li>avg_category_nationwide</li>
       enum:
       - avg_category_in_state
       - avg_category_nationwide
       example: avg_category_nationwide
-    SalesTrendGranularity:
-      description: The aggregation of data requested for the report. Can be one of month, week or day.
-      enum:
-      - day
-      - week
-      - month
-      example: month
-      default: month
-    TransactionTrendResponse:
-      title: Transaction Trend Response
-      allOf:
-      - $ref: '#/components/schemas/BaseResponse'
-      - type: object
-        properties:
-          data:
-            allOf:
-            - $ref: '#/components/schemas/DatesIdParams'
-            - type: object
-              properties:
-                compareType:
-                  allOf:
-                  - $ref: '#/components/schemas/TransactionTrendCompareType'
-                  - description: Will be presented if requested.
-                granularity:
-                  $ref: '#/components/schemas/SalesTrendGranularity'
-                trend:
-                  type: object
-                  properties:
-                    bins:
-                      type: array
-                      items:
-                        type: string
-                      example:
-                      - '2022-08-01'
-                      - '2022-09-01'
-                      - '2022-10-01'
-                      description: Presents the transactions trends for the requested POI during the requested period based on the selected granularity.
-                    values:
-                      type: array
-                      items:
-                        type: number
-                      example:
-                      - 138915.39
-                      - 139320.64
-                      - 136581.83
-                      description: Presents the sales transactions in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
-                compare:
-                  type:
-                  - object
-                  - 'null'
-                  properties:
-                    bins:
-                      type: array
-                      items:
-                        type: string
-                      example:
-                      - '2022-08-01'
-                      - '2022-09-01'
-                      - '2022-10-01'
-                      description: Presents the sales transactions in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
-                    values:
-                      type: array
-                      items:
-                        type: number
-                      example:
-                      - 138915.39
-                      - 139320.64
-                      - 136581.83
-                      description: Correlated sales info values to the bins array
     AvgTicketSizeResponse:
       title: Avg Ticket Size Response
       allOf:
@@ -575,28 +470,141 @@ components:
                       - 56326656.69
                       - 47654112.81
                       description: Correlated sales info values to the bins array
-    TransactionTrendCompareType:
-      description: The chain or category trend to compare with<br/> <ul> <li>None</il> <li>avg_chain_in_state</li> <li>avg_chain_nationwide</li> <li>avg_category_in_state</li> <li>avg_category_nationwide</li> </ul>
+    DayOfWeekMetricType:
+      type: string
       enum:
-      - avg_chain_in_state
-      - avg_chain_nationwide
-      - avg_category_in_state
-      - avg_category_nationwide
-      example: avg_chain_in_state
-    SalesDaysTrendsRequest:
-      title: Sales Days Trends Request
+      - sales
+      - avg_sales
+      - sales_pct
+      - sales_sq_ft
+      - transactions
+      - transactions_pct
+      - avg_ticket_size
+      example: sales
+      default: sales
+      description: 'The metric for which you wish to get the day of week aggregation for:<br/> <ul> <li> sales: The dollar value (USD) of all sales during your selected aggregation.</li> <li> avg_sales: The dollar value (USD) of average sales per day during your selected aggregation.</li> <li> sales_pct: The percentage of total sales which occurred during your selected aggregation.</li> <li> sales_sq_ft: The total value of sales per square foot at the venue examined, during your selected aggregation.</li> <li> transactions: The total number of individual transactions which took place at the property examined during your selected aggregation.</li> <li> transactions_pct:The percentage of total transactions which occurred during your selected .aggregation.</li> <li> avg_ticket_size: The average dollar amount of sales per transaction generated at the venues in your report, per your selected aggregation.</li> </ul>'
+    SalesTrendResponse:
+      title: Sales Trend Response
       allOf:
-      - $ref: '#/components/schemas/DatesIdParams'
+      - $ref: '#/components/schemas/BaseResponse'
       - type: object
         properties:
-          aggregation:
-            $ref: '#/components/schemas/SalesDayOfWeekAgg'
-          metricType:
-            $ref: '#/components/schemas/DayOfWeekMetricType'
-    RequestId:
-      type: string
-      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
-      description: Request ID that can be used for tracing
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - type: object
+              properties:
+                metric:
+                  $ref: '#/components/schemas/SalesTrendMetric'
+                granularity:
+                  $ref: '#/components/schemas/SalesTrendGranularity'
+                annualSales:
+                  description: Presents the annual sales in bins  per year including last 3 years and last 12 months.
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2021'
+                      - '2022'
+                      - '2023'
+                      - 1y
+                      description: Array of bins specifying the years which the sales info in the values array refer to
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 60222003.71
+                      - 58126656.69
+                      - 54654112.81
+                      - 67245632.21
+                      description: Correlated sales info values to the bins array
+                trend:
+                  description: Presents the sales divided into bins based on the requested granularity.
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the sales in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 60222003.71
+                      - 58126656.69
+                      - 54654112.81
+                      description: Correlated sales info values to the bins array
+    TransactionTrendResponse:
+      title: Transaction Trend Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - type: object
+        properties:
+          data:
+            allOf:
+            - $ref: '#/components/schemas/DatesIdParams'
+            - type: object
+              properties:
+                compareType:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionTrendCompareType'
+                  - description: Will be presented if requested.
+                granularity:
+                  $ref: '#/components/schemas/SalesTrendGranularity'
+                trend:
+                  type: object
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the transactions trends for the requested POI during the requested period based on the selected granularity.
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 138915.39
+                      - 139320.64
+                      - 136581.83
+                      description: Presents the sales transactions in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
+                compare:
+                  type:
+                  - object
+                  - 'null'
+                  properties:
+                    bins:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - '2022-08-01'
+                      - '2022-09-01'
+                      - '2022-10-01'
+                      description: Presents the sales transactions in bins based on the requested granularity (e.g. in <b>month</b> granularity each bin will present the first date of the month, for <b>day</b> granularity each bin will present each day of the report date range)
+                    values:
+                      type: array
+                      items:
+                        type: number
+                      example:
+                      - 138915.39
+                      - 139320.64
+                      - 136581.83
+                      description: Correlated sales info values to the bins array
     SalesDaysTrendsResponse:
       title: Sales Days Trends Response
       allOf:
@@ -641,24 +649,24 @@ components:
                       - 30801899.86
                       - 27723322.83
                       description: The corresponding values to the bins (array index based).
-    DayOfWeekMetricType:
-      type: string
+    AvgTicketSizeRequest:
+      title: Average Ticket Size Trend Request
+      allOf:
+      - $ref: '#/components/schemas/DatesIdParams'
+      - type: object
+        properties:
+          compareType:
+            $ref: '#/components/schemas/AvgTicketSizeTrendsCompareType'
+          granularity:
+            $ref: '#/components/schemas/SalesTrendGranularity'
+    SalesTrendGranularity:
+      description: The aggregation of data requested for the report. Can be one of month, week or day.
       enum:
-      - sales
-      - avg_sales
-      - sales_pct
-      - sales_sq_ft
-      - transactions
-      - transactions_pct
-      - avg_ticket_size
-      example: sales
-      default: sales
-      description: 'The metric for which you wish to get the day of week aggregation for:<br/> <ul> <li> sales: The dollar value (USD) of all sales during your selected aggregation.</li> <li> avg_sales: The dollar value (USD) of average sales per day during your selected aggregation.</li> <li> sales_pct: The percentage of total sales which occurred during your selected aggregation.</li> <li> sales_sq_ft: The total value of sales per square foot at the venue examined, during your selected aggregation.</li> <li> transactions: The total number of individual transactions which took place at the property examined during your selected aggregation.</li> <li> transactions_pct:The percentage of total transactions which occurred during your selected .aggregation.</li> <li> avg_ticket_size: The average dollar amount of sales per transaction generated at the venues in your report, per your selected aggregation.</li> </ul>'
-    EndDate:
-      type: string
-      format: date
-      description: Queried data end date. Format YYYY-MM-DD
-      example: '2021-05-31'
+      - day
+      - week
+      - month
+      example: month
+      default: month
     SalesTrendMetric:
       description: The metric requested for the report. Can be one of the following:</br> <strong>sales </strong>- The total  dollar value (USD) of all sales generated for the requested venue.</br> <strong>sales_sq_ft</strong> - The total dollar value (USD) of sales per SQ FT generated for the requested venue.
       enum:
@@ -666,16 +674,6 @@ components:
       - sales_sq_ft
       example: sales
       default: sales
-    SalesTrendRequest:
-      title: Sales Trend Request
-      allOf:
-      - $ref: '#/components/schemas/DatesIdParams'
-      - type: object
-        properties:
-          metric:
-            $ref: '#/components/schemas/SalesTrendMetric'
-          granularity:
-            $ref: '#/components/schemas/SalesTrendGranularity'
     TransactionTrendRequest:
       title: Transaction Trend Request
       allOf:
@@ -686,20 +684,22 @@ components:
             $ref: '#/components/schemas/TransactionTrendCompareType'
           granularity:
             $ref: '#/components/schemas/SalesTrendGranularity'
-    DatesIdParams:
-      title: Base Report Request
-      type: object
-      required:
-      - startDate
-      - endDate
-      - apiId
-      properties:
-        startDate:
-          $ref: '#/components/schemas/StartDate'
-        endDate:
-          $ref: '#/components/schemas/EndDate'
-        apiId:
-          $ref: '#/components/schemas/ApiId'
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    RequestId:
+      type: string
+      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
+      description: Request ID that can be used for tracing
+    SalesDayOfWeekAgg:
+      type: string
+      enum:
+      - full_week
+      - weekday_weekend
+      example: full_week
+      default: full_week
+      description: For the day of week insights you can choose any of the following aggregation options:<br/> <ul> <li> full_week - The aggregation is done per each day of the week</li> <li>weekday_weekend - The aggregation is done for the weekdays altogether and the weekend altogether.</li> </ul>
   securitySchemes:
     api_key:
       type: apiKey
