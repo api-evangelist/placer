@@ -80,64 +80,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    VisitDurationSegmentationRespReports:
-      description: The default visit duration segmentation is returned when the report calculation uses the default segmentation duration.
-      title: Visit Duration Segmentation
-      type:
-      - string
-      - 'null'
-      enum:
-      - under10Min
-      - 10MinOrLonger
-      - allVisits
-      - mixedSegments
-      example: 10MinOrLonger
-    StartDate:
-      type: string
-      format: date
-      description: Queried data start date. Format YYYY-MM-DD
-      example: '2020-12-01'
-    ApiId:
-      type: string
-      example: venue:7d55054520e387813d764b03
-      description: Placer API Entity Id
-    BaseVmFilterWithHours:
-      allOf:
-      - type: object
-        properties:
-          hoursRange:
-            description: 'Filter the report’s results based on visits hours range. The filter is defined by 2 strings:<br/> 1. The starting hour to filter the reports results from (Format HH:MM XM, for example: 08:00 am).<br/> 2. The end hour to filter the reports results(Format HH:MM XM, for example: 11:59 pm) .'
-            type: object
-            required:
-            - fromHour
-            - toHour
-            properties:
-              fromHour:
-                type: string
-              toHour:
-                type: string
-            example:
-              fromHour: 03:00 am
-              toHour: 11:59 pm
-      - $ref: '#/components/schemas/BaseVmFilterObject'
-    RequestId:
-      type: string
-      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
-      description: Request ID that can be used for tracing
-    DatesIdParams:
-      title: Base Report Request
-      type: object
-      required:
-      - startDate
-      - endDate
-      - apiId
-      properties:
-        startDate:
-          $ref: '#/components/schemas/StartDate'
-        endDate:
-          $ref: '#/components/schemas/EndDate'
-        apiId:
-          $ref: '#/components/schemas/ApiId'
     BaseVmFilterObject:
       description: Filtering options for the report results.
       type: object
@@ -190,6 +132,20 @@ components:
                   type: number
                 eq:
                   type: number
+    DatesIdParams:
+      title: Base Report Request
+      type: object
+      required:
+      - startDate
+      - endDate
+      - apiId
+      properties:
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        apiId:
+          $ref: '#/components/schemas/ApiId'
     VisitsFrequencyRequest:
       title: Visits Frequency Request
       allOf:
@@ -200,6 +156,45 @@ components:
             $ref: '#/components/schemas/VmFilterObject'
           nearbyRadius:
             $ref: '#/components/schemas/NearbyRadius'
+    BaseVmFilterWithHours:
+      allOf:
+      - type: object
+        properties:
+          hoursRange:
+            description: 'Filter the report’s results based on visits hours range. The filter is defined by 2 strings:<br/> 1. The starting hour to filter the reports results from (Format HH:MM XM, for example: 08:00 am).<br/> 2. The end hour to filter the reports results(Format HH:MM XM, for example: 11:59 pm) .'
+            type: object
+            required:
+            - fromHour
+            - toHour
+            properties:
+              fromHour:
+                type: string
+              toHour:
+                type: string
+            example:
+              fromHour: 03:00 am
+              toHour: 11:59 pm
+      - $ref: '#/components/schemas/BaseVmFilterObject'
+    BaseResponse:
+      title: Base Response
+      type: object
+      required:
+      - requestId
+      properties:
+        requestId:
+          $ref: '#/components/schemas/RequestId'
+    VisitDurationSegmentationRespReports:
+      description: The default visit duration segmentation is returned when the report calculation uses the default segmentation duration.
+      title: Visit Duration Segmentation
+      type:
+      - string
+      - 'null'
+      enum:
+      - under10Min
+      - 10MinOrLonger
+      - allVisits
+      - mixedSegments
+      example: 10MinOrLonger
     ResponseFilters:
       type: object
       properties:
@@ -290,28 +285,54 @@ components:
                   type: number
                 eq:
                   type: number
-    BaseResponse:
-      title: Base Response
-      type: object
-      required:
-      - requestId
-      properties:
-        requestId:
-          $ref: '#/components/schemas/RequestId'
-    NearbyRadius:
-      type: integer
-      enum:
-      - 100
-      - 250
-      - 500
-      - 750
-      - 1000
-      description: 'The radius requested for nearby activity report generation.</br> <strong>Note</strong>: When a value is populated for this attribute - the report will be calculated as per the <<glossary:Nearby Activity report>> logic.'
     EndDate:
       type: string
       format: date
       description: Queried data end date. Format YYYY-MM-DD
       example: '2021-05-31'
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    VmFilterObject:
+      description: Filtering options for the report results.
+      allOf:
+      - type: object
+        properties:
+          audienceType:
+            description: If provided - metrics will be calculated based only on the specified types of audience.
+            example:
+            - visitors
+            type: array
+            items:
+              type: string
+              enum:
+              - visitors
+              - employees
+              - residents
+          dwellTime:
+            description: Metrics will be calculated considering the requested dwell time range.
+            type: object
+            properties:
+              operator:
+                description: Less than (<) to Greater Equal (>=)
+                type: string
+                enum:
+                - <
+                - '>='
+                example: <
+              value:
+                description: The wanted dwell time
+                type: integer
+                example: 150
+      - $ref: '#/components/schemas/BaseVmFilterWithHours'
+    filtersAndVisitsDurationSegmentationResp:
+      type: object
+      properties:
+        filters:
+          $ref: '#/components/schemas/ResponseFilters'
+        visitDurationSegmentation:
+          $ref: '#/components/schemas/VisitDurationSegmentationRespReports'
     VisitsFrequencyResponse:
       allOf:
       - $ref: '#/components/schemas/BaseResponse'
@@ -431,45 +452,24 @@ components:
                 nearbyRadius:
                   $ref: '#/components/schemas/NearbyRadius'
       - $ref: '#/components/schemas/filtersAndVisitsDurationSegmentationResp'
-    VmFilterObject:
-      description: Filtering options for the report results.
-      allOf:
-      - type: object
-        properties:
-          audienceType:
-            description: If provided - metrics will be calculated based only on the specified types of audience.
-            example:
-            - visitors
-            type: array
-            items:
-              type: string
-              enum:
-              - visitors
-              - employees
-              - residents
-          dwellTime:
-            description: Metrics will be calculated considering the requested dwell time range.
-            type: object
-            properties:
-              operator:
-                description: Less than (<) to Greater Equal (>=)
-                type: string
-                enum:
-                - <
-                - '>='
-                example: <
-              value:
-                description: The wanted dwell time
-                type: integer
-                example: 150
-      - $ref: '#/components/schemas/BaseVmFilterWithHours'
-    filtersAndVisitsDurationSegmentationResp:
-      type: object
-      properties:
-        filters:
-          $ref: '#/components/schemas/ResponseFilters'
-        visitDurationSegmentation:
-          $ref: '#/components/schemas/VisitDurationSegmentationRespReports'
+    StartDate:
+      type: string
+      format: date
+      description: Queried data start date. Format YYYY-MM-DD
+      example: '2020-12-01'
+    NearbyRadius:
+      type: integer
+      enum:
+      - 100
+      - 250
+      - 500
+      - 750
+      - 1000
+      description: 'The radius requested for nearby activity report generation.</br> <strong>Note</strong>: When a value is populated for this attribute - the report will be calculated as per the <<glossary:Nearby Activity report>> logic.'
+    RequestId:
+      type: string
+      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
+      description: Request ID that can be used for tracing
   securitySchemes:
     api_key:
       type: apiKey
