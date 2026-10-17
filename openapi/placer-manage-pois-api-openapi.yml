@@ -619,6 +619,259 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MyPropertiesResponse:
+      title: MyProperties Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiInfo'
+    BasePoiInfo:
+      title: Base POI Info Object
+      type: object
+      properties:
+        apiId:
+          $ref: '#/components/schemas/ApiId'
+        name:
+          type: string
+          example: Walmart
+          description: Entity Name
+        entityId:
+          $ref: '#/components/schemas/EntityId'
+        entityType:
+          $ref: '#/components/schemas/EntityType'
+        categoryInfo:
+          $ref: '#/components/schemas/categoryInfo'
+    CustomPoiInfo:
+      title: Custom POI Info Object
+      type: object
+      properties:
+        result:
+          type: string
+          example: SUCCESS
+        name:
+          type: string
+          example: Name to be used to identify the <<glossary:Custom POI>>
+        apiId:
+          type: string
+          example: complex:8d22ae197ee335c5074a67ff
+    SubEntitiesResponse:
+      title: Sub Entities Response
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityInfoRegional'
+    CreateCustomPoiRequest:
+      title: Create custom POI request
+      description: Creating <<glossary:Custom POI>> by given name, sub category and polygon/centroid + radius
+      allOf:
+      - type: object
+        required:
+        - name
+        - subCategory
+        properties:
+          name:
+            type: string
+            example: Some Custom POI Name
+          subCategory:
+            type: string
+            example: Pizza Place
+          tagId:
+            type: string
+            example: 672be20c36e1d0ff18a13807
+            description: The Id of the tag that the <<glossary:Custom POI>> is requested to be associated with. If no value is provided, the new POI will not be associated with any tag.
+      - $ref: '#/components/schemas/BaseCustomPoiRequest'
+    ModifyTagEntitiesResponseSuccess:
+      title: Modify Tag Entities Response Success
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          properties:
+            result:
+              type: string
+              example: SUCCESS
+            tagId:
+              type: string
+              example: 672be20c36e1d0ff18a13807
+    BaseResponse:
+      title: Base Response
+      type: object
+      required:
+      - requestId
+      properties:
+        requestId:
+          $ref: '#/components/schemas/RequestId'
+    Longitude:
+      type: number
+      format: float
+      minimum: -180
+      maximum: 180
+      description: Longitude of query location
+      example: -121.98
+    DeleteCustomPoiResponse:
+      title: Delete Custom POI Response
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          properties:
+            result:
+              type: string
+              example: SUCCESS
+    ApiId:
+      type: string
+      example: venue:7d55054520e387813d764b03
+      description: Placer API Entity Id
+    PoiInfo:
+      title: POI Info Object
+      allOf:
+      - $ref: '#/components/schemas/BasePoiInfo'
+      - $ref: '#/components/schemas/BaseEntityInfo'
+      type: object
+      properties:
+        placerUrl:
+          type: string
+          example: https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview
+        parentChains:
+          type: object
+          example:
+            apiId: chain:58ef64a9173f5601f92d8f0e
+            name: Target
+        parentTags:
+          type: object
+          example:
+            apiId: tag:614c118e500adeae9e9e70a6
+            name: Test Group Tag
+        isPermitted:
+          type: boolean
+          example: true
+          description: This flag indicates whether the account is permitted to generate/request reports on this entity or not.
+        regionType:
+          type: string
+          example: dma
+          description: 'The regions which the entity is associated with. Supported regions are: ''nationwide'', ''state'', ''dma'' & ''cbsa''. Relevant only for chain.'
+        regionCode:
+          type: string
+          example: '11010'
+          description: The code defining the region (e.g. The state of Arizona -> 'AZ', nationwide -> 'US'). Relevant only for chain.
+    CreateNewTagRequest:
+      title: Add a new tag request
+      type: object
+      required:
+      - tagName
+      properties:
+        tagName:
+          type: string
+          description: The new tag name
+          example: My Shop
+          maxLength: 150
+    CustomPoiInfoGetResponse:
+      title: POI By ID Info Object
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BasePoiInfo'
+      - $ref: '#/components/schemas/BaseEntityInfo'
+      - $ref: '#/components/schemas/PoiInfo'
+      - type: object
+        properties:
+          storeId:
+            type: string
+            example: 1401
+            description: The identification of a venue. Relevant only for chain's venues.
+    UpdateCustomPoiRequest:
+      title: Update custom POI request
+      description: Updating <<glossary:Custom POI>> by given name or sub category or polygon/centroid + radius or address.
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+            example: complex:5f7a2d2dc2b5e82a0114cf62
+      - $ref: '#/components/schemas/BaseCustomPoiRequest'
+    Latitude:
+      type: number
+      format: float
+      minimum: -90
+      maximum: 90
+      description: Latitude of query location
+      example: 37.52
+    AddTagMembersRequest:
+      title: Add tag members request
+      type: object
+      required:
+      - apiIds
+      - tagId
+      properties:
+        apiIds:
+          type: array
+          description: The list of entities to attach to the specified tag
+          items:
+            $ref: '#/components/schemas/ApiId'
+        tagId:
+          type: string
+          example: 672be20c36e1d0ff18a13807
+          description: The Id of the tag to attach the entities to
+    SearchResponse:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      required:
+      - data
+      title: POI Search Results
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiInfo'
+    categoryInfo:
+      type: object
+      properties:
+        category:
+          type: string
+          example: Fast Food & QSR
+        group:
+          type: string
+          example: Dining
+        subCategory:
+          type: string
+          example: Pizze Place
+      description: Property’s categorization
+    DeleteTagMembersRequest:
+      title: Delete tag members request
+      type: object
+      required:
+      - apiIds
+      - tagId
+      properties:
+        apiIds:
+          type: array
+          description: The list of entities to remove from the specified tag
+          items:
+            $ref: '#/components/schemas/ApiId'
+        tagId:
+          type: string
+          example: 672be20c36e1d0ff18a13807
+          description: The Id of the tag to remove the list of entities from
+    RequestId:
+      type: string
+      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
+      description: Request ID that can be used for tracing
     BaseEntityInfo:
       title: POI Entity (complex, venue and billboard only!) Object
       allOf:
@@ -665,45 +918,41 @@ components:
                   type: string
                   example: San Jose-Sunnyvale-Santa Clara, CA Metro Area
           description: The regions in which the property is included
-    MyPropertiesResponse:
-      title: MyProperties Response
-      allOf:
-      - $ref: '#/components/schemas/BaseResponse'
-      required:
-      - data
+    Address:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PoiInfo'
-    CreateNewTagResponseSuccess:
-      title: Create New Tag Response Success
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: object
-          properties:
-            result:
-              type: string
-              example: SUCCESS
-            tagId:
-              type: string
-              example: 672be20c36e1d0ff18a13807
-    SubEntitiesResponse:
-      title: Sub Entities Response
-      allOf:
-      - $ref: '#/components/schemas/BaseResponse'
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/EntityInfoRegional'
+        city:
+          type: string
+          example: Milpitas
+          description: Entity City
+        state:
+          type: string
+          example: California
+          description: Entity State
+        countryCode:
+          type: string
+          example: US
+          description: Entity Country Code
+        streetName:
+          type: string
+          example: Ranch Dr
+          description: Entity Street Name
+        formattedAddress:
+          type: string
+          example: 301 Ranch Dr, Milpitas, CA, United States
+          description: Entity Address
+        shortFormattedAddress:
+          type: string
+          example: Ranch Dr, Milpitas, CA
+          description: Entity Address
+        zipCode:
+          type: string
+          example: '95035'
+          description: Entity Zip Code
+    EntityId:
+      type: string
+      example: 7d55054520e387813d764b03
+      description: Entity ID
     EntityType:
       type: string
       enum:
@@ -712,155 +961,6 @@ components:
       - chain
       example: venue
       description: Entity Type (i.e. venue, complex etc.)
-    CustomPoiInfo:
-      title: Custom POI Info Object
-      type: object
-      properties:
-        result:
-          type: string
-          example: SUCCESS
-        name:
-          type: string
-          example: Name to be used to identify the <<glossary:Custom POI>>
-        apiId:
-          type: string
-          example: complex:8d22ae197ee335c5074a67ff
-    DeleteTagMembersRequest:
-      title: Delete tag members request
-      type: object
-      required:
-      - apiIds
-      - tagId
-      properties:
-        apiIds:
-          type: array
-          description: The list of entities to remove from the specified tag
-          items:
-            $ref: '#/components/schemas/ApiId'
-        tagId:
-          type: string
-          example: 672be20c36e1d0ff18a13807
-          description: The Id of the tag to remove the list of entities from
-    RegionInfo:
-      title: Placer Region Info
-      properties:
-        regionType:
-          type: string
-          example: state
-          description: Optional string for region type
-        regionCode:
-          type: string
-          example: WV
-          description: Optional string for region code
-    CustomPoiResponse:
-      title: Custom POI Response
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/CustomPoiInfo'
-    RequestId:
-      type: string
-      example: cfe57f50-fb64-11eb-8760-acde48001122:cfe56fce-fb64-11eb-8760-acde48001122
-      description: Request ID that can be used for tracing
-    CustomPoiInfoGetResponse:
-      title: POI By ID Info Object
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BasePoiInfo'
-      - $ref: '#/components/schemas/BaseEntityInfo'
-      - $ref: '#/components/schemas/PoiInfo'
-      - type: object
-        properties:
-          storeId:
-            type: string
-            example: 1401
-            description: The identification of a venue. Relevant only for chain's venues.
-    CreateNewTagRequest:
-      title: Add a new tag request
-      type: object
-      required:
-      - tagName
-      properties:
-        tagName:
-          type: string
-          description: The new tag name
-          example: My Shop
-          maxLength: 150
-    PoiInfo:
-      title: POI Info Object
-      allOf:
-      - $ref: '#/components/schemas/BasePoiInfo'
-      - $ref: '#/components/schemas/BaseEntityInfo'
-      type: object
-      properties:
-        placerUrl:
-          type: string
-          example: https://staging-analytics.placer.team/#!/admin/insights/venues/7d55054520e387813d764b03/overview
-        parentChains:
-          type: object
-          example:
-            apiId: chain:58ef64a9173f5601f92d8f0e
-            name: Target
-        parentTags:
-          type: object
-          example:
-            apiId: tag:614c118e500adeae9e9e70a6
-            name: Test Group Tag
-        isPermitted:
-          type: boolean
-          example: true
-          description: This flag indicates whether the account is permitted to generate/request reports on this entity or not.
-        regionType:
-          type: string
-          example: dma
-          description: 'The regions which the entity is associated with. Supported regions are: ''nationwide'', ''state'', ''dma'' & ''cbsa''. Relevant only for chain.'
-        regionCode:
-          type: string
-          example: '11010'
-          description: The code defining the region (e.g. The state of Arizona -> 'AZ', nationwide -> 'US'). Relevant only for chain.
-    CreateCustomPoiRequest:
-      title: Create custom POI request
-      description: Creating <<glossary:Custom POI>> by given name, sub category and polygon/centroid + radius
-      allOf:
-      - type: object
-        required:
-        - name
-        - subCategory
-        properties:
-          name:
-            type: string
-            example: Some Custom POI Name
-          subCategory:
-            type: string
-            example: Pizza Place
-          tagId:
-            type: string
-            example: 672be20c36e1d0ff18a13807
-            description: The Id of the tag that the <<glossary:Custom POI>> is requested to be associated with. If no value is provided, the new POI will not be associated with any tag.
-      - $ref: '#/components/schemas/BaseCustomPoiRequest'
-    ApiId:
-      type: string
-      example: venue:7d55054520e387813d764b03
-      description: Placer API Entity Id
-    Latitude:
-      type: number
-      format: float
-      minimum: -90
-      maximum: 90
-      description: Latitude of query location
-      example: 37.52
-    UpdateCustomPoiRequest:
-      title: Update custom POI request
-      description: Updating <<glossary:Custom POI>> by given name or sub category or polygon/centroid + radius or address.
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: string
-            example: complex:5f7a2d2dc2b5e82a0114cf62
-      - $ref: '#/components/schemas/BaseCustomPoiRequest'
     EntityInfo:
       title: Placer Entity Info
       properties:
@@ -881,8 +981,8 @@ components:
           type: string
           example: '1401'
           description: The identification of a venue. Relevant only for chain’s venues
-    ModifyTagEntitiesResponseSuccess:
-      title: Modify Tag Entities Response Success
+    CreateNewTagResponseSuccess:
+      title: Create New Tag Response Success
       type: object
       required:
       - data
@@ -896,53 +996,22 @@ components:
             tagId:
               type: string
               example: 672be20c36e1d0ff18a13807
-    AddTagMembersRequest:
-      title: Add tag members request
-      type: object
-      required:
-      - apiIds
-      - tagId
+    RegionInfo:
+      title: Placer Region Info
       properties:
-        apiIds:
-          type: array
-          description: The list of entities to attach to the specified tag
-          items:
-            $ref: '#/components/schemas/ApiId'
-        tagId:
+        regionType:
           type: string
-          example: 672be20c36e1d0ff18a13807
-          description: The Id of the tag to attach the entities to
-    Longitude:
-      type: number
-      format: float
-      minimum: -180
-      maximum: 180
-      description: Longitude of query location
-      example: -121.98
-    BasePoiInfo:
-      title: Base POI Info Object
-      type: object
-      properties:
-        apiId:
-          $ref: '#/components/schemas/ApiId'
-        name:
+          example: state
+          description: Optional string for region type
+        regionCode:
           type: string
-          example: Walmart
-          description: Entity Name
-        entityId:
-          $ref: '#/components/schemas/EntityId'
-        entityType:
-          $ref: '#/components/schemas/EntityType'
-        categoryInfo:
-          $ref: '#/components/schemas/categoryInfo'
-    BaseResponse:
-      title: Base Response
-      type: object
-      required:
-      - requestId
-      properties:
-        requestId:
-          $ref: '#/components/schemas/RequestId'
+          example: WV
+          description: Optional string for region code
+    EntityInfoRegional:
+      title: Placer Entity Info
+      allOf:
+      - $ref: '#/components/schemas/EntityInfo'
+      - $ref: '#/components/schemas/RegionInfo'
     BaseCustomPoiRequest:
       allOf:
       - type: object
@@ -999,83 +1068,14 @@ components:
                 type: string
                 example: '95035'
                 description: Entity Zip Code
-    SearchResponse:
-      allOf:
-      - $ref: '#/components/schemas/BaseResponse'
-      required:
-      - data
-      title: POI Search Results
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PoiInfo'
-    categoryInfo:
-      type: object
-      properties:
-        category:
-          type: string
-          example: Fast Food & QSR
-        group:
-          type: string
-          example: Dining
-        subCategory:
-          type: string
-          example: Pizze Place
-      description: Property’s categorization
-    Address:
-      type: object
-      properties:
-        city:
-          type: string
-          example: Milpitas
-          description: Entity City
-        state:
-          type: string
-          example: California
-          description: Entity State
-        countryCode:
-          type: string
-          example: US
-          description: Entity Country Code
-        streetName:
-          type: string
-          example: Ranch Dr
-          description: Entity Street Name
-        formattedAddress:
-          type: string
-          example: 301 Ranch Dr, Milpitas, CA, United States
-          description: Entity Address
-        shortFormattedAddress:
-          type: string
-          example: Ranch Dr, Milpitas, CA
-          description: Entity Address
-        zipCode:
-          type: string
-          example: '95035'
-          description: Entity Zip Code
-    EntityInfoRegional:
-      title: Placer Entity Info
-      allOf:
-      - $ref: '#/components/schemas/EntityInfo'
-      - $ref: '#/components/schemas/RegionInfo'
-    EntityId:
-      type: string
-      example: 7d55054520e387813d764b03
-      description: Entity ID
-    DeleteCustomPoiResponse:
-      title: Delete Custom POI Response
+    CustomPoiResponse:
+      title: Custom POI Response
       type: object
       required:
       - data
       properties:
         data:
-          type: object
-          properties:
-            result:
-              type: string
-              example: SUCCESS
+          $ref: '#/components/schemas/CustomPoiInfo'
   securitySchemes:
     api_key:
       type: apiKey
