@@ -27,5 +27,5 @@
     - connectors/applications/placer-ai
     vendor_link: https://www.placer.ai/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
