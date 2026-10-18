@@ -18,9 +18,9 @@ edges:
   capability_id: BC-2350.10
   capability_id_l1: BC-2350
   capability_name: Trade Area & Catchment Analysis
-  confidence: 0.82
-  evidence: '"Trade Area Demographics Profile Report", "Trade Area by Drive Time Report", schemas TradeAreaDemographicsResponse,
-    DriveTime'
-  reason: Operations explicitly compute true trade areas, drive-time catchments and demographic profiles
-    for a location, which is precisely Trade Area & Catchment Analysis (catchment definition, footfall
-    and demographic micro-analysis) in the retail site/network planning capability.
+  confidence: 0.92
+  evidence: '"Trade Area Demographics Profile Report", "Trade Area by Drive Time Report", "Trade Area
+    Report"; schemas TradeAreaByDriveTimeResponse, DemographicGroupEntry'
+  reason: Operations compute true trade areas, drive-time catchments, and trade-area demographic profiles
+    for a location — an exact match to Trade Area & Catchment Analysis (catchment definition and demographic
+    micro-analysis).
