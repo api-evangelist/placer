@@ -247,6 +247,9 @@ apis:
   - type: Conformance
     url: conformance/placer-conformance.yml
 common:
+- type: CapabilityMap
+  url: capabilities/placer-capability-edges.yml
+  name: Placer Business Capability Map
 - url: https://www.placer.ai/anchor/articles/rss.xml
   type: BlogRSS
 - type: Website
