@@ -64,6 +64,139 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Placer is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Placer.ai is a location analytics and foot-traffic intelligence platform that measures visits, trade areas, demographics, and consumer behavior for physical points of interest across retail, CPG, commercial real estate, hospitality, and the public sector. Its public developer surface, the Placer API (PAPI, base https://papi.placer.ai), lets developers and data analysts extract Placer's location analytics programmatically to enrich, filter, or combine it with other data sources for custom dashboards, internal reporting, and competitive analysis. The v1 REST API covers entity/POI search, custom POI and tag management, and a suite of report endpoints spanning visit metrics and trends, trade area (true trade area, drive-time, demographics), ranking, loyalty, and retail sales. Authentication is a static API key sent in the x-api-key header.
 
-Backed by: 500-global — https://placer.ai
+**Areas:** Company · Location Analytics · Foot Traffic · Geospatial · Retail Analytics · Real Estate · Consumer Insights · Data
+
+## Placer on APIs.io
+
+Everything profiled for Placer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/placer/](https://apis.io/providers/placer/)** — or go straight to one of the APIs or properties below.
+
+### APIs (8)
+
+- [Placer Account Info API](https://apis.io/apis/placer/placer-account-info-api/) — The Account Info API from Placer — 1 operation(s) for account info.
+- [Placer Loyalty Reports API](https://apis.io/apis/placer/placer-loyalty-reports-api/) — The Loyalty Reports API from Placer — 1 operation(s) for loyalty reports.
+- [Placer Manage POIs API](https://apis.io/apis/placer/placer-manage-pois-api/) — The Manage POIs API from Placer — 6 operation(s) for manage pois.
+- [Placer Ranking Reports API](https://apis.io/apis/placer/placer-ranking-reports-api/) — The Ranking Reports API from Placer — 4 operation(s) for ranking reports.
+- [Placer Retail Sales Reports API](https://apis.io/apis/placer/placer-retail-sales-reports-api/) — The Retail Sales Reports API from Placer — 5 operation(s) for retail sales reports.
+- [Placer Trade Area Reports API](https://apis.io/apis/placer/placer-trade-area-reports-api/) — The Trade Area Reports API from Placer — 3 operation(s) for trade area reports.
+- [Placer Visitor Journey Reports API](https://apis.io/apis/placer/placer-visitor-journey-reports-api/) — The Visitor Journey Reports API from Placer — 2 operation(s) for visitor journey reports.
+- [Placer Visits Reports API](https://apis.io/apis/placer/placer-visits-reports-api/) — The Visits Reports API from Placer — 7 operation(s) for visits reports.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [placer](https://apis.io/servers/placer/placer/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Placer Agentic Access](https://apis.io/agentic-access/placer/placer-agentic-access/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [papi Account Info API](https://apis.io/collections/placer/open-placer-account-info-api/)
+- [papi Account Info Loyalty Reports API](https://apis.io/collections/placer/open-placer-loyalty-reports-api/)
+- [papi Account Info Manage POIs API](https://apis.io/collections/placer/open-placer-manage-pois-api/)
+- [papi Account Info Ranking Reports API](https://apis.io/collections/placer/open-placer-ranking-reports-api/)
+- [papi Account Info Retail Sales Reports API](https://apis.io/collections/placer/open-placer-retail-sales-reports-api/)
+- [papi Account Info Trade Area Reports API](https://apis.io/collections/placer/open-placer-trade-area-reports-api/)
+- [papi Account Info Visitor Journey Reports API](https://apis.io/collections/placer/open-placer-visitor-journey-reports-api/)
+- [papi Account Info Visits Reports API](https://apis.io/collections/placer/open-placer-visits-reports-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Placer Papi Overlay](https://apis.io/overlays/placer/placer-papi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Placer Authentication](https://apis.io/security/placer/placer-authentication/)
+- [Placer Domain Security](https://apis.io/security/placer/placer-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Placer Rate Limits](https://apis.io/rate-limits/placer/placer-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://placer.ai)
+- [Documentation](https://docs.placer.ai/docs/welcome-to-placers-feeds)
+- [Getting started](https://docs.placer.ai/reference/getting-started)
+- [API reference](https://docs.placer.ai/reference/welcome-to-papi)
+- [Pricing](https://www.placer.ai/pricing)
+- [Support](https://analytics.placer.ai/my-zone/my-requests/support-requests)
+- [Changelog](https://docs.placer.ai/changelog)
+- [Blog](https://www.placer.ai/blog)
+- [Terms of service](https://www.placer.ai/terms-of-service)
+- [Privacy policy](https://www.placer.ai/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 41.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 49.9 |
+| Contract governance | 4.5 |
+| Operational transparency | 43.4 |
+| Developer ergonomics | 35.1 |
+| Access clarity | 38.2 |
+
+**Agent readiness 26.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/placer/](https://apis.io/providers/placer/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Placer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/placer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
